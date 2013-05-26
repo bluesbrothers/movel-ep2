@@ -1,0 +1,73 @@
+Webserver e autenticacao
+BANDEJAO
+    * Acesso aos cardapios e de outras informacoes relevantes sobre
+       os restaurantes da USP
+        - Cardapio do dia facil
+        Conseguir visualizar (com talvez um ou dois cliques a mais)
+        - Cardapio da semana
+        - Horario de funcionamento
+    * Mostrar localizacao do restaurante em mapa
+    * Envio de comentarios relacionados a refeicao e a fila
+
+RESTRICOES
+    * Apresentar testes automatizados
+    * Ter design flexível (usar OO)
+    * Apresentar Layout resposivo
+    * Apresentar MENU com opções
+    * Utilizar BROADCAST RECEIVER relacionado a bateria/conexao,
+       para evitar operacoes como atualizacao de dados ou uso do GPS 
+       em certas condicoes
+    * cache para salvar certas informacoes
+    * Utilizar o Content Provider Calendar para salvar eventos no
+       calendario
+
+RELATORIO
+    Deve conter os seguintes itens:
+    * Motivacao
+    * Descricao (Manual do usuario: apresentar cada funcionalidade)
+    * Estrutura do código
+    * Conclusoes
+        - consideracoes sobre o processo de aprendizado
+        - comparacao com o ep1 em phonegap
+
+
+----------------------------------------
+INFOS ADICIONAIS
+----------------------------------------
+
+Webservice para autententicação:
+https://social.stoa.usp.br/plugin/stoa/authenticate/
+HTTP Post: usp_id=______&password=_______ 
+--insecure
+
+As requisições a seguir podem ser em xml ou json, basta escolher entre as extensões .xml ou .json
+
+Requisição do cardápio da semana:
+Restaurante Central: http://uspservices.deusanyjunior.dj/bandejao/1.xml
+Restaurante da Fïsica: http://uspservices.deusanyjunior.dj/bandejao/2.xm
+Restaurante das Químicas: http://uspservices.deusanyjunior.dj/bandejao/3.xml
+Restaurante da PUSP-C: http://uspservices.deusanyjunior.dj/bandejao/4.xml
+
+Ao requisitar o cardápio, cada refeição/restaurante/dia apresenta um id.
+
+Para requisitar os comentários do cardápio referente ao id utilize a URL:
+http://uspservices.deusanyjunior.dj/cardapio/id.xml
+
+Exemplo: http://uspservices.deusanyjunior.dj/cardapio/1.xml
+
+A partir do mesmo id é possível enviar comentários para o cardápio.
+
+Para enviar comentários para um cardápio, é necessário realizar um POST via json com as seguintes configurações:
+
+Content-type: application/json
+Post: 
+{"menuscomment":
+                                         {"menu_id":"id_do_cardapio",
+                                         "commenter":"id_do_usuario_no_STOA",
+                                         "message":"mensagem"}
+} 
+Endereço: http://uspservices.deusanyjunior.dj/comentariosrefeicao
+
+Para criar link para o usuário utilizando o id do STOA, basta adicionar o id ao final da URL: 
+
+http://social.stoa.usp.br/id

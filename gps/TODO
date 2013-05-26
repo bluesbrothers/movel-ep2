@@ -1,0 +1,49 @@
+GPS
+
+Temos 2 escolhas:
+
+Mapa da USP
+    * Mostrar localização de institutos da USP organizados por categoria
+    * Exibir informações sobre os locais em overlays sobre o mapa
+    * Permitir busca de local por nome em uma barra de busca no topo
+
+Tabela com informações sobre os endereços que precisam ser apresentados no mapa:
+
+http://bit.ly/usplocais-s
+
+Para requisitar estes dados via xml ou json, é possível utilizar as urls:
+http://uspservices.deusanyjunior.dj/categoriaslocal.json
+http://uspservices.deusanyjunior.dj/local.json
+
+BUSP
+    * Mostrar o percurso do BUSP no mapa
+    * Permitir ao usuário saber em quanto tempo e qual dos ônibus
+       internos da USP passará no ponto em que ele se encontra
+        - Basear­se no percurso e horários  de partida e chegada dos
+           ônibus nos terminais armazenados na aplicação sem utilizar
+           a Internet
+
+Tabela com informações sobre percurso e horários do 8012 e 8022
+http://bit.ly/uspbusp-s
+
+
+RESTRICOES
+    * Apresentar testes automatizados
+    * Ter design flexível (usar OO)
+    * Apresentar Layout resposivo
+    * Apresentar MENU com opções
+    * Utilizar BROADCAST RECEIVER relacionado a bateria/conexao,
+       para evitar operacoes como atualizacao de dados ou uso do GPS 
+       em certas condicoes
+    * cache para salvar certas informacoes
+    * Utilizar o Content Provider Calendar para salvar eventos no
+       calendario
+
+RELATORIO
+    Deve conter os seguintes itens:
+    * Motivacao
+    * Descricao (Manual do usuario: apresentar cada funcionalidade)
+    * Estrutura do código
+    * Conclusoes
+        - consideracoes sobre o processo de aprendizado
+        - comparacao com o ep1 em phonegap
