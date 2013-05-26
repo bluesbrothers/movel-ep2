@@ -1,24 +1,16 @@
-MANUALDIR=doc
-
-PACOTENAME=$(FOLDERENTREGA).tar.gz
-
-#
-##
-# Parte padrao
-##
-#
+include ../names.mk
 
 alo:
 	echo "XD"
 
-$(MANUALDIR):
-	if [ ! -d $(MANUALDIR) ]; then mkdir $(MANUALDIR); fi
+$(DOCDIR):
+	if [ ! -d $(DOCDIR) ]; then mkdir $(DOCDIR); fi
 
-pdf: $(MANUALDIR)
-	cd $(MANUALDIR); make folderup
+pdf: $(DOCDIR)
+	cd $(DOCDIR); make folderup
 
 
 .PHONY: clean
 clean:
 	rm -f *~
-	cd $(MANUALDIR); make clean
+	cd $(DOCDIR); make clean
