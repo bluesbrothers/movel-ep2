@@ -68,7 +68,7 @@ public class ContentManager {
 					}
 				} else if (xpp.getName().equalsIgnoreCase("category")) {
 					if (insideItem) {
-						item.setCategoria(xpp.nextText());
+						item.setCategory(xpp.nextText());
 					}
 				}
 

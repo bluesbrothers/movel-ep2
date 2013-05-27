@@ -1,13 +1,98 @@
 package fefzjon.ep2.rssfeed.model;
 
-public class FeedItem {
-	private String	description;
-	private String	link;
-	private String	title;
-	private String	categoria;
+import java.util.ArrayList;
+import java.util.List;
 
-	private String	dataPalestra;
-	private String	dataBaixado;
+import android.content.ContentValues;
+import android.database.Cursor;
+
+public class FeedItem implements BaseEntity {
+	public static final String	tableName			= "feedItem";
+
+	private static final String	ID_KEY				= "id";
+	private Long				id;
+
+	private static final String	DESCRIPTION_KEY		= "description";
+	private String				description;
+	private static final String	LINK_KEY			= "link";
+	private String				link;
+	private static final String	TITLE_KEY			= "title";
+	private String				title;
+	private static final String	CATEGORY_KEY		= "category";
+	private String				category;
+
+	private static final String	DATA_PALESTRA_KEY	= "data_palestra";
+	private String				dataPalestra;
+	private static final String	DATA_BAIXADO_KEY	= "data_baixado";
+	private String				dataBaixado;
+
+	public static List<String>	createDBQuery;
+
+	static {
+		FeedItem.createDBQuery = new ArrayList<String>();
+
+		StringBuilder builder = new StringBuilder().append("CREATE TABLE ");
+		builder.append(FeedItem.tableName + "(");
+		builder.append(FeedItem.ID_KEY + " integer primary key autoincrement, ");
+		builder.append(FeedItem.DESCRIPTION_KEY + "varchar(255)");
+		builder.append(FeedItem.LINK_KEY + "varchar(255)");
+		builder.append(FeedItem.TITLE_KEY + "varchar(255)");
+		builder.append(FeedItem.CATEGORY_KEY + "varchar(255)");
+		builder.append(FeedItem.DESCRIPTION_KEY + "varchar(255)");
+		builder.append(FeedItem.DATA_PALESTRA_KEY + "varchar(255)");
+		builder.append(FeedItem.DATA_BAIXADO_KEY + "varchar(255) NOT NULL");
+
+		FeedItem.createDBQuery.add(builder.toString());
+	}
+
+	@Override
+	public ContentValues createValues() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ContentValues updateValues() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getConstraintThisEntity() {
+		return FeedItem.ID_KEY + "=" + this.id;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public FeedItem createFromCursor(final Cursor cursor) {
+		FeedItem item = new FeedItem();
+		item.setId(cursor.getLong(cursor.getColumnIndex(FeedItem.ID_KEY)));
+		item.setTitle(cursor.getString(cursor.getColumnIndex(FeedItem.TITLE_KEY)));
+		item.setLink(cursor.getString(cursor.getColumnIndex(FeedItem.LINK_KEY)));
+		item.setDescription(cursor.getString(cursor.getColumnIndex(FeedItem.DESCRIPTION_KEY)));
+		item.setCategory(cursor.getString(cursor.getColumnIndex(FeedItem.CATEGORY_KEY)));
+		item.setDataBaixado(cursor.getString(cursor.getColumnIndex(FeedItem.DATA_BAIXADO_KEY)));
+		item.setDataPalestra(cursor.getString(cursor.getColumnIndex(FeedItem.DATA_PALESTRA_KEY)));
+		return item;
+	}
+
+	@Override
+	public String getTableName() {
+		return FeedItem.tableName;
+	}
+
+	@Override
+	public List<String> getCreateDBQuery() {
+		return FeedItem.createDBQuery;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
 	public String getDescription() {
 		return this.description;
@@ -49,12 +134,12 @@ public class FeedItem {
 		this.dataBaixado = dataBaixado;
 	}
 
-	public String getCategoria() {
-		return this.categoria;
+	public String getCategory() {
+		return this.category;
 	}
 
-	public void setCategoria(final String categoria) {
-		this.categoria = categoria;
+	public void setCategory(final String category) {
+		this.category = category;
 	}
 
 }
