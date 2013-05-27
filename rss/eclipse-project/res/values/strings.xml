@@ -4,5 +4,25 @@
     <string name="app_name">EP2.rssfeed</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string name="activity_configuracoes">Configurações</string>
+    <string name="activity_details">Detalhes da Palestra</string>
+    
+    <string name="pref_what_should_fetch_key">key_pref_what_should_fetch</string>
+    <string name="pref_what_should_fetch_title">Canais desejados</string>
+    
+    <string name="key_fetch_dcc">key_fetch_dcc</string>
+    <string name="title_fetch_dcc">DCC</string>
+    <string name="key_fetch_map">key_fetch_map</string>
+    <string name="title_fetch_map">MAP</string>
+    <string name="key_fetch_mat">key_fetch_mat</string>
+    <string name="title_fetch_mat">MAT</string>
+    <string name="key_fetch_mae">key_fetch_mae</string>
+    <string name="title_fetch_mae">MAE</string>
+    
+    <string name="registrar_calendario">Registrar no Calendário</string>
+    <string name="seguir_link">Seguir Link</string>
+    
+    
 
 </resources>
