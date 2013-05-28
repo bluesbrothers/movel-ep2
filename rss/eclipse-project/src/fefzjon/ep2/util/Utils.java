@@ -1,4 +1,4 @@
-package fefzjon.ep2.rssfeed.util;
+package fefzjon.ep2.util;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -7,7 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import fefzjon.ep2.exceptions.EpDoisException;
-import fefzjon.ep2.rssfeed.model.BaseEntity;
+import fefzjon.ep2.persist.model.BaseEntity;
 import fefzjon.ep2.rssfeed.model.FeedItem;
 
 public class DBManager {

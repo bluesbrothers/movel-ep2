@@ -4,6 +4,7 @@ import fefzjon.ep2.persist.annotation.Column;
 import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.NotNull;
 import fefzjon.ep2.persist.annotation.Table;
+import fefzjon.ep2.persist.model.BaseEntity;
 
 @Table(name = "feedItem", version = 1)
 public class FeedItem implements BaseEntity {

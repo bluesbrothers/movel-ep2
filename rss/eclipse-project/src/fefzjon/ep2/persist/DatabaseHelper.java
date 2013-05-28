@@ -14,7 +14,7 @@ import fefzjon.ep2.persist.annotation.Column;
 import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.NotNull;
 import fefzjon.ep2.persist.annotation.Table;
-import fefzjon.ep2.rssfeed.model.BaseEntity;
+import fefzjon.ep2.persist.model.BaseEntity;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 

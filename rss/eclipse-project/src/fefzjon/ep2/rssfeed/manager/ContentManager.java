@@ -14,7 +14,7 @@ import android.util.Log;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
-import fefzjon.ep2.rssfeed.util.Utils;
+import fefzjon.ep2.util.Utils;
 
 public class ContentManager {
 

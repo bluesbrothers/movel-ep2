@@ -18,7 +18,7 @@ import android.widget.Toast;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.manager.ContentManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
-import fefzjon.ep2.rssfeed.util.IntentKeys;
+import fefzjon.ep2.util.IntentKeys;
 
 public class MainActivity extends ListActivity {
 
