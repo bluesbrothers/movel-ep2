@@ -4,5 +4,9 @@
     <string name="app_name">EP2.bandejao</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="pref_info_login_key">info_login</string>
+    <string name="pref_info_login_title">Informações de Login</string>
+    <string name="key_salvar_info">salvar_info_login</string>
+    <string name="title_salvar_info">Salvar login e senha?</string>
 
 </resources>
