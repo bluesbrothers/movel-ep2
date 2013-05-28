@@ -3,6 +3,7 @@ package fefzjon.ep2.rssfeed.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,6 +13,15 @@ public class Utils {
 
 	public static String formatDate(final Date date) {
 		return Utils.formatter.format(date);
+	}
+
+	public static Date getDateFrom(final String formattedDate) {
+		try {
+			return Utils.formatter.parse(formattedDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public static String formattedToday() {

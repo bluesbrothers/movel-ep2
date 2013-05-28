@@ -15,8 +15,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.manager.ContentManager;
-import fefzjon.ep2.rssfeed.manager.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
 import fefzjon.ep2.rssfeed.util.IntentKeys;
 
@@ -29,7 +29,7 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 
-		DBManager.registerContext(this);
+		DBManager.initializeModule(this, "FEFZJON_PALESTRAS_IME", 1);
 
 		if (this.isOnline()) {
 			this.feedItems = ContentManager

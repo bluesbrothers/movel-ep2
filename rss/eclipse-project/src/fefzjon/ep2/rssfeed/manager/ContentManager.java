@@ -10,13 +10,22 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import android.util.Log;
+import fefzjon.ep2.exceptions.EpDoisException;
+import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
 import fefzjon.ep2.rssfeed.util.Utils;
 
 public class ContentManager {
 
 	public static List<FeedItem> getLastList() {
-		List<FeedItem> list = DBManager.getInstance().getAll(new FeedItem());
+		List<FeedItem> list = new ArrayList<FeedItem>();
+		try {
+			list = DBManager.getInstance().getAll(new FeedItem());
+		} catch (EpDoisException e) {
+			Log.e("RSSFeed", "Problemas ao recuperar ultima lista");
+			e.printStackTrace();
+		}
 		return list;
 	}
 
@@ -34,7 +43,12 @@ public class ContentManager {
 
 			ContentManager.parseXML(lista, xpp);
 
-			ContentManager.saveNewContent(lista);
+			try {
+				ContentManager.saveNewContent(lista);
+			} catch (EpDoisException e) {
+				Log.e("RSSFeed", "Problemas ao salvar novo conteudo");
+				e.printStackTrace();
+			}
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -47,15 +61,20 @@ public class ContentManager {
 		return lista;
 	}
 
-	private static void saveNewContent(final List<FeedItem> lista) {
+	private static void saveNewContent(final List<FeedItem> lista) throws EpDoisException {
+		Log.i("RSSFeed", "Deletando conteudo antigo");
 		DBManager.getInstance().deleteAll(new FeedItem());
+		Log.i("RSSFeed", "Salvando conteudo novo");
 		for (FeedItem item : lista) {
 			DBManager.getInstance().create(item);
 		}
+		Log.d("RSSFeed", "Novo conteudo salvo");
 	}
 
 	private static void parseXML(final List<FeedItem> lista, final XmlPullParser xpp) throws XmlPullParserException,
 			IOException {
+		Log.i("RSSFeed", "Comecando parse do input XML");
+
 		boolean insideItem = false;
 
 		// Returns the type of current event: START_TAG, END_TAG, etc..
@@ -93,5 +112,6 @@ public class ContentManager {
 
 			eventType = xpp.next(); // move to next element
 		}
+		Log.d("RSSFeed", "Fim do parse XML");
 	}
 }
