@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import fefzjon.ep2.util.IntentKeys;
+import fefzjon.ep2.rssfeed.utils.IntentKeys;
 
 public class DetailsActivity extends Activity {
 

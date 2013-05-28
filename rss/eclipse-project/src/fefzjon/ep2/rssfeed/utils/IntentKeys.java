@@ -1,4 +1,4 @@
-package fefzjon.ep2.util;
+package fefzjon.ep2.rssfeed.utils;
 
 public final class IntentKeys {
 	public static final String	DETAILS_FEED_TITLE			= "DETAILS_FEED_TITLE";

@@ -14,7 +14,7 @@ import android.util.Log;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
-import fefzjon.ep2.util.Utils;
+import fefzjon.ep2.utils.Utils;
 
 public class ContentManager {
 
@@ -29,33 +29,35 @@ public class ContentManager {
 		return list;
 	}
 
-	public static List<FeedItem> fetchAndParseFeed(final String feedUrl) {
+	public static List<FeedItem> fetchAndParseFeed(final List<String> feedUrls) {
 		List<FeedItem> lista = new ArrayList<FeedItem>();
 
-		try {
-			URL url = new URL(feedUrl);
-
-			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-			factory.setNamespaceAware(false);
-			XmlPullParser xpp = factory.newPullParser();
-
-			xpp.setInput(Utils.getInputStream(url), "UTF_8");
-
-			ContentManager.parseXML(lista, xpp);
-
+		for (String feedUrl : feedUrls) {
 			try {
-				ContentManager.saveNewContent(lista);
-			} catch (EpDoisException e) {
-				Log.e("RSSFeed", "Problemas ao salvar novo conteudo");
+				URL url = new URL(feedUrl);
+
+				XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+				factory.setNamespaceAware(false);
+				XmlPullParser xpp = factory.newPullParser();
+
+				xpp.setInput(Utils.getInputStream(url), "UTF_8");
+
+				ContentManager.parseXML(lista, xpp);
+
+				try {
+					ContentManager.saveNewContent(lista);
+				} catch (EpDoisException e) {
+					Log.e("RSSFeed", "Problemas ao salvar novo conteudo");
+					e.printStackTrace();
+				}
+
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (XmlPullParserException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (XmlPullParserException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 
 		return lista;

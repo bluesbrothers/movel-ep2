@@ -9,7 +9,7 @@ import fefzjon.ep2.persist.annotation.Column;
 import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.Table;
 import fefzjon.ep2.persist.model.BaseEntity;
-import fefzjon.ep2.util.Utils;
+import fefzjon.ep2.utils.Utils;
 
 public class DBReflectionHelper {
 

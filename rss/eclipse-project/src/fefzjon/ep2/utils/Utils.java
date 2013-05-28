@@ -1,4 +1,4 @@
-package fefzjon.ep2.util;
+package fefzjon.ep2.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

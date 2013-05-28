@@ -6,9 +6,11 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +20,8 @@ import android.widget.Toast;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.manager.ContentManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
-import fefzjon.ep2.util.IntentKeys;
+import fefzjon.ep2.rssfeed.utils.FeedUrls;
+import fefzjon.ep2.rssfeed.utils.IntentKeys;
 
 public class MainActivity extends ListActivity {
 
@@ -31,9 +34,23 @@ public class MainActivity extends ListActivity {
 
 		DBManager.initializeModule(this, "FEFZJON_PALESTRAS_IME", 1);
 
+		SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+
 		if (this.isOnline()) {
-			this.feedItems = ContentManager
-					.fetchAndParseFeed("http://www.ime.usp.br/index.php?option=com_eventlist&view=categoryevents&format=feed&id=62&type=rss");
+			List<String> urlsToFetch = new ArrayList<String>();
+			if (preference.getBoolean(this.getString(R.string.key_fetch_dcc), false)) {
+				urlsToFetch.add(FeedUrls.DCC);
+			}
+			if (preference.getBoolean(this.getString(R.string.key_fetch_mae), false)) {
+				urlsToFetch.add(FeedUrls.MAE);
+			}
+			if (preference.getBoolean(this.getString(R.string.key_fetch_mat), false)) {
+				urlsToFetch.add(FeedUrls.MAT);
+			}
+			if (preference.getBoolean(this.getString(R.string.key_fetch_map), false)) {
+				urlsToFetch.add(FeedUrls.MAP);
+			}
+			this.feedItems = ContentManager.fetchAndParseFeed(urlsToFetch);
 		} else {
 			this.feedItems = ContentManager.getLastList();
 			Toast.makeText(this, "Aparentemente você não está conectado...", Toast.LENGTH_SHORT).show();
