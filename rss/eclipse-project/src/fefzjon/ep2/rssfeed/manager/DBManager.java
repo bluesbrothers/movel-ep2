@@ -35,7 +35,16 @@ public class DBManager {
 
 	}
 
-	public static DBManager open() throws SQLException {
+	private static DBManager	instance	= null;
+
+	public static DBManager getInstance() {
+		if (DBManager.instance == null) {
+			DBManager.instance = DBManager.open();
+		}
+		return DBManager.instance;
+	}
+
+	private static DBManager open() throws SQLException {
 		DBManager.registerModels();
 		DBManager dbManager = new DBManager();
 		dbManager.mDbHelper = new DatabaseHelper(DBManager.mCtx, DBManager.dbName, DBManager.dbVersion,
@@ -54,6 +63,10 @@ public class DBManager {
 
 	public boolean delete(final BaseEntity entity) {
 		return this.mDb.delete(entity.getTableName(), entity.getConstraintThisEntity(), null) > 0;
+	}
+
+	public <S extends BaseEntity> boolean deleteAll(final S representante) {
+		return this.mDb.delete(representante.getTableName(), null, null) > 0;
 	}
 
 	public <S extends BaseEntity> List<S> getAll(final S representante) {

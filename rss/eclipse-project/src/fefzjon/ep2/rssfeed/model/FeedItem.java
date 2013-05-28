@@ -34,27 +34,33 @@ public class FeedItem implements BaseEntity {
 		StringBuilder builder = new StringBuilder().append("CREATE TABLE ");
 		builder.append(FeedItem.tableName + "(");
 		builder.append(FeedItem.ID_KEY + " integer primary key autoincrement, ");
-		builder.append(FeedItem.DESCRIPTION_KEY + "varchar(255)");
-		builder.append(FeedItem.LINK_KEY + "varchar(255)");
-		builder.append(FeedItem.TITLE_KEY + "varchar(255)");
-		builder.append(FeedItem.CATEGORY_KEY + "varchar(255)");
-		builder.append(FeedItem.DESCRIPTION_KEY + "varchar(255)");
-		builder.append(FeedItem.DATA_PALESTRA_KEY + "varchar(255)");
-		builder.append(FeedItem.DATA_BAIXADO_KEY + "varchar(255) NOT NULL");
+		builder.append(FeedItem.DESCRIPTION_KEY + " varchar(255), ");
+		builder.append(FeedItem.LINK_KEY + " varchar(255), ");
+		builder.append(FeedItem.TITLE_KEY + " varchar(255), ");
+		builder.append(FeedItem.CATEGORY_KEY + " varchar(255), ");
+		builder.append(FeedItem.DATA_PALESTRA_KEY + " varchar(255), ");
+		builder.append(FeedItem.DATA_BAIXADO_KEY + " varchar(255) NOT NULL);");
 
 		FeedItem.createDBQuery.add(builder.toString());
 	}
 
 	@Override
 	public ContentValues createValues() {
-		// TODO Auto-generated method stub
-		return null;
+		ContentValues content = new ContentValues();
+		content.put(FeedItem.DESCRIPTION_KEY, this.description);
+		content.put(FeedItem.LINK_KEY, this.link);
+		content.put(FeedItem.TITLE_KEY, this.title);
+		content.put(FeedItem.CATEGORY_KEY, this.category);
+		content.put(FeedItem.DATA_PALESTRA_KEY, this.dataPalestra);
+		content.put(FeedItem.DATA_BAIXADO_KEY, this.dataBaixado);
+		return content;
 	}
 
 	@Override
 	public ContentValues updateValues() {
-		// TODO Auto-generated method stub
-		return null;
+		ContentValues content = this.createValues();
+		content.put(FeedItem.ID_KEY, this.id);
+		return content;
 	}
 
 	@Override

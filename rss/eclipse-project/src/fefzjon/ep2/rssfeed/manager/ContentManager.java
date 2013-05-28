@@ -15,6 +15,11 @@ import fefzjon.ep2.rssfeed.util.Utils;
 
 public class ContentManager {
 
+	public static List<FeedItem> getLastList() {
+		List<FeedItem> list = DBManager.getInstance().getAll(new FeedItem());
+		return list;
+	}
+
 	public static List<FeedItem> fetchAndParseFeed(final String feedUrl) {
 		List<FeedItem> lista = new ArrayList<FeedItem>();
 
@@ -29,6 +34,8 @@ public class ContentManager {
 
 			ContentManager.parseXML(lista, xpp);
 
+			ContentManager.saveNewContent(lista);
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
@@ -40,6 +47,13 @@ public class ContentManager {
 		return lista;
 	}
 
+	private static void saveNewContent(final List<FeedItem> lista) {
+		DBManager.getInstance().deleteAll(new FeedItem());
+		for (FeedItem item : lista) {
+			DBManager.getInstance().create(item);
+		}
+	}
+
 	private static void parseXML(final List<FeedItem> lista, final XmlPullParser xpp) throws XmlPullParserException,
 			IOException {
 		boolean insideItem = false;
@@ -47,12 +61,13 @@ public class ContentManager {
 		// Returns the type of current event: START_TAG, END_TAG, etc..
 		int eventType = xpp.getEventType();
 		FeedItem item = null;
+		String stringToday = Utils.formattedToday();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			if (eventType == XmlPullParser.START_TAG) {
 				if (xpp.getName().equalsIgnoreCase("item")) {
 					insideItem = true;
 					item = new FeedItem();
-					item.setDataBaixado(Utils.formattedToday());
+					item.setDataBaixado(stringToday);
 					lista.add(item);
 				} else if (xpp.getName().equalsIgnoreCase("title")) {
 					if (insideItem) {

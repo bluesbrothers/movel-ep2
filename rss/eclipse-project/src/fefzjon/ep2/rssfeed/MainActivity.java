@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import fefzjon.ep2.rssfeed.manager.ContentManager;
+import fefzjon.ep2.rssfeed.manager.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
 import fefzjon.ep2.rssfeed.util.IntentKeys;
 
@@ -28,23 +29,26 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 
+		DBManager.registerContext(this);
+
 		if (this.isOnline()) {
 			this.feedItems = ContentManager
 					.fetchAndParseFeed("http://www.ime.usp.br/index.php?option=com_eventlist&view=categoryevents&format=feed&id=62&type=rss");
-
-			List<String> headlines = new ArrayList<String>();
-
-			for (FeedItem f : this.feedItems) {
-				headlines.add(f.getTitle());
-			}
-
-			// Binding data
-			ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, headlines);
-
-			this.setListAdapter(adapter);
 		} else {
+			this.feedItems = ContentManager.getLastList();
 			Toast.makeText(this, "Aparentemente você não está conectado...", Toast.LENGTH_SHORT).show();
 		}
+		List<String> headlines = new ArrayList<String>();
+
+		for (FeedItem f : this.feedItems) {
+			headlines.add(f.getTitle());
+		}
+
+		// Binding data
+		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, headlines);
+
+		this.setListAdapter(adapter);
+
 	}
 
 	@Override
