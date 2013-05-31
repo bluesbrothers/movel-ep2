@@ -4,5 +4,9 @@
     <string name="app_name">EP2.gps</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="selectBusp8012">Circular 1 (8012)</string>
+    <string name="selectBusp8022">Circular 2 (8022)</string>
+    <string name="centralizaMapaUSP">Centraliza mapa na USP</string>
+    
 
 </resources>
