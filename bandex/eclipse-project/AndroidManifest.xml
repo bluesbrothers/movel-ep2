@@ -31,6 +31,10 @@
             android:name="fefzjon.ep2.bandejao.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name="fefzjon.ep2.bandejao.DetailsActivity"
+            android:label="@string/title_activity_details" >
+        </activity>
     </application>
 
 </manifest>

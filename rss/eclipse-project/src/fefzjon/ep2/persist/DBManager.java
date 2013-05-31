@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.persist.model.BaseEntity;
-import fefzjon.ep2.rssfeed.model.FeedItem;
 
 public class DBManager {
 	private DatabaseHelper								mDbHelper;
@@ -16,10 +15,9 @@ public class DBManager {
 
 	private static Context								mCtx	= null;
 
-	private static List<Class<? extends BaseEntity>>	classes;
+	private static List<Class<? extends BaseEntity>>	classes	= null;
 
 	public static void initializeModule(final Context ctx, final String dbName, final int version) {
-		DBManager.registerModels();
 		DBManager.mCtx = ctx;
 		DBManager dbManager = new DBManager();
 		dbManager.mDbHelper = new DatabaseHelper(DBManager.mCtx, dbName, version, DBManager.classes);
@@ -28,11 +26,15 @@ public class DBManager {
 		DBManager.instance = dbManager;
 	}
 
-	private static void registerModels() {
-		DBManager.classes = new ArrayList<Class<? extends BaseEntity>>();
+	public static boolean isInitialized() {
+		return DBManager.instance != null;
+	}
 
-		/* Declaracao das classes que pertencem ao sistema de persistencia */
-		DBManager.classes.add(FeedItem.class);
+	public static void registerModel(final Class<? extends BaseEntity> clazz) {
+		if (DBManager.classes == null) {
+			DBManager.classes = new ArrayList<Class<? extends BaseEntity>>();
+		}
+		DBManager.classes.add(clazz);
 	}
 
 	private DBManager() {
