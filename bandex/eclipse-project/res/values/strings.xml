@@ -8,5 +8,6 @@
     <string name="pref_info_login_title">Informações de Login</string>
     <string name="key_salvar_info">salvar_info_login</string>
     <string name="title_salvar_info">Salvar login e senha?</string>
+    <string name="title_activity_details">DetailsActivity</string>
 
 </resources>

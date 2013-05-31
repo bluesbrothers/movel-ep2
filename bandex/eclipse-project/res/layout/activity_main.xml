@@ -9,42 +9,42 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btCentral"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Button" />
+        android:text="@string/btCentral" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btPCO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/btCentral"
+        android:layout_alignRight="@+id/btCentral"
+        android:layout_below="@+id/btCentral"
         android:layout_marginTop="35dp"
-        android:text="Button" />
+        android:text="@string/btPCO" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btFisica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/btPCO"
+        android:layout_alignRight="@+id/btPCO"
+        android:layout_below="@+id/btPCO"
         android:layout_marginTop="35dp"
-        android:text="Button" />
+        android:text="@string/btFisica" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btQuimica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignRight="@+id/button3"
-        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/btFisica"
+        android:layout_alignRight="@+id/btFisica"
+        android:layout_below="@+id/btFisica"
         android:layout_marginTop="35dp"
-        android:text="Button" />
+        android:text="@string/btQuimica" />
 
 </RelativeLayout>

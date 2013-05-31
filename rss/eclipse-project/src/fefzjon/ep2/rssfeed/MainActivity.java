@@ -27,13 +27,28 @@ public class MainActivity extends ListActivity {
 
 	private List<FeedItem>	feedItems;
 
+	private List<String>	headlines;
+
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 
-		DBManager.initializeModule(this, "FEFZJON_PALESTRAS_IME", 1);
+		if (!DBManager.isInitialized()) {
+			DBManager.registerModel(FeedItem.class);
+			DBManager.initializeModule(this, "FEFZJON_PALESTRAS_IME", 1);
+		}
 
+		this.updateContent();
+
+		// Binding data
+		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, this.headlines);
+
+		this.setListAdapter(adapter);
+
+	}
+
+	private List<String> updateContent() {
 		SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
 
 		if (this.isOnline()) {
@@ -55,17 +70,13 @@ public class MainActivity extends ListActivity {
 			this.feedItems = ContentManager.getLastList();
 			Toast.makeText(this, "Aparentemente você não está conectado...", Toast.LENGTH_SHORT).show();
 		}
-		List<String> headlines = new ArrayList<String>();
+
+		this.headlines = new ArrayList<String>();
 
 		for (FeedItem f : this.feedItems) {
-			headlines.add(f.getTitle());
+			this.headlines.add(f.getTitle());
 		}
-
-		// Binding data
-		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, headlines);
-
-		this.setListAdapter(adapter);
-
+		return this.headlines;
 	}
 
 	@Override

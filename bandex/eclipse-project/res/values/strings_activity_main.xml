@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="btCentral">Central</string>
+    <string name="btPCO">PCO</string>
+    <string name="btFisica">Física</string>
+    <string name="btQuimica">Química</string>
+
+
+</resources>
