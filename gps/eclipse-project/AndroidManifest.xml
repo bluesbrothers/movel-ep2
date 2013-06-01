@@ -38,6 +38,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="fefzjon.ep2.gps.TimeTableActivity"
+            android:label="@string/title_activity_time_table" >
+        </activity>
+        
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCJShPhChR4MHgLqEPL8Gd__iBu_fwB4n4" />

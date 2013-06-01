@@ -4,18 +4,24 @@
         android:id="@+id/selectBusp8012"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/selectBusp8012"/>
+        android:title="@string/busp8012"/>
 
     <item
         android:id="@+id/selectBusp8022"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/selectBusp8022"/>
+        android:title="@string/busp8022"/>
     
     <item
         android:id="@+id/centralizaMapaUSP"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/centralizaMapaUSP"/>
+    
+    <item
+        android:id="@+id/goToTimeTable"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/time_table"/>
     
 </menu>

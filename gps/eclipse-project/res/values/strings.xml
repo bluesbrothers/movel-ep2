@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">EP2.gps</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="selectBusp8012">Circular 1 (8012)</string>
-    <string name="selectBusp8022">Circular 2 (8022)</string>
+    <string name="busp8012">Circular 1 (8012)</string>
+    <string name="busp8022">Circular 2 (8022)</string>
     <string name="centralizaMapaUSP">Centraliza mapa na USP</string>
-    
+    <string name="ok">OK</string>
+    <string name="pontoProx">Ponto mais próximo de você</string>
+    <string name="md_arrival">Horário de Chegada (A): </string>
+    <string name="md_exit">Horário de Saída (T): </string>
+    <string name="md_time">Tempo aprox. (T->A): </string>
+    <string name="md_dist">Distância (T->A): </string>
+    <string name="title_activity_time_table">Time Table</string>
+    <string name="time_table">Tabela de Horários</string>
+    <string name="duration">Duração aprox. da viagem: </string>
+    <string name="selectDayTypeDialog">Selecione o dia</string>
+    <string name="selectBUSPDialog">Selecione o circular</string>
 
 </resources>

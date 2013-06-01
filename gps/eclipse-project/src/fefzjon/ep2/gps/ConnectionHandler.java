@@ -1,15 +1,13 @@
 package fefzjon.ep2.gps;
 
 import android.content.IntentSender;
-import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.location.LocationRequest;
 
 public class ConnectionHandler implements
 		GooglePlayServicesClient.ConnectionCallbacks,
@@ -41,16 +39,14 @@ public class ConnectionHandler implements
 		// Display the connection status
 		Toast.makeText(this.parent, "Connected", Toast.LENGTH_SHORT).show();
 
-		this.atualizaPos();
-	}
-
-	public void atualizaPos() {
-		Location loc = this.locationClient.getLastLocation();
-		Log.w("EP2.gps",
-				"Location = " + ((Double) loc.getLatitude()).toString() + ", "
-						+ ((Double) loc.getLongitude()).toString());
-		LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
-		this.parent.addMarker(pos, "Posicao Atual");
+		LocationRequest req = LocationRequest.create();
+		// accuracy of location received
+		req.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+		req.setInterval(1000 * 5); // ideal rate to receive updates
+		// fastest rate at which the app can received updates without bugging
+		// (screen flickering, data overflow, etc...)
+		req.setFastestInterval(1000 * 1);
+		this.locationClient.requestLocationUpdates(req, this.parent);
 	}
 
 	/*
@@ -62,6 +58,7 @@ public class ConnectionHandler implements
 		// Display the connection status
 		Toast.makeText(this.parent, "Disconnected. Please re-connect.",
 				Toast.LENGTH_SHORT).show();
+		this.locationClient.removeLocationUpdates(this.parent);
 	}
 
 	/*

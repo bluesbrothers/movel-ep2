@@ -1409,7 +1409,7 @@
 		<item>00:50:00</item>
 		<item>01:40:00</item>
 		<item>02:25:00</item>
-		<item>03:10:0</item>
+		<item>03:10:00</item>
     </array>
     
     <array name="horariosSabado8012">
@@ -1459,7 +1459,7 @@
 		<item>01:55:00</item>
 		<item>02:40:00</item>
 		<item>03:25:00</item>
-		<item>04:10:0</item>
+		<item>04:10:00</item>
     </array>
     
     <array name="horariosDomingo8012">
@@ -1490,7 +1490,7 @@
 		<item>02:00:00</item>
 		<item>02:45:00</item>
 		<item>03:10:00</item>
-		<item>04:10:0</item>
+		<item>04:10:00</item>
     </array>
     <string name="duracaoUtil8012">50</string>
     <string name="duracaoSabado8012">40</string>
@@ -2855,7 +2855,7 @@
 		<item>00:40:00</item>
 		<item>00:55:00</item>
 		<item>01:45:00</item>
-		<item>02:30:0</item>
+		<item>02:30:00</item>
     </array>
     
     <array name="horariosSabado8022">
@@ -2905,7 +2905,7 @@
 		<item>00:55:00</item>
 		<item>01:40:00</item>
 		<item>02:25:00</item>
-		<item>03:10:0</item>
+		<item>03:10:00</item>
     </array>
     
     <array name="horariosDomingo8022">
@@ -2936,7 +2936,7 @@
 		<item>01:00:00</item>
 		<item>01:45:00</item>
 		<item>02:30:00</item>
-		<item>03:10:0</item>
+		<item>03:10:00</item>
     </array>
     <string name="duracaoUtil8022">50</string>
     <string name="duracaoSabado8022">40</string>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <!--
+    	Distancia terminal -> aqui
+    	Tempo approx terminal -> aqui
+    	Horario de saida do busao que vai chegar
+    	Horario previsto de chegada do busao que vai chegar 
+     -->
+     <TextView
+	            android:id="@+id/md_title"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="16dp"
+	            android:fontFamily="sans-serif-light"
+	            android:text="@string/pontoProx"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textStyle="bold"  />
+
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
+	    android:orientation="horizontal" android:layout_marginBottom="6dp">
+		<TextView
+	            android:id="@+id/md_dist_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"
+	            android:text="@string/md_dist"
+	            android:layout_marginRight="3dp" 
+	            android:textStyle="bold" />
+		<TextView
+	            android:id="@+id/md_dist"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"  />
+	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
+	    android:orientation="horizontal" android:layout_marginBottom="6dp">
+		<TextView
+	            android:id="@+id/md_time_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"
+	            android:text="@string/md_time" 
+	            android:layout_marginRight="3dp"
+	            android:textStyle="bold" />
+		<TextView
+	            android:id="@+id/md_time"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"  />
+	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
+	    android:orientation="horizontal" android:layout_marginBottom="6dp">
+		<TextView
+	            android:id="@+id/md_exit_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"
+	            android:text="@string/md_exit"
+	            android:layout_marginRight="3dp"  
+	            android:textStyle="bold"/>
+		<TextView
+	            android:id="@+id/md_exit"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"  />
+	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+	     android:orientation="horizontal" android:layout_marginBottom="6dp">
+		<TextView
+	            android:id="@+id/md_arrival_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"
+	            android:text="@string/md_arrival"
+	            android:layout_marginRight="3dp" 
+	            android:textStyle="bold" />
+		<TextView
+	            android:id="@+id/md_arrival"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:fontFamily="sans-serif-light"  />
+	</LinearLayout>
+
+</LinearLayout>
