@@ -101,7 +101,11 @@ public class ContentManager {
 					}
 				} else if (xpp.getName().equalsIgnoreCase("description")) {
 					if (insideItem) {
-						item.setDescription(xpp.nextText());
+						String description = xpp.nextText();
+						item.setDescription(description);
+
+						Date dataPalestra = ContentManager.getDateFromDescription(description);
+						item.setDataPalestra(dataPalestra);
 					}
 				} else if (xpp.getName().equalsIgnoreCase("category")) {
 					if (insideItem) {
@@ -116,5 +120,9 @@ public class ContentManager {
 			eventType = xpp.next(); // move to next element
 		}
 		Log.d("RSSFeed", "Fim do parse XML");
+	}
+
+	private static Date getDateFromDescription(final String description) {
+		return null;
 	}
 }

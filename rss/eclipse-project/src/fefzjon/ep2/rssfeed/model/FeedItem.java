@@ -28,7 +28,7 @@ public class FeedItem implements BaseEntity {
 	private String	category;
 
 	@Column(name = "data_palestra", version = 1)
-	private String	dataPalestra;
+	private Date	dataPalestra;
 
 	@NotNull
 	@Column(name = "data_baixado", version = 1)
@@ -66,11 +66,11 @@ public class FeedItem implements BaseEntity {
 		this.title = title;
 	}
 
-	public String getDataPalestra() {
+	public Date getDataPalestra() {
 		return this.dataPalestra;
 	}
 
-	public void setDataPalestra(final String dataPalestra) {
+	public void setDataPalestra(final Date dataPalestra) {
 		this.dataPalestra = dataPalestra;
 	}
 
