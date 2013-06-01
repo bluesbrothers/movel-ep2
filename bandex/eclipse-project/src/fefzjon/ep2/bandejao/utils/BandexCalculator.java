@@ -1,8 +1,13 @@
 package fefzjon.ep2.bandejao.utils;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class BandexCalculator {
+
+	private static Calendar	calendar	= null;
+
 	@SuppressWarnings("deprecation")
 	public static int nextMeal() {
 		Date date = new Date();
@@ -20,5 +25,15 @@ public class BandexCalculator {
 		} else {
 			return BandexContants.JANTA;
 		}
+	}
+
+	public static int semanaReferente(final Date date) {
+		if (calendar == null) {
+			calendar = new GregorianCalendar();
+			calendar.setFirstDayOfWeek(Calendar.MONDAY);
+		}
+		calendar.setTime(date);
+		int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
+		return weekOfYear;
 	}
 }

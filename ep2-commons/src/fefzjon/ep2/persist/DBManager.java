@@ -81,21 +81,58 @@ public class DBManager {
 	}
 
 	public <S extends BaseEntity> boolean deleteAll(final S representante) {
+		return deleteSome(representante, null, null);
+	}
+	
+	// gambiarra por não ter tempo de fazer um QueryBuilder decente
+	public <S extends BaseEntity> boolean deleteSome(final S representante, String whereClause, String[] whereArgs) {
 		String tableName = DBReflectionHelper.getTableName(representante);
 		if (tableName == null) {
 			return false;
 		}
-		return this.mDb.delete(tableName, null, null) > 0;
+		return this.mDb.delete(tableName, whereClause, whereArgs) > 0;
+	}
+	
+	public <S extends BaseEntity> S getLast(final S representante, String whereClause, String[] whereArgs) {
+		List<S> list = new ArrayList<S>();
+
+		String tableName = DBReflectionHelper.getTableName(representante);
+		String idName = DBReflectionHelper.getIdName(representante);
+
+		if (tableName != null) {
+			Cursor cursor = this.mDb.query(tableName, null, whereClause, whereArgs, null, null, idName + " DESC", null);
+			if (cursor != null && cursor.getCount() > 0) {
+				cursor.moveToFirst();
+				try {
+					S entity = DBReflectionHelper.createFromCursor(representante, cursor);
+					return entity;
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return null;
 	}
 
 	public <S extends BaseEntity> List<S> getAll(final S representante) {
+		return getSome(representante, null, null);
+	}
+	
+	
+	// Outra gambiarra pela falta de QueryBuilder
+	public <S extends BaseEntity> List<S> getSome(final S representante, String whereClause, String[] whereArgs) {
 		List<S> list = new ArrayList<S>();
 
 		String tableName = DBReflectionHelper.getTableName(representante);
 
 		if (tableName != null) {
-			Cursor cursor = this.mDb.query(tableName, null, null, null, null, null, null, null);
-			if (cursor != null) {
+			Cursor cursor = this.mDb.query(tableName, null, whereClause, whereArgs, null, null, null);
+			if (cursor != null && cursor.getCount() > 0) {
 				cursor.moveToFirst();
 				int count = cursor.getCount();
 				for (int i = 0; i < count; i++) {

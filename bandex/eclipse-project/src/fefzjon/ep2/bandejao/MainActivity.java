@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import fefzjon.ep2.bandejao.model.CardapioDia;
+import fefzjon.ep2.bandejao.model.UltimoCardapio;
 import fefzjon.ep2.bandejao.utils.Bandecos;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.persist.DBManager;
@@ -26,6 +27,7 @@ public class MainActivity extends Activity {
 
 		if (!DBManager.isInitialized()) {
 			DBManager.registerModel(CardapioDia.class);
+			DBManager.registerModel(UltimoCardapio.class);
 			DBManager.initializeModule(this, "FEFZJON_BANDECO", 1);
 		}
 

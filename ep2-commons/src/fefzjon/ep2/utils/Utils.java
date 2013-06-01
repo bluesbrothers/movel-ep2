@@ -12,10 +12,15 @@ import java.util.GregorianCalendar;
 public class Utils {
 
 	private static SimpleDateFormat	formatter	= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static SimpleDateFormat	semHoras	= new SimpleDateFormat("dd/MM/yyyy");
 	private static SimpleDateFormat	anoMesDia	= new SimpleDateFormat("yyyy-MM-dd");
 
 	public static String formatDate(final Date date) {
 		return Utils.formatter.format(date);
+	}
+	
+	public static String formatDateWithourTime(final Date date) {
+		return Utils.semHoras.format(date);
 	}
 
 	public static Date getDateFrom(final String formattedDate) {
@@ -41,7 +46,7 @@ public class Utils {
 		String fmt = anoMesDia.format(date);
 		return parseAnoMesDia(fmt);
 	}
-
+	
 	public static InputStream getInputStream(final URL url) {
 		try {
 			return url.openConnection().getInputStream();

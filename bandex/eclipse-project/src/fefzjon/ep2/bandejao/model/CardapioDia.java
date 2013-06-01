@@ -3,11 +3,16 @@ package fefzjon.ep2.bandejao.model;
 import java.util.Date;
 
 import fefzjon.ep2.persist.annotation.Column;
+import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.Table;
 import fefzjon.ep2.persist.model.BaseEntity;
 
 @Table(name = "cardapio_dia", version = 1)
 public class CardapioDia implements BaseEntity {
+	@Id
+	@Column(name = "id", version = 1)
+	private Integer	id;
+
 	@Column(name = "data_baixado", version = 1)
 	private Date	dataBaixado;
 
@@ -82,6 +87,14 @@ public class CardapioDia implements BaseEntity {
 
 	public void setBandexId(final Integer bandexId) {
 		this.bandexId = bandexId;
+	}
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(final Integer id) {
+		this.id = id;
 	}
 
 }
