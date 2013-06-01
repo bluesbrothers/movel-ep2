@@ -2,32 +2,20 @@
 <resources>
     <!-- 8012 -->
     <array name="latitudes8012">
-        <item>-23.571916</item>
-		<item>-23.571887</item>
+		<item>-23.571916</item>
 		<item>-23.571887</item>
 		<item>-23.571826</item>
-		<item>-23.571826</item>
-		<item>-23.571748</item>
 		<item>-23.571748</item>
 		<item>-23.571659</item>
-		<item>-23.571659</item>
-		<item>-23.571572</item>
 		<item>-23.571572</item>
 		<item>-23.571112</item>
-		<item>-23.571112</item>
-		<item>-23.570969</item>
 		<item>-23.570969</item>
 		<item>-23.569714</item>
-		<item>-23.569714</item>
 		<item>-23.568687</item>
-		<item>-23.568687</item>
-		<item>-23.567822</item>
 		<item>-23.567822</item>
 		<item>-23.567834</item>
 		<item>-23.567804</item>
-		<item>-23.567804</item>
 		<item>-23.567758</item>
-		<item>-23.567719</item>
 		<item>-23.567719</item>
 		<item>-23.567656</item>
 		<item>-23.567599</item>
@@ -36,111 +24,71 @@
 		<item>-23.567388</item>
 		<item>-23.567322</item>
 		<item>-23.567281</item>
-		<item>-23.567281</item>
 		<item>-23.567246</item>
-		<item>-23.567203</item>
 		<item>-23.567203</item>
 		<item>-23.567204</item>
 		<item>-23.567207</item>
 		<item>-23.567227</item>
 		<item>-23.567251</item>
 		<item>-23.567284</item>
-		<item>-23.567284</item>
-		<item>-23.566963</item>
 		<item>-23.566963</item>
 		<item>-23.566526</item>
-		<item>-23.566526</item>
-		<item>-23.566116</item>
 		<item>-23.566116</item>
 		<item>-23.566082</item>
-		<item>-23.566082</item>
-		<item>-23.566056</item>
 		<item>-23.566056</item>
 		<item>-23.565891</item>
-		<item>-23.565891</item>
-		<item>-23.565852</item>
 		<item>-23.565852</item>
 		<item>-23.565694</item>
-		<item>-23.565694</item>
 		<item>-23.565433</item>
-		<item>-23.565433</item>
-		<item>-23.565195</item>
 		<item>-23.565195</item>
 		<item>-23.565161</item>
-		<item>-23.56505</item>
 		<item>-23.56505</item>
 		<item>-23.564959</item>
 		<item>-23.564791</item>
 		<item>-23.564647</item>
-		<item>-23.564647</item>
 		<item>-23.564588</item>
-		<item>-23.564543</item>
 		<item>-23.564543</item>
 		<item>-23.564536</item>
 		<item>-23.564591</item>
 		<item>-23.564646</item>
-		<item>-23.564646</item>
-		<item>-23.564259</item>
 		<item>-23.564259</item>
 		<item>-23.564002</item>
-		<item>-23.564002</item>
-		<item>-23.563632</item>
 		<item>-23.563632</item>
 		<item>-23.563425</item>
-		<item>-23.563425</item>
-		<item>-23.563223</item>
 		<item>-23.563223</item>
 		<item>-23.562758</item>
-		<item>-23.562231</item>
 		<item>-23.562231</item>
 		<item>-23.562165</item>
 		<item>-23.562105</item>
 		<item>-23.562021</item>
 		<item>-23.561937</item>
-		<item>-23.561937</item>
 		<item>-23.561858</item>
 		<item>-23.561805</item>
 		<item>-23.561786</item>
-		<item>-23.561786</item>
 		<item>-23.56182</item>
 		<item>-23.561874</item>
-		<item>-23.561874</item>
-		<item>-23.561429</item>
 		<item>-23.561429</item>
 		<item>-23.561225</item>
 		<item>-23.561037</item>
 		<item>-23.560877</item>
 		<item>-23.560734</item>
 		<item>-23.560634</item>
-		<item>-23.560634</item>
 		<item>-23.560565</item>
 		<item>-23.560536</item>
-		<item>-23.560536</item>
-		<item>-23.560596</item>
 		<item>-23.560596</item>
 		<item>-23.56072</item>
 		<item>-23.560881</item>
-		<item>-23.560881</item>
-		<item>-23.561151</item>
 		<item>-23.561151</item>
 		<item>-23.561297</item>
 		<item>-23.561472</item>
 		<item>-23.561606</item>
-		<item>-23.561606</item>
-		<item>-23.561744</item>
 		<item>-23.561744</item>
 		<item>-23.562092</item>
-		<item>-23.562092</item>
-		<item>-23.562149</item>
 		<item>-23.562149</item>
 		<item>-23.561874</item>
-		<item>-23.561874</item>
-		<item>-23.562099</item>
 		<item>-23.562099</item>
 		<item>-23.562189</item>
 		<item>-23.562324</item>
-		<item>-23.562324</item>
-		<item>-23.563128</item>
 		<item>-23.563128</item>
 		<item>-23.563062</item>
 		<item>-23.563015</item>
@@ -148,32 +96,19 @@
 		<item>-23.563023</item>
 		<item>-23.563073</item>
 		<item>-23.563144</item>
-		<item>-23.563144</item>
-		<item>-23.562636</item>
 		<item>-23.562636</item>
 		<item>-23.562077</item>
-		<item>-23.562077</item>
-		<item>-23.561847</item>
 		<item>-23.561847</item>
 		<item>-23.561255</item>
-		<item>-23.561255</item>
-		<item>-23.560872</item>
 		<item>-23.560872</item>
 		<item>-23.560651</item>
-		<item>-23.560651</item>
-		<item>-23.56013</item>
 		<item>-23.56013</item>
 		<item>-23.55994</item>
-		<item>-23.55994</item>
 		<item>-23.559636</item>
-		<item>-23.559636</item>
-		<item>-23.559497</item>
 		<item>-23.559497</item>
 		<item>-23.559018</item>
 		<item>-23.558082</item>
-		<item>-23.558082</item>
 		<item>-23.557869</item>
-		<item>-23.557094</item>
 		<item>-23.557094</item>
 		<item>-23.557014</item>
 		<item>-23.55693</item>
@@ -182,10 +117,7 @@
 		<item>-23.55676</item>
 		<item>-23.556714</item>
 		<item>-23.556691</item>
-		<item>-23.556691</item>
 		<item>-23.556677</item>
-		<item>-23.556677</item>
-		<item>-23.556809</item>
 		<item>-23.556809</item>
 		<item>-23.556852</item>
 		<item>-23.556901</item>
@@ -193,16 +125,12 @@
 		<item>-23.557101</item>
 		<item>-23.557185</item>
 		<item>-23.557252</item>
-		<item>-23.557252</item>
-		<item>-23.557306</item>
 		<item>-23.557306</item>
 		<item>-23.557357</item>
 		<item>-23.557392</item>
 		<item>-23.557384</item>
 		<item>-23.557276</item>
 		<item>-23.557238</item>
-		<item>-23.557238</item>
-		<item>-23.557094</item>
 		<item>-23.557094</item>
 		<item>-23.557014</item>
 		<item>-23.55693</item>
@@ -211,10 +139,7 @@
 		<item>-23.55676</item>
 		<item>-23.556714</item>
 		<item>-23.556691</item>
-		<item>-23.556691</item>
 		<item>-23.556677</item>
-		<item>-23.556677</item>
-		<item>-23.556809</item>
 		<item>-23.556809</item>
 		<item>-23.556852</item>
 		<item>-23.556901</item>
@@ -222,19 +147,15 @@
 		<item>-23.557101</item>
 		<item>-23.557185</item>
 		<item>-23.557252</item>
-		<item>-23.557252</item>
 		<item>-23.557305</item>
 		<item>-23.558146</item>
-		<item>-23.559181</item>
 		<item>-23.559181</item>
 		<item>-23.559184</item>
 		<item>-23.559191</item>
 		<item>-23.559196</item>
 		<item>-23.559223</item>
-		<item>-23.559223</item>
 		<item>-23.559282</item>
 		<item>-23.559355</item>
-		<item>-23.559391</item>
 		<item>-23.559391</item>
 		<item>-23.55949</item>
 		<item>-23.559556</item>
@@ -247,14 +168,11 @@
 		<item>-23.559733</item>
 		<item>-23.559748</item>
 		<item>-23.560134</item>
-		<item>-23.560134</item>
-		<item>-23.560213</item>
 		<item>-23.560213</item>
 		<item>-23.560253</item>
 		<item>-23.560326</item>
 		<item>-23.560422</item>
 		<item>-23.560531</item>
-		<item>-23.560797</item>
 		<item>-23.560797</item>
 		<item>-23.560922</item>
 		<item>-23.561301</item>
@@ -266,42 +184,31 @@
 		<item>-23.562776</item>
 		<item>-23.562942</item>
 		<item>-23.563148</item>
-		<item>-23.563148</item>
 		<item>-23.563299</item>
-		<item>-23.563299</item>
-		<item>-23.563358</item>
 		<item>-23.563358</item>
 		<item>-23.563434</item>
 		<item>-23.563519</item>
 		<item>-23.563622</item>
 		<item>-23.563759</item>
 		<item>-23.564034</item>
-		<item>-23.564034</item>
 		<item>-23.564282</item>
 		<item>-23.564762</item>
-		<item>-23.565238</item>
 		<item>-23.565238</item>
 		<item>-23.566552</item>
 		<item>-23.5667</item>
 		<item>-23.566953</item>
 		<item>-23.567182</item>
-		<item>-23.567182</item>
 		<item>-23.568197</item>
-		<item>-23.568197</item>
-		<item>-23.568445</item>
 		<item>-23.568445</item>
 		<item>-23.56864</item>
 		<item>-23.568697</item>
 		<item>-23.568766</item>
-		<item>-23.568766</item>
 		<item>-23.568967</item>
-		<item>-23.569044</item>
 		<item>-23.569044</item>
 		<item>-23.569095</item>
 		<item>-23.569098</item>
 		<item>-23.569108</item>
 		<item>-23.569185</item>
-		<item>-23.569377</item>
 		<item>-23.569377</item>
 		<item>-23.569327</item>
 		<item>-23.569245</item>
@@ -313,19 +220,16 @@
 		<item>-23.568567</item>
 		<item>-23.568469</item>
 		<item>-23.568421</item>
-		<item>-23.568421</item>
 		<item>-23.568306</item>
 		<item>-23.568251</item>
 		<item>-23.568198</item>
 		<item>-23.568157</item>
-		<item>-23.568136</item>
 		<item>-23.568136</item>
 		<item>-23.568172</item>
 		<item>-23.568266</item>
 		<item>-23.568368</item>
 		<item>-23.56845</item>
 		<item>-23.568512</item>
-		<item>-23.568557</item>
 		<item>-23.568557</item>
 		<item>-23.568608</item>
 		<item>-23.568638</item>
@@ -335,7 +239,6 @@
 		<item>-23.568505</item>
 		<item>-23.568467</item>
 		<item>-23.568421</item>
-		<item>-23.568421</item>
 		<item>-23.568469</item>
 		<item>-23.568567</item>
 		<item>-23.568706</item>
@@ -346,23 +249,18 @@
 		<item>-23.569245</item>
 		<item>-23.569327</item>
 		<item>-23.569377</item>
-		<item>-23.569377</item>
 		<item>-23.569185</item>
 		<item>-23.569108</item>
 		<item>-23.569098</item>
 		<item>-23.569095</item>
 		<item>-23.569044</item>
-		<item>-23.569044</item>
 		<item>-23.568967</item>
 		<item>-23.568766</item>
-		<item>-23.568766</item>
 		<item>-23.568719</item>
-		<item>-23.568717</item>
 		<item>-23.568717</item>
 		<item>-23.569218</item>
 		<item>-23.56931</item>
 		<item>-23.569246</item>
-		<item>-23.568972</item>
 		<item>-23.568972</item>
 		<item>-23.568879</item>
 		<item>-23.568682</item>
@@ -370,38 +268,28 @@
 		<item>-23.568515</item>
 		<item>-23.56851</item>
 		<item>-23.568527</item>
-		<item>-23.568527</item>
 		<item>-23.568458</item>
 		<item>-23.56844</item>
-		<item>-23.568451</item>
 		<item>-23.568451</item>
 		<item>-23.568495</item>
 		<item>-23.568499</item>
 		<item>-23.56845</item>
 		<item>-23.568363</item>
-		<item>-23.568363</item>
 		<item>-23.568306</item>
 		<item>-23.568189</item>
 		<item>-23.568097</item>
 		<item>-23.567997</item>
-		<item>-23.567997</item>
 		<item>-23.567839</item>
-		<item>-23.567754</item>
 		<item>-23.567754</item>
 		<item>-23.567698</item>
 		<item>-23.567669</item>
 		<item>-23.56768</item>
 		<item>-23.567752</item>
-		<item>-23.567752</item>
-		<item>-23.567637</item>
 		<item>-23.567637</item>
 		<item>-23.567414</item>
-		<item>-23.567414</item>
-		<item>-23.566812</item>
 		<item>-23.566812</item>
 		<item>-23.566482</item>
 		<item>-23.565879</item>
-		<item>-23.565503</item>
 		<item>-23.565503</item>
 		<item>-23.565382</item>
 		<item>-23.565174</item>
@@ -416,17 +304,11 @@
 		<item>-23.562543</item>
 		<item>-23.56232</item>
 		<item>-23.562056</item>
-		<item>-23.562056</item>
 		<item>-23.561579</item>
-		<item>-23.561579</item>
-		<item>-23.561398</item>
 		<item>-23.561398</item>
 		<item>-23.561003</item>
 		<item>-23.560777</item>
-		<item>-23.560777</item>
 		<item>-23.560525</item>
-		<item>-23.560525</item>
-		<item>-23.560431</item>
 		<item>-23.560431</item>
 		<item>-23.560337</item>
 		<item>-23.560279</item>
@@ -437,41 +319,27 @@
 		<item>-23.56001</item>
 		<item>-23.55999</item>
 		<item>-23.559978</item>
-		<item>-23.559978</item>
-		<item>-23.559931</item>
 		<item>-23.559931</item>
 		<item>-23.559903</item>
-		<item>-23.559903</item>
-		<item>-23.55985</item>
 		<item>-23.55985</item>
 		<item>-23.559655</item>
-		<item>-23.559655</item>
-		<item>-23.559573</item>
 		<item>-23.559573</item>
 		<item>-23.559523</item>
-		<item>-23.559523</item>
-		<item>-23.559503</item>
 		<item>-23.559503</item>
 		<item>-23.559497</item>
-		<item>-23.559498</item>
 		<item>-23.559498</item>
 		<item>-23.559408</item>
 		<item>-23.559336</item>
 		<item>-23.559271</item>
 		<item>-23.559159</item>
 		<item>-23.559075</item>
-		<item>-23.559075</item>
 		<item>-23.557933</item>
-		<item>-23.557933</item>
-		<item>-23.557306</item>
 		<item>-23.557306</item>
 		<item>-23.557357</item>
 		<item>-23.557392</item>
 		<item>-23.557384</item>
 		<item>-23.557276</item>
 		<item>-23.557238</item>
-		<item>-23.557238</item>
-		<item>-23.557094</item>
 		<item>-23.557094</item>
 		<item>-23.557014</item>
 		<item>-23.55693</item>
@@ -480,8 +348,6 @@
 		<item>-23.55676</item>
 		<item>-23.556714</item>
 		<item>-23.556691</item>
-		<item>-23.556691</item>
-		<item>-23.556677</item>
 		<item>-23.556677</item>
 		<item>-23.556569</item>
 		<item>-23.55619</item>
@@ -490,107 +356,66 @@
 		<item>-23.554462</item>
 		<item>-23.554142</item>
 		<item>-23.553988</item>
-		<item>-23.553988</item>
-		<item>-23.552829</item>
 		<item>-23.552829</item>
 		<item>-23.552291</item>
-		<item>-23.552291</item>
-		<item>-23.551843</item>
 		<item>-23.551843</item>
 		<item>-23.551748</item>
 		<item>-23.551708</item>
 		<item>-23.551686</item>
 		<item>-23.551674</item>
 		<item>-23.551682</item>
-		<item>-23.551682</item>
-		<item>-23.552007</item>
 		<item>-23.552007</item>
 		<item>-23.552267</item>
-		<item>-23.552267</item>
-		<item>-23.55273</item>
 		<item>-23.55273</item>
 		<item>-23.553104</item>
-		<item>-23.553104</item>
 		<item>-23.553549</item>
-		<item>-23.553549</item>
-		<item>-23.554252</item>
 		<item>-23.554252</item>
 		<item>-23.554335</item>
-		<item>-23.554424</item>
 		<item>-23.554424</item>
 		<item>-23.554581</item>
 		<item>-23.554731</item>
 		<item>-23.555055</item>
-		<item>-23.555055</item>
-		<item>-23.555333</item>
 		<item>-23.555333</item>
 		<item>-23.55612</item>
-		<item>-23.55612</item>
-		<item>-23.556384</item>
 		<item>-23.556384</item>
 		<item>-23.557351</item>
-		<item>-23.557351</item>
-		<item>-23.55758</item>
 		<item>-23.55758</item>
 		<item>-23.558234</item>
-		<item>-23.558234</item>
-		<item>-23.558427</item>
 		<item>-23.558427</item>
 		<item>-23.559066</item>
-		<item>-23.559066</item>
-		<item>-23.559143</item>
 		<item>-23.559143</item>
 		<item>-23.558316</item>
-		<item>-23.558316</item>
-		<item>-23.557448</item>
 		<item>-23.557448</item>
 		<item>-23.556613</item>
-		<item>-23.556613</item>
 		<item>-23.55622</item>
-		<item>-23.55622</item>
-		<item>-23.555131</item>
 		<item>-23.555131</item>
 		<item>-23.554911</item>
 		<item>-23.554725</item>
 		<item>-23.554676</item>
 		<item>-23.554647</item>
-		<item>-23.554647</item>
 		<item>-23.55508</item>
-		<item>-23.55508</item>
-		<item>-23.555907</item>
 		<item>-23.555907</item>
 		<item>-23.556174</item>
 		<item>-23.556656</item>
 		<item>-23.556826</item>
-		<item>-23.556826</item>
-		<item>-23.557593</item>
 		<item>-23.557593</item>
 		<item>-23.557807</item>
-		<item>-23.557807</item>
-		<item>-23.557929</item>
 		<item>-23.557929</item>
 		<item>-23.558676</item>
-		<item>-23.558676</item>
-		<item>-23.559748</item>
 		<item>-23.559748</item>
 		<item>-23.560139</item>
 		<item>-23.560292</item>
 		<item>-23.560487</item>
 		<item>-23.561179</item>
-		<item>-23.561179</item>
 		<item>-23.561813</item>
 		<item>-23.56272</item>
 		<item>-23.562997</item>
-		<item>-23.562997</item>
 		<item>-23.564327</item>
-		<item>-23.564543</item>
 		<item>-23.564543</item>
 		<item>-23.564536</item>
 		<item>-23.564591</item>
 		<item>-23.564646</item>
-		<item>-23.564646</item>
 		<item>-23.56481</item>
-		<item>-23.564982</item>
 		<item>-23.564982</item>
 		<item>-23.565105</item>
 		<item>-23.565189</item>
@@ -598,64 +423,38 @@
 		<item>-23.565325</item>
 		<item>-23.565365</item>
 		<item>-23.565381</item>
-		<item>-23.565381</item>
 		<item>-23.565319</item>
 		<item>-23.565296</item>
-		<item>-23.565296</item>
-		<item>-23.565434</item>
 		<item>-23.565434</item>
 		<item>-23.565741</item>
-		<item>-23.565741</item>
-		<item>-23.567225</item>
 		<item>-23.567225</item>
 		<item>-23.568033</item>
-		<item>-23.568033</item>
-		<item>-23.568816</item>
 		<item>-23.568816</item>
 		<item>-23.570197</item>
-		<item>-23.570197</item>
-		<item>-23.570354</item>
 		<item>-23.570354</item>
 		<item>-23.571112</item>
-		<item>-23.571112</item>
-		<item>-23.571468</item>
 		<item>-23.571468</item>
 		<item>-23.57157</item>
-		<item>-23.57157</item>
-		<item>-23.571742</item>
 		<item>-23.571742</item>
 		<item>-23.571916</item>
-		<item>-23.571916</item>
-		<item>-23.57188</item>
+		<item>-23.571887</item>
     </array>
     
     <array name="longitudes8012">
 		<item>-46.708243</item>
 		<item>-46.708356</item>
-		<item>-46.708356</item>
-		<item>-46.70855</item>
 		<item>-46.70855</item>
 		<item>-46.708795</item>
-		<item>-46.708795</item>
-		<item>-46.709075</item>
 		<item>-46.709075</item>
 		<item>-46.70938</item>
-		<item>-46.70938</item>
-		<item>-46.709205</item>
 		<item>-46.709205</item>
 		<item>-46.709151</item>
-		<item>-46.709151</item>
-		<item>-46.708675</item>
 		<item>-46.708675</item>
 		<item>-46.708274</item>
-		<item>-46.708274</item>
-		<item>-46.707976</item>
 		<item>-46.707976</item>
 		<item>-46.7078</item>
 		<item>-46.707673</item>
-		<item>-46.707673</item>
 		<item>-46.707604</item>
-		<item>-46.707559</item>
 		<item>-46.707559</item>
 		<item>-46.707521</item>
 		<item>-46.707494</item>
@@ -664,111 +463,71 @@
 		<item>-46.707516</item>
 		<item>-46.707561</item>
 		<item>-46.707604</item>
-		<item>-46.707604</item>
 		<item>-46.707665</item>
-		<item>-46.707766</item>
 		<item>-46.707766</item>
 		<item>-46.707811</item>
 		<item>-46.707917</item>
 		<item>-46.70798</item>
 		<item>-46.70805</item>
 		<item>-46.708099</item>
-		<item>-46.708099</item>
-		<item>-46.708736</item>
 		<item>-46.708736</item>
 		<item>-46.709645</item>
-		<item>-46.709645</item>
-		<item>-46.710467</item>
 		<item>-46.710467</item>
 		<item>-46.710535</item>
-		<item>-46.710535</item>
-		<item>-46.710587</item>
 		<item>-46.710587</item>
 		<item>-46.710901</item>
-		<item>-46.710901</item>
-		<item>-46.710975</item>
 		<item>-46.710975</item>
 		<item>-46.711276</item>
-		<item>-46.711276</item>
 		<item>-46.71183</item>
-		<item>-46.71183</item>
-		<item>-46.712279</item>
 		<item>-46.712279</item>
 		<item>-46.712344</item>
-		<item>-46.712596</item>
 		<item>-46.712596</item>
 		<item>-46.712584</item>
 		<item>-46.712629</item>
 		<item>-46.712743</item>
-		<item>-46.712743</item>
 		<item>-46.712842</item>
-		<item>-46.713006</item>
 		<item>-46.713006</item>
 		<item>-46.713128</item>
 		<item>-46.713276</item>
 		<item>-46.713376</item>
-		<item>-46.713376</item>
-		<item>-46.714168</item>
 		<item>-46.714168</item>
 		<item>-46.714697</item>
-		<item>-46.714697</item>
-		<item>-46.715446</item>
 		<item>-46.715446</item>
 		<item>-46.715894</item>
-		<item>-46.715894</item>
-		<item>-46.716291</item>
 		<item>-46.716291</item>
 		<item>-46.717195</item>
-		<item>-46.718266</item>
 		<item>-46.718266</item>
 		<item>-46.718268</item>
 		<item>-46.71829</item>
 		<item>-46.718326</item>
 		<item>-46.718379</item>
-		<item>-46.718379</item>
 		<item>-46.718459</item>
 		<item>-46.71857</item>
 		<item>-46.718677</item>
-		<item>-46.718806</item>
 		<item>-46.718931</item>
 		<item>-46.719091</item>
-		<item>-46.719091</item>
-		<item>-46.719729</item>
 		<item>-46.719729</item>
 		<item>-46.719738</item>
 		<item>-46.719741</item>
 		<item>-46.719786</item>
 		<item>-46.719851</item>
 		<item>-46.719973</item>
-		<item>-46.719973</item>
 		<item>-46.720143</item>
 		<item>-46.720384</item>
-		<item>-46.720384</item>
-		<item>-46.720606</item>
 		<item>-46.720606</item>
 		<item>-46.720812</item>
 		<item>-46.720981</item>
-		<item>-46.720981</item>
-		<item>-46.721131</item>
 		<item>-46.721131</item>
 		<item>-46.721173</item>
 		<item>-46.721215</item>
 		<item>-46.721204</item>
-		<item>-46.721204</item>
-		<item>-46.721183</item>
 		<item>-46.721183</item>
 		<item>-46.720879</item>
-		<item>-46.720879</item>
-		<item>-46.720359</item>
 		<item>-46.720359</item>
 		<item>-46.719958</item>
-		<item>-46.719958</item>
-		<item>-46.719216</item>
 		<item>-46.719216</item>
 		<item>-46.71923</item>
 		<item>-46.719205</item>
-		<item>-46.719205</item>
-		<item>-46.720726</item>
 		<item>-46.720726</item>
 		<item>-46.720821</item>
 		<item>-46.720935</item>
@@ -776,32 +535,19 @@
 		<item>-46.721219</item>
 		<item>-46.721333</item>
 		<item>-46.721428</item>
-		<item>-46.721428</item>
-		<item>-46.722535</item>
 		<item>-46.722535</item>
 		<item>-46.723664</item>
-		<item>-46.723664</item>
-		<item>-46.724129</item>
 		<item>-46.724129</item>
 		<item>-46.725318</item>
-		<item>-46.725318</item>
-		<item>-46.726071</item>
 		<item>-46.726071</item>
 		<item>-46.726474</item>
-		<item>-46.726474</item>
-		<item>-46.727509</item>
 		<item>-46.727509</item>
 		<item>-46.727872</item>
-		<item>-46.727872</item>
 		<item>-46.72848</item>
-		<item>-46.72848</item>
-		<item>-46.728754</item>
 		<item>-46.728754</item>
 		<item>-46.729787</item>
 		<item>-46.731931</item>
-		<item>-46.731931</item>
 		<item>-46.732339</item>
-		<item>-46.73388</item>
 		<item>-46.73388</item>
 		<item>-46.733905</item>
 		<item>-46.733902</item>
@@ -810,10 +556,7 @@
 		<item>-46.734025</item>
 		<item>-46.734065</item>
 		<item>-46.734079</item>
-		<item>-46.734079</item>
 		<item>-46.734116</item>
-		<item>-46.734116</item>
-		<item>-46.734374</item>
 		<item>-46.734374</item>
 		<item>-46.734451</item>
 		<item>-46.734537</item>
@@ -821,16 +564,12 @@
 		<item>-46.734706</item>
 		<item>-46.734703</item>
 		<item>-46.734686</item>
-		<item>-46.734686</item>
-		<item>-46.734657</item>
 		<item>-46.734657</item>
 		<item>-46.734604</item>
 		<item>-46.734523</item>
 		<item>-46.734381</item>
 		<item>-46.734162</item>
 		<item>-46.734097</item>
-		<item>-46.734097</item>
-		<item>-46.73388</item>
 		<item>-46.73388</item>
 		<item>-46.733905</item>
 		<item>-46.733902</item>
@@ -839,10 +578,7 @@
 		<item>-46.734025</item>
 		<item>-46.734065</item>
 		<item>-46.734079</item>
-		<item>-46.734079</item>
 		<item>-46.734116</item>
-		<item>-46.734116</item>
-		<item>-46.734374</item>
 		<item>-46.734374</item>
 		<item>-46.734451</item>
 		<item>-46.734537</item>
@@ -850,19 +586,15 @@
 		<item>-46.734706</item>
 		<item>-46.734703</item>
 		<item>-46.734686</item>
-		<item>-46.734686</item>
 		<item>-46.734778</item>
 		<item>-46.736275</item>
-		<item>-46.738072</item>
 		<item>-46.738072</item>
 		<item>-46.738177</item>
 		<item>-46.738275</item>
 		<item>-46.738363</item>
 		<item>-46.738473</item>
-		<item>-46.738473</item>
 		<item>-46.738539</item>
 		<item>-46.738605</item>
-		<item>-46.738621</item>
 		<item>-46.738621</item>
 		<item>-46.738707</item>
 		<item>-46.738747</item>
@@ -875,14 +607,11 @@
 		<item>-46.742101</item>
 		<item>-46.742432</item>
 		<item>-46.743038</item>
-		<item>-46.743038</item>
-		<item>-46.74294</item>
 		<item>-46.74294</item>
 		<item>-46.742972</item>
 		<item>-46.743021</item>
 		<item>-46.743002</item>
 		<item>-46.742947</item>
-		<item>-46.74283</item>
 		<item>-46.74283</item>
 		<item>-46.742743</item>
 		<item>-46.742466</item>
@@ -894,42 +623,31 @@
 		<item>-46.741555</item>
 		<item>-46.74155</item>
 		<item>-46.74151</item>
-		<item>-46.74151</item>
 		<item>-46.741523</item>
-		<item>-46.741523</item>
-		<item>-46.741568</item>
 		<item>-46.741568</item>
 		<item>-46.741632</item>
 		<item>-46.74164</item>
 		<item>-46.74156</item>
 		<item>-46.741355</item>
 		<item>-46.740918</item>
-		<item>-46.740918</item>
 		<item>-46.740421</item>
 		<item>-46.739538</item>
-		<item>-46.739198</item>
 		<item>-46.739198</item>
 		<item>-46.738413</item>
 		<item>-46.738291</item>
 		<item>-46.73801</item>
 		<item>-46.737664</item>
-		<item>-46.737664</item>
 		<item>-46.735919</item>
-		<item>-46.735919</item>
-		<item>-46.735491</item>
 		<item>-46.735491</item>
 		<item>-46.735461</item>
 		<item>-46.735482</item>
 		<item>-46.735528</item>
-		<item>-46.735528</item>
 		<item>-46.735805</item>
-		<item>-46.735956</item>
 		<item>-46.735956</item>
 		<item>-46.736245</item>
 		<item>-46.736425</item>
 		<item>-46.736549</item>
 		<item>-46.736655</item>
-		<item>-46.736765</item>
 		<item>-46.736765</item>
 		<item>-46.737389</item>
 		<item>-46.737616</item>
@@ -941,19 +659,16 @@
 		<item>-46.739349</item>
 		<item>-46.739574</item>
 		<item>-46.739778</item>
-		<item>-46.739778</item>
 		<item>-46.739816</item>
 		<item>-46.739869</item>
 		<item>-46.739949</item>
 		<item>-46.740056</item>
-		<item>-46.740246</item>
 		<item>-46.740246</item>
 		<item>-46.740336</item>
 		<item>-46.740404</item>
 		<item>-46.740421</item>
 		<item>-46.740406</item>
 		<item>-46.740371</item>
-		<item>-46.740325</item>
 		<item>-46.740325</item>
 		<item>-46.740251</item>
 		<item>-46.740156</item>
@@ -963,7 +678,6 @@
 		<item>-46.739828</item>
 		<item>-46.739794</item>
 		<item>-46.739778</item>
-		<item>-46.739778</item>
 		<item>-46.739574</item>
 		<item>-46.739349</item>
 		<item>-46.738949</item>
@@ -974,23 +688,18 @@
 		<item>-46.737616</item>
 		<item>-46.737389</item>
 		<item>-46.736765</item>
-		<item>-46.736765</item>
 		<item>-46.736655</item>
 		<item>-46.736549</item>
 		<item>-46.736425</item>
 		<item>-46.736245</item>
 		<item>-46.735956</item>
-		<item>-46.735956</item>
 		<item>-46.735805</item>
 		<item>-46.735528</item>
-		<item>-46.735528</item>
 		<item>-46.735329</item>
-		<item>-46.735021</item>
 		<item>-46.735021</item>
 		<item>-46.734135</item>
 		<item>-46.733929</item>
 		<item>-46.733374</item>
-		<item>-46.732807</item>
 		<item>-46.732807</item>
 		<item>-46.732647</item>
 		<item>-46.732264</item>
@@ -998,38 +707,28 @@
 		<item>-46.73175</item>
 		<item>-46.731146</item>
 		<item>-46.730479</item>
-		<item>-46.730479</item>
 		<item>-46.730171</item>
 		<item>-46.730014</item>
-		<item>-46.729909</item>
 		<item>-46.729909</item>
 		<item>-46.729758</item>
 		<item>-46.729618</item>
 		<item>-46.72944</item>
 		<item>-46.729342</item>
-		<item>-46.729342</item>
 		<item>-46.729296</item>
 		<item>-46.729254</item>
 		<item>-46.729244</item>
 		<item>-46.729239</item>
-		<item>-46.729239</item>
 		<item>-46.729315</item>
-		<item>-46.72941</item>
 		<item>-46.72941</item>
 		<item>-46.729509</item>
 		<item>-46.729627</item>
 		<item>-46.729774</item>
 		<item>-46.729954</item>
-		<item>-46.729954</item>
-		<item>-46.730278</item>
 		<item>-46.730278</item>
 		<item>-46.730397</item>
-		<item>-46.730397</item>
-		<item>-46.730333</item>
 		<item>-46.730333</item>
 		<item>-46.73031</item>
 		<item>-46.730229</item>
-		<item>-46.73009</item>
 		<item>-46.73009</item>
 		<item>-46.729986</item>
 		<item>-46.729488</item>
@@ -1044,17 +743,11 @@
 		<item>-46.729115</item>
 		<item>-46.729203</item>
 		<item>-46.729414</item>
-		<item>-46.729414</item>
 		<item>-46.729846</item>
-		<item>-46.729846</item>
-		<item>-46.730029</item>
 		<item>-46.730029</item>
 		<item>-46.730402</item>
 		<item>-46.730696</item>
-		<item>-46.730696</item>
 		<item>-46.731168</item>
-		<item>-46.731168</item>
-		<item>-46.731322</item>
 		<item>-46.731322</item>
 		<item>-46.731293</item>
 		<item>-46.731296</item>
@@ -1065,41 +758,27 @@
 		<item>-46.731739</item>
 		<item>-46.731877</item>
 		<item>-46.731969</item>
-		<item>-46.731969</item>
-		<item>-46.732361</item>
 		<item>-46.732361</item>
 		<item>-46.732487</item>
-		<item>-46.732487</item>
-		<item>-46.732869</item>
 		<item>-46.732869</item>
 		<item>-46.73477</item>
-		<item>-46.73477</item>
-		<item>-46.73574</item>
 		<item>-46.73574</item>
 		<item>-46.736196</item>
-		<item>-46.736196</item>
-		<item>-46.737239</item>
 		<item>-46.737239</item>
 		<item>-46.737861</item>
-		<item>-46.737957</item>
 		<item>-46.737957</item>
 		<item>-46.738017</item>
 		<item>-46.738043</item>
 		<item>-46.738001</item>
 		<item>-46.737853</item>
 		<item>-46.737791</item>
-		<item>-46.737791</item>
 		<item>-46.735812</item>
-		<item>-46.735812</item>
-		<item>-46.734657</item>
 		<item>-46.734657</item>
 		<item>-46.734604</item>
 		<item>-46.734523</item>
 		<item>-46.734381</item>
 		<item>-46.734162</item>
 		<item>-46.734097</item>
-		<item>-46.734097</item>
-		<item>-46.73388</item>
 		<item>-46.73388</item>
 		<item>-46.733905</item>
 		<item>-46.733902</item>
@@ -1108,8 +787,6 @@
 		<item>-46.734025</item>
 		<item>-46.734065</item>
 		<item>-46.734079</item>
-		<item>-46.734079</item>
-		<item>-46.734116</item>
 		<item>-46.734116</item>
 		<item>-46.734019</item>
 		<item>-46.733817</item>
@@ -1118,107 +795,66 @@
 		<item>-46.732834</item>
 		<item>-46.732641</item>
 		<item>-46.732543</item>
-		<item>-46.732543</item>
-		<item>-46.731892</item>
 		<item>-46.731892</item>
 		<item>-46.731597</item>
-		<item>-46.731597</item>
-		<item>-46.731351</item>
 		<item>-46.731351</item>
 		<item>-46.731282</item>
 		<item>-46.731227</item>
 		<item>-46.731183</item>
 		<item>-46.731133</item>
 		<item>-46.731012</item>
-		<item>-46.731012</item>
-		<item>-46.730336</item>
 		<item>-46.730336</item>
 		<item>-46.729803</item>
-		<item>-46.729803</item>
-		<item>-46.728773</item>
 		<item>-46.728773</item>
 		<item>-46.728037</item>
-		<item>-46.728037</item>
 		<item>-46.727249</item>
-		<item>-46.727249</item>
-		<item>-46.725769</item>
 		<item>-46.725769</item>
 		<item>-46.725619</item>
-		<item>-46.725415</item>
 		<item>-46.725415</item>
 		<item>-46.72535</item>
 		<item>-46.725387</item>
 		<item>-46.725594</item>
-		<item>-46.725594</item>
-		<item>-46.725763</item>
 		<item>-46.725763</item>
 		<item>-46.726236</item>
-		<item>-46.726236</item>
-		<item>-46.726382</item>
 		<item>-46.726382</item>
 		<item>-46.726921</item>
-		<item>-46.726921</item>
-		<item>-46.727041</item>
 		<item>-46.727041</item>
 		<item>-46.727396</item>
-		<item>-46.727396</item>
-		<item>-46.727505</item>
 		<item>-46.727505</item>
 		<item>-46.727869</item>
-		<item>-46.727869</item>
-		<item>-46.727692</item>
 		<item>-46.727692</item>
 		<item>-46.727205</item>
-		<item>-46.727205</item>
-		<item>-46.726724</item>
 		<item>-46.726724</item>
 		<item>-46.726265</item>
-		<item>-46.726265</item>
 		<item>-46.726044</item>
-		<item>-46.726044</item>
-		<item>-46.725412</item>
 		<item>-46.725412</item>
 		<item>-46.725293</item>
 		<item>-46.725172</item>
 		<item>-46.725071</item>
 		<item>-46.724856</item>
-		<item>-46.724856</item>
 		<item>-46.724206</item>
-		<item>-46.724206</item>
-		<item>-46.722781</item>
 		<item>-46.722781</item>
 		<item>-46.722299</item>
 		<item>-46.721225</item>
 		<item>-46.720913</item>
-		<item>-46.720913</item>
-		<item>-46.719207</item>
 		<item>-46.719207</item>
 		<item>-46.718716</item>
-		<item>-46.718716</item>
-		<item>-46.718331</item>
 		<item>-46.718331</item>
 		<item>-46.716735</item>
-		<item>-46.716735</item>
-		<item>-46.71445</item>
 		<item>-46.71445</item>
 		<item>-46.713779</item>
 		<item>-46.713574</item>
 		<item>-46.713437</item>
 		<item>-46.71313</item>
-		<item>-46.71313</item>
 		<item>-46.713031</item>
 		<item>-46.713013</item>
 		<item>-46.71301</item>
-		<item>-46.71301</item>
 		<item>-46.71298</item>
-		<item>-46.713006</item>
 		<item>-46.713006</item>
 		<item>-46.713128</item>
 		<item>-46.713276</item>
 		<item>-46.713376</item>
-		<item>-46.713376</item>
 		<item>-46.713492</item>
-		<item>-46.713529</item>
 		<item>-46.713529</item>
 		<item>-46.71351</item>
 		<item>-46.713486</item>
@@ -1226,35 +862,21 @@
 		<item>-46.713323</item>
 		<item>-46.71319</item>
 		<item>-46.713045</item>
-		<item>-46.713045</item>
 		<item>-46.712811</item>
 		<item>-46.712724</item>
-		<item>-46.712724</item>
-		<item>-46.712388</item>
 		<item>-46.712388</item>
 		<item>-46.711806</item>
-		<item>-46.711806</item>
-		<item>-46.711726</item>
 		<item>-46.711726</item>
 		<item>-46.711703</item>
-		<item>-46.711703</item>
-		<item>-46.711668</item>
 		<item>-46.711668</item>
 		<item>-46.711602</item>
-		<item>-46.711602</item>
-		<item>-46.711607</item>
 		<item>-46.711607</item>
 		<item>-46.709205</item>
-		<item>-46.709205</item>
-		<item>-46.708083</item>
 		<item>-46.708083</item>
 		<item>-46.708117</item>
-		<item>-46.708117</item>
-		<item>-46.70818</item>
 		<item>-46.70818</item>
 		<item>-46.708243</item>
-		<item>-46.708243</item>
-		<item>-46.70835</item>
+		<item>-46.708356</item>
     </array>
     
     <array name="horariosUtil8012">
@@ -1500,26 +1122,16 @@
     <array name="latitudes8022">
 		<item>-23.571826</item>
 		<item>-23.571748</item>
-		<item>-23.571748</item>
-		<item>-23.571659</item>
 		<item>-23.571659</item>
 		<item>-23.571572</item>
-		<item>-23.571572</item>
-		<item>-23.571112</item>
 		<item>-23.571112</item>
 		<item>-23.570969</item>
-		<item>-23.570969</item>
-		<item>-23.569714</item>
 		<item>-23.569714</item>
 		<item>-23.568687</item>
-		<item>-23.568687</item>
-		<item>-23.567822</item>
 		<item>-23.567822</item>
 		<item>-23.567834</item>
 		<item>-23.567804</item>
-		<item>-23.567804</item>
 		<item>-23.567758</item>
-		<item>-23.567719</item>
 		<item>-23.567719</item>
 		<item>-23.567656</item>
 		<item>-23.567599</item>
@@ -1528,50 +1140,32 @@
 		<item>-23.567388</item>
 		<item>-23.567322</item>
 		<item>-23.567281</item>
-		<item>-23.567281</item>
 		<item>-23.567246</item>
-		<item>-23.567203</item>
 		<item>-23.567203</item>
 		<item>-23.567204</item>
 		<item>-23.567207</item>
 		<item>-23.567227</item>
 		<item>-23.567251</item>
 		<item>-23.567284</item>
-		<item>-23.567284</item>
-		<item>-23.566963</item>
 		<item>-23.566963</item>
 		<item>-23.566526</item>
-		<item>-23.566526</item>
-		<item>-23.566116</item>
 		<item>-23.566116</item>
 		<item>-23.566082</item>
-		<item>-23.566082</item>
-		<item>-23.566056</item>
 		<item>-23.566056</item>
 		<item>-23.565891</item>
-		<item>-23.565891</item>
-		<item>-23.565852</item>
 		<item>-23.565852</item>
 		<item>-23.565694</item>
-		<item>-23.565694</item>
 		<item>-23.565433</item>
-		<item>-23.565433</item>
-		<item>-23.565195</item>
 		<item>-23.565195</item>
 		<item>-23.565161</item>
-		<item>-23.56505</item>
 		<item>-23.56505</item>
 		<item>-23.564959</item>
 		<item>-23.564791</item>
 		<item>-23.564647</item>
-		<item>-23.564647</item>
 		<item>-23.563207</item>
-		<item>-23.563207</item>
-		<item>-23.562967</item>
 		<item>-23.562967</item>
 		<item>-23.562625</item>
 		<item>-23.561797</item>
-		<item>-23.561177</item>
 		<item>-23.561177</item>
 		<item>-23.560536</item>
 		<item>-23.560334</item>
@@ -1579,31 +1173,21 @@
 		<item>-23.559951</item>
 		<item>-23.559688</item>
 		<item>-23.559508</item>
-		<item>-23.559508</item>
-		<item>-23.557678</item>
 		<item>-23.557678</item>
 		<item>-23.557384</item>
 		<item>-23.556989</item>
 		<item>-23.55653</item>
 		<item>-23.556014</item>
 		<item>-23.555713</item>
-		<item>-23.555713</item>
 		<item>-23.554893</item>
-		<item>-23.554493</item>
 		<item>-23.554493</item>
 		<item>-23.554093</item>
 		<item>-23.554048</item>
-		<item>-23.554048</item>
-		<item>-23.553333</item>
 		<item>-23.553333</item>
 		<item>-23.553001</item>
 		<item>-23.552559</item>
-		<item>-23.552559</item>
-		<item>-23.551813</item>
 		<item>-23.551813</item>
 		<item>-23.551406</item>
-		<item>-23.551406</item>
-		<item>-23.551097</item>
 		<item>-23.551097</item>
 		<item>-23.551112</item>
 		<item>-23.551133</item>
@@ -1611,22 +1195,15 @@
 		<item>-23.551193</item>
 		<item>-23.551232</item>
 		<item>-23.551277</item>
-		<item>-23.551277</item>
-		<item>-23.551503</item>
 		<item>-23.551503</item>
 		<item>-23.551542</item>
-		<item>-23.551584</item>
 		<item>-23.551584</item>
 		<item>-23.551625</item>
 		<item>-23.551671</item>
 		<item>-23.551726</item>
 		<item>-23.551843</item>
-		<item>-23.551843</item>
-		<item>-23.552291</item>
 		<item>-23.552291</item>
 		<item>-23.552829</item>
-		<item>-23.552829</item>
-		<item>-23.553988</item>
 		<item>-23.553988</item>
 		<item>-23.554142</item>
 		<item>-23.554462</item>
@@ -1635,8 +1212,6 @@
 		<item>-23.55619</item>
 		<item>-23.556569</item>
 		<item>-23.556677</item>
-		<item>-23.556677</item>
-		<item>-23.556809</item>
 		<item>-23.556809</item>
 		<item>-23.556852</item>
 		<item>-23.556901</item>
@@ -1644,85 +1219,54 @@
 		<item>-23.557101</item>
 		<item>-23.557185</item>
 		<item>-23.557252</item>
-		<item>-23.557252</item>
-		<item>-23.557306</item>
 		<item>-23.557306</item>
 		<item>-23.557357</item>
 		<item>-23.557392</item>
 		<item>-23.557384</item>
 		<item>-23.557276</item>
 		<item>-23.557238</item>
-		<item>-23.557238</item>
-		<item>-23.558</item>
 		<item>-23.558</item>
 		<item>-23.558249</item>
 		<item>-23.558465</item>
-		<item>-23.558465</item>
 		<item>-23.558822</item>
 		<item>-23.559187</item>
-		<item>-23.559187</item>
-		<item>-23.559693</item>
 		<item>-23.559693</item>
 		<item>-23.55976</item>
-		<item>-23.55976</item>
-		<item>-23.56048</item>
 		<item>-23.56048</item>
 		<item>-23.561483</item>
-		<item>-23.561483</item>
 		<item>-23.562832</item>
-		<item>-23.562832</item>
-		<item>-23.563372</item>
 		<item>-23.563372</item>
 		<item>-23.563456</item>
 		<item>-23.563527</item>
 		<item>-23.563594</item>
-		<item>-23.563594</item>
-		<item>-23.563766</item>
 		<item>-23.563766</item>
 		<item>-23.563975</item>
-		<item>-23.563975</item>
-		<item>-23.564311</item>
 		<item>-23.564311</item>
 		<item>-23.564488</item>
-		<item>-23.564488</item>
-		<item>-23.56473</item>
 		<item>-23.56473</item>
 		<item>-23.565015</item>
-		<item>-23.565015</item>
-		<item>-23.565699</item>
 		<item>-23.565699</item>
 		<item>-23.566212</item>
-		<item>-23.566212</item>
-		<item>-23.566307</item>
 		<item>-23.566307</item>
 		<item>-23.566665</item>
 		<item>-23.566945</item>
-		<item>-23.566945</item>
-		<item>-23.567423</item>
 		<item>-23.567423</item>
 		<item>-23.567703</item>
-		<item>-23.567754</item>
 		<item>-23.567754</item>
 		<item>-23.567698</item>
 		<item>-23.567669</item>
 		<item>-23.56768</item>
 		<item>-23.567752</item>
-		<item>-23.567752</item>
 		<item>-23.567813</item>
-		<item>-23.567922</item>
 		<item>-23.567922</item>
 		<item>-23.567982</item>
 		<item>-23.568063</item>
 		<item>-23.568129</item>
-		<item>-23.568129</item>
 		<item>-23.56827</item>
-		<item>-23.568332</item>
 		<item>-23.568332</item>
 		<item>-23.568311</item>
 		<item>-23.568284</item>
-		<item>-23.568284</item>
 		<item>-23.568278</item>
-		<item>-23.568329</item>
 		<item>-23.568329</item>
 		<item>-23.568425</item>
 		<item>-23.568581</item>
@@ -1733,28 +1277,22 @@
 		<item>-23.568887</item>
 		<item>-23.568448</item>
 		<item>-23.568038</item>
-		<item>-23.568038</item>
 		<item>-23.568052</item>
 		<item>-23.568071</item>
 		<item>-23.568095</item>
 		<item>-23.568124</item>
 		<item>-23.568158</item>
 		<item>-23.568197</item>
-		<item>-23.568197</item>
-		<item>-23.568445</item>
 		<item>-23.568445</item>
 		<item>-23.56864</item>
 		<item>-23.568697</item>
 		<item>-23.568766</item>
-		<item>-23.568766</item>
 		<item>-23.568967</item>
-		<item>-23.569044</item>
 		<item>-23.569044</item>
 		<item>-23.569095</item>
 		<item>-23.569098</item>
 		<item>-23.569108</item>
 		<item>-23.569185</item>
-		<item>-23.569377</item>
 		<item>-23.569377</item>
 		<item>-23.569327</item>
 		<item>-23.569245</item>
@@ -1766,19 +1304,16 @@
 		<item>-23.568567</item>
 		<item>-23.568469</item>
 		<item>-23.568421</item>
-		<item>-23.568421</item>
 		<item>-23.568306</item>
 		<item>-23.568251</item>
 		<item>-23.568198</item>
 		<item>-23.568157</item>
-		<item>-23.568136</item>
 		<item>-23.568136</item>
 		<item>-23.568172</item>
 		<item>-23.568266</item>
 		<item>-23.568368</item>
 		<item>-23.56845</item>
 		<item>-23.568512</item>
-		<item>-23.568557</item>
 		<item>-23.568557</item>
 		<item>-23.568608</item>
 		<item>-23.568638</item>
@@ -1788,7 +1323,6 @@
 		<item>-23.568505</item>
 		<item>-23.568467</item>
 		<item>-23.568421</item>
-		<item>-23.568421</item>
 		<item>-23.568469</item>
 		<item>-23.568567</item>
 		<item>-23.568706</item>
@@ -1799,23 +1333,18 @@
 		<item>-23.569245</item>
 		<item>-23.569327</item>
 		<item>-23.569377</item>
-		<item>-23.569377</item>
 		<item>-23.569185</item>
 		<item>-23.569108</item>
 		<item>-23.569098</item>
 		<item>-23.569095</item>
 		<item>-23.569044</item>
-		<item>-23.569044</item>
 		<item>-23.568967</item>
 		<item>-23.568766</item>
-		<item>-23.568766</item>
 		<item>-23.568719</item>
-		<item>-23.568717</item>
 		<item>-23.568717</item>
 		<item>-23.569218</item>
 		<item>-23.56931</item>
 		<item>-23.569246</item>
-		<item>-23.568972</item>
 		<item>-23.568972</item>
 		<item>-23.568879</item>
 		<item>-23.568682</item>
@@ -1823,44 +1352,33 @@
 		<item>-23.568515</item>
 		<item>-23.56851</item>
 		<item>-23.568527</item>
-		<item>-23.568527</item>
 		<item>-23.568458</item>
 		<item>-23.56844</item>
-		<item>-23.568451</item>
 		<item>-23.568451</item>
 		<item>-23.568495</item>
 		<item>-23.568499</item>
 		<item>-23.56845</item>
 		<item>-23.568363</item>
-		<item>-23.568363</item>
 		<item>-23.568306</item>
 		<item>-23.568189</item>
 		<item>-23.568097</item>
 		<item>-23.567997</item>
-		<item>-23.567997</item>
 		<item>-23.567839</item>
-		<item>-23.567754</item>
 		<item>-23.567754</item>
 		<item>-23.567698</item>
 		<item>-23.567669</item>
 		<item>-23.56768</item>
 		<item>-23.567752</item>
-		<item>-23.567752</item>
 		<item>-23.567813</item>
-		<item>-23.567922</item>
 		<item>-23.567922</item>
 		<item>-23.567982</item>
 		<item>-23.568063</item>
 		<item>-23.568129</item>
-		<item>-23.568129</item>
 		<item>-23.56827</item>
-		<item>-23.568332</item>
 		<item>-23.568332</item>
 		<item>-23.568311</item>
 		<item>-23.568284</item>
-		<item>-23.568284</item>
 		<item>-23.568278</item>
-		<item>-23.568329</item>
 		<item>-23.568329</item>
 		<item>-23.568425</item>
 		<item>-23.568581</item>
@@ -1871,7 +1389,6 @@
 		<item>-23.568887</item>
 		<item>-23.568448</item>
 		<item>-23.568038</item>
-		<item>-23.568038</item>
 		<item>-23.567713</item>
 		<item>-23.567315</item>
 		<item>-23.567047</item>
@@ -1880,15 +1397,11 @@
 		<item>-23.565891</item>
 		<item>-23.564969</item>
 		<item>-23.564679</item>
-		<item>-23.564679</item>
 		<item>-23.56431</item>
 		<item>-23.563931</item>
 		<item>-23.563624</item>
-		<item>-23.563624</item>
-		<item>-23.563405</item>
 		<item>-23.563405</item>
 		<item>-23.563278</item>
-		<item>-23.563148</item>
 		<item>-23.563148</item>
 		<item>-23.562942</item>
 		<item>-23.562776</item>
@@ -1900,20 +1413,16 @@
 		<item>-23.561301</item>
 		<item>-23.560922</item>
 		<item>-23.560797</item>
-		<item>-23.560797</item>
 		<item>-23.560531</item>
 		<item>-23.560422</item>
 		<item>-23.560326</item>
 		<item>-23.560253</item>
-		<item>-23.560213</item>
 		<item>-23.560213</item>
 		<item>-23.559869</item>
 		<item>-23.559844</item>
 		<item>-23.559807</item>
 		<item>-23.559802</item>
 		<item>-23.55974</item>
-		<item>-23.55974</item>
-		<item>-23.559615</item>
 		<item>-23.559615</item>
 		<item>-23.559654</item>
 		<item>-23.559653</item>
@@ -1921,28 +1430,18 @@
 		<item>-23.559568</item>
 		<item>-23.559537</item>
 		<item>-23.559498</item>
-		<item>-23.559498</item>
 		<item>-23.559497</item>
 		<item>-23.559503</item>
-		<item>-23.559503</item>
-		<item>-23.559523</item>
 		<item>-23.559523</item>
 		<item>-23.559573</item>
-		<item>-23.559573</item>
-		<item>-23.559655</item>
 		<item>-23.559655</item>
 		<item>-23.55985</item>
-		<item>-23.55985</item>
 		<item>-23.559903</item>
-		<item>-23.559903</item>
-		<item>-23.559931</item>
 		<item>-23.559931</item>
 		<item>-23.559997</item>
 		<item>-23.560066</item>
 		<item>-23.560242</item>
-		<item>-23.560242</item>
 		<item>-23.560138</item>
-		<item>-23.559978</item>
 		<item>-23.559978</item>
 		<item>-23.55999</item>
 		<item>-23.56001</item>
@@ -1953,23 +1452,15 @@
 		<item>-23.560279</item>
 		<item>-23.560337</item>
 		<item>-23.560431</item>
-		<item>-23.560431</item>
 		<item>-23.560493</item>
-		<item>-23.560525</item>
 		<item>-23.560525</item>
 		<item>-23.560493</item>
 		<item>-23.560431</item>
-		<item>-23.560431</item>
 		<item>-23.560525</item>
-		<item>-23.560525</item>
-		<item>-23.560777</item>
 		<item>-23.560777</item>
 		<item>-23.561003</item>
 		<item>-23.561398</item>
-		<item>-23.561398</item>
 		<item>-23.561579</item>
-		<item>-23.561579</item>
-		<item>-23.562056</item>
 		<item>-23.562056</item>
 		<item>-23.56232</item>
 		<item>-23.562543</item>
@@ -1984,65 +1475,46 @@
 		<item>-23.565174</item>
 		<item>-23.565382</item>
 		<item>-23.565503</item>
-		<item>-23.565503</item>
 		<item>-23.565879</item>
 		<item>-23.566482</item>
 		<item>-23.566812</item>
-		<item>-23.566812</item>
-		<item>-23.567414</item>
 		<item>-23.567414</item>
 		<item>-23.567637</item>
-		<item>-23.567637</item>
-		<item>-23.567922</item>
 		<item>-23.567922</item>
 		<item>-23.567982</item>
 		<item>-23.568063</item>
 		<item>-23.568129</item>
-		<item>-23.568129</item>
 		<item>-23.568236</item>
 		<item>-23.568321</item>
-		<item>-23.568451</item>
 		<item>-23.568451</item>
 		<item>-23.568495</item>
 		<item>-23.568499</item>
 		<item>-23.56845</item>
 		<item>-23.568363</item>
-		<item>-23.568363</item>
 		<item>-23.568306</item>
 		<item>-23.568189</item>
 		<item>-23.568097</item>
 		<item>-23.567997</item>
-		<item>-23.567997</item>
 		<item>-23.56789</item>
 		<item>-23.567829</item>
 		<item>-23.566825</item>
-		<item>-23.566825</item>
 		<item>-23.566685</item>
-		<item>-23.566685</item>
-		<item>-23.566531</item>
 		<item>-23.566531</item>
 		<item>-23.565829</item>
 		<item>-23.565155</item>
-		<item>-23.565155</item>
-		<item>-23.565052</item>
 		<item>-23.565052</item>
 		<item>-23.564448</item>
-		<item>-23.564448</item>
-		<item>-23.563753</item>
 		<item>-23.563753</item>
 		<item>-23.563821</item>
 		<item>-23.56387</item>
 		<item>-23.563896</item>
 		<item>-23.563887</item>
 		<item>-23.563851</item>
-		<item>-23.563851</item>
 		<item>-23.563789</item>
 		<item>-23.563705</item>
 		<item>-23.563615</item>
 		<item>-23.563501</item>
 		<item>-23.563308</item>
-		<item>-23.563308</item>
-		<item>-23.562485</item>
 		<item>-23.562485</item>
 		<item>-23.562559</item>
 		<item>-23.562595</item>
@@ -2051,15 +1523,11 @@
 		<item>-23.562583</item>
 		<item>-23.562537</item>
 		<item>-23.562509</item>
-		<item>-23.562509</item>
 		<item>-23.563031</item>
-		<item>-23.563487</item>
 		<item>-23.563487</item>
 		<item>-23.563637</item>
 		<item>-23.564266</item>
-		<item>-23.564266</item>
 		<item>-23.564846</item>
-		<item>-23.564982</item>
 		<item>-23.564982</item>
 		<item>-23.565105</item>
 		<item>-23.565189</item>
@@ -2067,62 +1535,37 @@
 		<item>-23.565325</item>
 		<item>-23.565365</item>
 		<item>-23.565381</item>
-		<item>-23.565381</item>
 		<item>-23.565319</item>
 		<item>-23.565296</item>
-		<item>-23.565296</item>
-		<item>-23.565434</item>
 		<item>-23.565434</item>
 		<item>-23.565741</item>
-		<item>-23.565741</item>
-		<item>-23.567225</item>
 		<item>-23.567225</item>
 		<item>-23.568033</item>
-		<item>-23.568033</item>
-		<item>-23.568816</item>
 		<item>-23.568816</item>
 		<item>-23.570197</item>
-		<item>-23.570197</item>
-		<item>-23.570354</item>
 		<item>-23.570354</item>
 		<item>-23.571112</item>
-		<item>-23.571112</item>
-		<item>-23.571468</item>
 		<item>-23.571468</item>
 		<item>-23.57157</item>
-		<item>-23.57157</item>
-		<item>-23.571742</item>
 		<item>-23.571742</item>
 		<item>-23.571916</item>
-		<item>-23.571916</item>
 		<item>-23.571887</item>
-		<item>-23.571887</item>
-		<item>-23.57182</item>
+		<item>-23.571826</item>
     </array>
     
     <array name="longitudes8022">
 		<item>-46.70855</item>
 		<item>-46.708795</item>
-		<item>-46.708795</item>
-		<item>-46.709075</item>
 		<item>-46.709075</item>
 		<item>-46.70938</item>
-		<item>-46.70938</item>
-		<item>-46.709205</item>
 		<item>-46.709205</item>
 		<item>-46.709151</item>
-		<item>-46.709151</item>
-		<item>-46.708675</item>
 		<item>-46.708675</item>
 		<item>-46.708274</item>
-		<item>-46.708274</item>
-		<item>-46.707976</item>
 		<item>-46.707976</item>
 		<item>-46.7078</item>
 		<item>-46.707673</item>
-		<item>-46.707673</item>
 		<item>-46.707604</item>
-		<item>-46.707559</item>
 		<item>-46.707559</item>
 		<item>-46.707521</item>
 		<item>-46.707494</item>
@@ -2131,50 +1574,32 @@
 		<item>-46.707516</item>
 		<item>-46.707561</item>
 		<item>-46.707604</item>
-		<item>-46.707604</item>
 		<item>-46.707665</item>
-		<item>-46.707766</item>
 		<item>-46.707766</item>
 		<item>-46.707811</item>
 		<item>-46.707917</item>
 		<item>-46.70798</item>
 		<item>-46.70805</item>
 		<item>-46.708099</item>
-		<item>-46.708099</item>
-		<item>-46.708736</item>
 		<item>-46.708736</item>
 		<item>-46.709645</item>
-		<item>-46.709645</item>
-		<item>-46.710467</item>
 		<item>-46.710467</item>
 		<item>-46.710535</item>
-		<item>-46.710535</item>
-		<item>-46.710587</item>
 		<item>-46.710587</item>
 		<item>-46.710901</item>
-		<item>-46.710901</item>
-		<item>-46.710975</item>
 		<item>-46.710975</item>
 		<item>-46.711276</item>
-		<item>-46.711276</item>
 		<item>-46.71183</item>
-		<item>-46.71183</item>
-		<item>-46.712279</item>
 		<item>-46.712279</item>
 		<item>-46.712344</item>
-		<item>-46.712596</item>
 		<item>-46.712596</item>
 		<item>-46.712584</item>
 		<item>-46.712629</item>
 		<item>-46.712743</item>
-		<item>-46.712743</item>
 		<item>-46.712778</item>
-		<item>-46.712778</item>
-		<item>-46.712768</item>
 		<item>-46.712768</item>
 		<item>-46.712761</item>
 		<item>-46.71273</item>
-		<item>-46.712799</item>
 		<item>-46.712799</item>
 		<item>-46.713042</item>
 		<item>-46.713179</item>
@@ -2182,31 +1607,21 @@
 		<item>-46.713551</item>
 		<item>-46.713885</item>
 		<item>-46.714274</item>
-		<item>-46.714274</item>
-		<item>-46.71823</item>
 		<item>-46.71823</item>
 		<item>-46.718826</item>
 		<item>-46.720007</item>
 		<item>-46.721056</item>
 		<item>-46.722052</item>
 		<item>-46.722679</item>
-		<item>-46.722679</item>
 		<item>-46.724083</item>
-		<item>-46.724763</item>
 		<item>-46.724763</item>
 		<item>-46.725564</item>
 		<item>-46.725647</item>
-		<item>-46.725647</item>
-		<item>-46.727103</item>
 		<item>-46.727103</item>
 		<item>-46.72776</item>
 		<item>-46.728685</item>
-		<item>-46.728685</item>
-		<item>-46.730227</item>
 		<item>-46.730227</item>
 		<item>-46.731064</item>
-		<item>-46.731064</item>
-		<item>-46.731687</item>
 		<item>-46.731687</item>
 		<item>-46.73173</item>
 		<item>-46.731764</item>
@@ -2214,22 +1629,15 @@
 		<item>-46.731801</item>
 		<item>-46.731804</item>
 		<item>-46.731798</item>
-		<item>-46.731798</item>
-		<item>-46.731398</item>
 		<item>-46.731398</item>
 		<item>-46.731345</item>
-		<item>-46.731324</item>
 		<item>-46.731324</item>
 		<item>-46.731323</item>
 		<item>-46.731318</item>
 		<item>-46.731315</item>
 		<item>-46.731351</item>
-		<item>-46.731351</item>
-		<item>-46.731597</item>
 		<item>-46.731597</item>
 		<item>-46.731892</item>
-		<item>-46.731892</item>
-		<item>-46.732543</item>
 		<item>-46.732543</item>
 		<item>-46.732641</item>
 		<item>-46.732834</item>
@@ -2238,8 +1646,6 @@
 		<item>-46.733817</item>
 		<item>-46.734019</item>
 		<item>-46.734116</item>
-		<item>-46.734116</item>
-		<item>-46.734374</item>
 		<item>-46.734374</item>
 		<item>-46.734451</item>
 		<item>-46.734537</item>
@@ -2247,85 +1653,54 @@
 		<item>-46.734706</item>
 		<item>-46.734703</item>
 		<item>-46.734686</item>
-		<item>-46.734686</item>
-		<item>-46.734657</item>
 		<item>-46.734657</item>
 		<item>-46.734604</item>
 		<item>-46.734523</item>
 		<item>-46.734381</item>
 		<item>-46.734162</item>
 		<item>-46.734097</item>
-		<item>-46.734097</item>
-		<item>-46.732534</item>
 		<item>-46.732534</item>
 		<item>-46.732013</item>
 		<item>-46.731535</item>
-		<item>-46.731535</item>
 		<item>-46.730824</item>
 		<item>-46.7301</item>
-		<item>-46.7301</item>
-		<item>-46.729054</item>
 		<item>-46.729054</item>
 		<item>-46.728907</item>
-		<item>-46.728907</item>
-		<item>-46.727505</item>
 		<item>-46.727505</item>
 		<item>-46.725453</item>
-		<item>-46.725453</item>
 		<item>-46.722659</item>
-		<item>-46.722659</item>
-		<item>-46.721545</item>
 		<item>-46.721545</item>
 		<item>-46.721549</item>
 		<item>-46.721539</item>
 		<item>-46.721523</item>
-		<item>-46.721523</item>
-		<item>-46.721871</item>
 		<item>-46.721871</item>
 		<item>-46.722266</item>
-		<item>-46.722266</item>
-		<item>-46.722916</item>
 		<item>-46.722916</item>
 		<item>-46.723218</item>
-		<item>-46.723218</item>
-		<item>-46.723676</item>
 		<item>-46.723676</item>
 		<item>-46.724204</item>
-		<item>-46.724204</item>
-		<item>-46.725455</item>
 		<item>-46.725455</item>
 		<item>-46.726392</item>
-		<item>-46.726392</item>
-		<item>-46.726604</item>
 		<item>-46.726604</item>
 		<item>-46.727283</item>
 		<item>-46.727801</item>
-		<item>-46.727801</item>
-		<item>-46.728646</item>
 		<item>-46.728646</item>
 		<item>-46.729212</item>
-		<item>-46.72941</item>
 		<item>-46.72941</item>
 		<item>-46.729509</item>
 		<item>-46.729627</item>
 		<item>-46.729774</item>
 		<item>-46.729954</item>
-		<item>-46.729954</item>
 		<item>-46.730051</item>
-		<item>-46.730135</item>
 		<item>-46.730135</item>
 		<item>-46.730168</item>
 		<item>-46.730181</item>
 		<item>-46.730187</item>
-		<item>-46.730187</item>
 		<item>-46.730257</item>
-		<item>-46.730539</item>
 		<item>-46.730539</item>
 		<item>-46.730909</item>
 		<item>-46.731451</item>
-		<item>-46.731451</item>
 		<item>-46.73174</item>
-		<item>-46.732064</item>
 		<item>-46.732064</item>
 		<item>-46.732298</item>
 		<item>-46.732549</item>
@@ -2336,28 +1711,22 @@
 		<item>-46.734379</item>
 		<item>-46.735142</item>
 		<item>-46.735813</item>
-		<item>-46.735813</item>
 		<item>-46.735851</item>
 		<item>-46.735881</item>
 		<item>-46.735903</item>
 		<item>-46.735917</item>
 		<item>-46.735922</item>
 		<item>-46.735919</item>
-		<item>-46.735919</item>
-		<item>-46.735491</item>
 		<item>-46.735491</item>
 		<item>-46.735461</item>
 		<item>-46.735482</item>
 		<item>-46.735528</item>
-		<item>-46.735528</item>
 		<item>-46.735805</item>
-		<item>-46.735956</item>
 		<item>-46.735956</item>
 		<item>-46.736245</item>
 		<item>-46.736425</item>
 		<item>-46.736549</item>
 		<item>-46.736655</item>
-		<item>-46.736765</item>
 		<item>-46.736765</item>
 		<item>-46.737389</item>
 		<item>-46.737616</item>
@@ -2369,19 +1738,16 @@
 		<item>-46.739349</item>
 		<item>-46.739574</item>
 		<item>-46.739778</item>
-		<item>-46.739778</item>
 		<item>-46.739816</item>
 		<item>-46.739869</item>
 		<item>-46.739949</item>
 		<item>-46.740056</item>
-		<item>-46.740246</item>
 		<item>-46.740246</item>
 		<item>-46.740336</item>
 		<item>-46.740404</item>
 		<item>-46.740421</item>
 		<item>-46.740406</item>
 		<item>-46.740371</item>
-		<item>-46.740325</item>
 		<item>-46.740325</item>
 		<item>-46.740251</item>
 		<item>-46.740156</item>
@@ -2391,7 +1757,6 @@
 		<item>-46.739828</item>
 		<item>-46.739794</item>
 		<item>-46.739778</item>
-		<item>-46.739778</item>
 		<item>-46.739574</item>
 		<item>-46.739349</item>
 		<item>-46.738949</item>
@@ -2402,23 +1767,18 @@
 		<item>-46.737616</item>
 		<item>-46.737389</item>
 		<item>-46.736765</item>
-		<item>-46.736765</item>
 		<item>-46.736655</item>
 		<item>-46.736549</item>
 		<item>-46.736425</item>
 		<item>-46.736245</item>
 		<item>-46.735956</item>
-		<item>-46.735956</item>
 		<item>-46.735805</item>
 		<item>-46.735528</item>
-		<item>-46.735528</item>
 		<item>-46.735329</item>
-		<item>-46.735021</item>
 		<item>-46.735021</item>
 		<item>-46.734135</item>
 		<item>-46.733929</item>
 		<item>-46.733374</item>
-		<item>-46.732807</item>
 		<item>-46.732807</item>
 		<item>-46.732647</item>
 		<item>-46.732264</item>
@@ -2426,44 +1786,33 @@
 		<item>-46.73175</item>
 		<item>-46.731146</item>
 		<item>-46.730479</item>
-		<item>-46.730479</item>
 		<item>-46.730171</item>
 		<item>-46.730014</item>
-		<item>-46.729909</item>
 		<item>-46.729909</item>
 		<item>-46.729758</item>
 		<item>-46.729618</item>
 		<item>-46.72944</item>
 		<item>-46.729342</item>
-		<item>-46.729342</item>
 		<item>-46.729296</item>
 		<item>-46.729254</item>
 		<item>-46.729244</item>
 		<item>-46.729239</item>
-		<item>-46.729239</item>
 		<item>-46.729315</item>
-		<item>-46.72941</item>
 		<item>-46.72941</item>
 		<item>-46.729509</item>
 		<item>-46.729627</item>
 		<item>-46.729774</item>
 		<item>-46.729954</item>
-		<item>-46.729954</item>
 		<item>-46.730051</item>
-		<item>-46.730135</item>
 		<item>-46.730135</item>
 		<item>-46.730168</item>
 		<item>-46.730181</item>
 		<item>-46.730187</item>
-		<item>-46.730187</item>
 		<item>-46.730257</item>
-		<item>-46.730539</item>
 		<item>-46.730539</item>
 		<item>-46.730909</item>
 		<item>-46.731451</item>
-		<item>-46.731451</item>
 		<item>-46.73174</item>
-		<item>-46.732064</item>
 		<item>-46.732064</item>
 		<item>-46.732298</item>
 		<item>-46.732549</item>
@@ -2474,7 +1823,6 @@
 		<item>-46.734379</item>
 		<item>-46.735142</item>
 		<item>-46.735813</item>
-		<item>-46.735813</item>
 		<item>-46.736418</item>
 		<item>-46.737093</item>
 		<item>-46.737555</item>
@@ -2483,15 +1831,11 @@
 		<item>-46.73863</item>
 		<item>-46.739185</item>
 		<item>-46.739383</item>
-		<item>-46.739383</item>
 		<item>-46.739997</item>
 		<item>-46.740771</item>
 		<item>-46.741201</item>
-		<item>-46.741201</item>
-		<item>-46.741399</item>
 		<item>-46.741399</item>
 		<item>-46.741423</item>
-		<item>-46.74151</item>
 		<item>-46.74151</item>
 		<item>-46.74155</item>
 		<item>-46.741555</item>
@@ -2503,20 +1847,16 @@
 		<item>-46.742466</item>
 		<item>-46.742743</item>
 		<item>-46.74283</item>
-		<item>-46.74283</item>
 		<item>-46.742947</item>
 		<item>-46.743002</item>
 		<item>-46.743021</item>
 		<item>-46.742972</item>
-		<item>-46.74294</item>
 		<item>-46.74294</item>
 		<item>-46.742475</item>
 		<item>-46.742121</item>
 		<item>-46.739506</item>
 		<item>-46.738981</item>
 		<item>-46.738828</item>
-		<item>-46.738828</item>
-		<item>-46.73853</item>
 		<item>-46.73853</item>
 		<item>-46.738416</item>
 		<item>-46.738331</item>
@@ -2524,28 +1864,18 @@
 		<item>-46.738168</item>
 		<item>-46.738076</item>
 		<item>-46.737957</item>
-		<item>-46.737957</item>
 		<item>-46.737861</item>
 		<item>-46.737239</item>
-		<item>-46.737239</item>
-		<item>-46.736196</item>
 		<item>-46.736196</item>
 		<item>-46.73574</item>
-		<item>-46.73574</item>
-		<item>-46.73477</item>
 		<item>-46.73477</item>
 		<item>-46.732869</item>
-		<item>-46.732869</item>
 		<item>-46.732487</item>
-		<item>-46.732487</item>
-		<item>-46.732361</item>
 		<item>-46.732361</item>
 		<item>-46.732285</item>
 		<item>-46.732236</item>
 		<item>-46.732208</item>
-		<item>-46.732208</item>
 		<item>-46.732153</item>
-		<item>-46.731969</item>
 		<item>-46.731969</item>
 		<item>-46.731877</item>
 		<item>-46.731739</item>
@@ -2556,23 +1886,15 @@
 		<item>-46.731296</item>
 		<item>-46.731293</item>
 		<item>-46.731322</item>
-		<item>-46.731322</item>
 		<item>-46.731348</item>
-		<item>-46.731377</item>
 		<item>-46.731377</item>
 		<item>-46.731348</item>
 		<item>-46.731322</item>
-		<item>-46.731322</item>
 		<item>-46.731168</item>
-		<item>-46.731168</item>
-		<item>-46.730696</item>
 		<item>-46.730696</item>
 		<item>-46.730402</item>
 		<item>-46.730029</item>
-		<item>-46.730029</item>
 		<item>-46.729846</item>
-		<item>-46.729846</item>
-		<item>-46.729414</item>
 		<item>-46.729414</item>
 		<item>-46.729203</item>
 		<item>-46.729115</item>
@@ -2587,65 +1909,46 @@
 		<item>-46.729488</item>
 		<item>-46.729986</item>
 		<item>-46.73009</item>
-		<item>-46.73009</item>
 		<item>-46.730229</item>
 		<item>-46.73031</item>
 		<item>-46.730333</item>
-		<item>-46.730333</item>
-		<item>-46.730397</item>
 		<item>-46.730397</item>
 		<item>-46.730278</item>
-		<item>-46.730278</item>
-		<item>-46.730135</item>
 		<item>-46.730135</item>
 		<item>-46.730168</item>
 		<item>-46.730181</item>
 		<item>-46.730187</item>
-		<item>-46.730187</item>
 		<item>-46.730142</item>
 		<item>-46.730078</item>
-		<item>-46.729909</item>
 		<item>-46.729909</item>
 		<item>-46.729758</item>
 		<item>-46.729618</item>
 		<item>-46.72944</item>
 		<item>-46.729342</item>
-		<item>-46.729342</item>
 		<item>-46.729296</item>
 		<item>-46.729254</item>
 		<item>-46.729244</item>
 		<item>-46.729239</item>
-		<item>-46.729239</item>
 		<item>-46.729132</item>
 		<item>-46.729011</item>
 		<item>-46.727051</item>
-		<item>-46.727051</item>
 		<item>-46.726805</item>
-		<item>-46.726805</item>
-		<item>-46.726523</item>
 		<item>-46.726523</item>
 		<item>-46.725225</item>
 		<item>-46.72396</item>
-		<item>-46.72396</item>
-		<item>-46.723775</item>
 		<item>-46.723775</item>
 		<item>-46.722696</item>
-		<item>-46.722696</item>
-		<item>-46.7214</item>
 		<item>-46.7214</item>
 		<item>-46.721311</item>
 		<item>-46.721196</item>
 		<item>-46.721065</item>
 		<item>-46.720942</item>
 		<item>-46.720833</item>
-		<item>-46.720833</item>
 		<item>-46.720735</item>
 		<item>-46.720664</item>
 		<item>-46.720623</item>
 		<item>-46.720596</item>
 		<item>-46.720597</item>
-		<item>-46.720597</item>
-		<item>-46.719076</item>
 		<item>-46.719076</item>
 		<item>-46.718947</item>
 		<item>-46.718873</item>
@@ -2654,15 +1957,11 @@
 		<item>-46.718529</item>
 		<item>-46.718447</item>
 		<item>-46.718403</item>
-		<item>-46.718403</item>
 		<item>-46.717378</item>
-		<item>-46.71643</item>
 		<item>-46.71643</item>
 		<item>-46.716129</item>
 		<item>-46.714857</item>
-		<item>-46.714857</item>
 		<item>-46.71364</item>
-		<item>-46.713529</item>
 		<item>-46.713529</item>
 		<item>-46.71351</item>
 		<item>-46.713486</item>
@@ -2670,37 +1969,22 @@
 		<item>-46.713323</item>
 		<item>-46.71319</item>
 		<item>-46.713045</item>
-		<item>-46.713045</item>
 		<item>-46.712811</item>
 		<item>-46.712724</item>
-		<item>-46.712724</item>
-		<item>-46.712388</item>
 		<item>-46.712388</item>
 		<item>-46.711806</item>
-		<item>-46.711806</item>
-		<item>-46.711726</item>
 		<item>-46.711726</item>
 		<item>-46.711703</item>
-		<item>-46.711703</item>
-		<item>-46.711668</item>
 		<item>-46.711668</item>
 		<item>-46.711602</item>
-		<item>-46.711602</item>
-		<item>-46.711607</item>
 		<item>-46.711607</item>
 		<item>-46.709205</item>
-		<item>-46.709205</item>
-		<item>-46.708083</item>
 		<item>-46.708083</item>
 		<item>-46.708117</item>
-		<item>-46.708117</item>
-		<item>-46.70818</item>
 		<item>-46.70818</item>
 		<item>-46.708243</item>
-		<item>-46.708243</item>
 		<item>-46.708356</item>
-		<item>-46.708356</item>
-		<item>-46.7085</item>
+		<item>-46.70855</item>
     </array>
     
     <array name="horariosUtil8022">

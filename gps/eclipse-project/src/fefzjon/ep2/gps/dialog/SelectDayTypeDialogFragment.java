@@ -1,4 +1,4 @@
-package fefzjon.ep2.gps;
+package fefzjon.ep2.gps.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -6,7 +6,8 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import fefzjon.ep2.gps.TimetableManager.DayType;
+import fefzjon.ep2.gps.R;
+import fefzjon.ep2.gps.utilities.TimetableManager.DayType;
 
 public class SelectDayTypeDialogFragment extends DialogFragment {
 

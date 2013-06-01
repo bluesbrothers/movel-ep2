@@ -23,7 +23,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import fefzjon.ep2.gps.RouteManager.PointArray;
+import fefzjon.ep2.gps.utilities.ConnectionHandler;
+import fefzjon.ep2.gps.utilities.RouteManager;
+import fefzjon.ep2.gps.utilities.RouteManager.PointArray;
+import fefzjon.ep2.gps.utilities.TimetableManager;
 
 public class MainActivity extends FragmentActivity implements LocationListener {
 
@@ -193,10 +196,10 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 			LatLng p = new LatLng(lat, lon);
 			routeOpt.add(p);
 
-			if ((arrowMark == 5) && (i < (pts.lats.length() - 5))) {
+			if ((arrowMark == 3) && (i < (pts.lats.length() - 1))) {
 				arrowMark = 0;
-				lat = pts.lats.getFloat(i + 5, -23);
-				lon = pts.lons.getFloat(i + 5, -46);
+				lat = pts.lats.getFloat(i + 1, -23);
+				lon = pts.lons.getFloat(i + 1, -46);
 				LatLng p2 = new LatLng(lat, lon);
 				arrows.add(this.createRouteArrow(p, p2));
 			}

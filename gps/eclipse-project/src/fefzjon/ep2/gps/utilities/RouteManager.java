@@ -1,10 +1,13 @@
-package fefzjon.ep2.gps;
+package fefzjon.ep2.gps.utilities;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.location.Location;
 
 import com.google.android.gms.maps.model.LatLng;
+
+import fefzjon.ep2.gps.MainActivity;
+import fefzjon.ep2.gps.R;
 
 public class RouteManager {
 	private static MainActivity parent;

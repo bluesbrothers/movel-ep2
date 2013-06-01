@@ -14,7 +14,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import fefzjon.ep2.gps.TimetableManager.DayType;
+import fefzjon.ep2.gps.dialog.SelectBUSPDialogFragment;
+import fefzjon.ep2.gps.dialog.SelectDayTypeDialogFragment;
+import fefzjon.ep2.gps.utilities.TimetableManager;
+import fefzjon.ep2.gps.utilities.TimetableManager.DayType;
 
 public class TimeTableActivity extends FragmentActivity implements
 		SelectDayTypeDialogFragment.DayTypeDialogListener,

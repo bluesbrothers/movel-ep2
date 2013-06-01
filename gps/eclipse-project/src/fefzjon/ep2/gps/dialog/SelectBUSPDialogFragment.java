@@ -1,4 +1,4 @@
-package fefzjon.ep2.gps;
+package fefzjon.ep2.gps.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import fefzjon.ep2.gps.R;
 
 public class SelectBUSPDialogFragment extends DialogFragment {
 

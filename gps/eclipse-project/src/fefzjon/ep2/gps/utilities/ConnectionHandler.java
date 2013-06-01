@@ -1,4 +1,4 @@
-package fefzjon.ep2.gps;
+package fefzjon.ep2.gps.utilities;
 
 import android.content.IntentSender;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationRequest;
 
+import fefzjon.ep2.gps.MainActivity;
+
 public class ConnectionHandler implements
 		GooglePlayServicesClient.ConnectionCallbacks,
 		GooglePlayServicesClient.OnConnectionFailedListener {
@@ -16,7 +18,7 @@ public class ConnectionHandler implements
 	private MainActivity parent;
 	private LocationClient locationClient;
 
-	ConnectionHandler(final MainActivity parent) {
+	public ConnectionHandler(final MainActivity parent) {
 		this.parent = parent;
 		this.locationClient = new LocationClient(parent, this, this);
 	}

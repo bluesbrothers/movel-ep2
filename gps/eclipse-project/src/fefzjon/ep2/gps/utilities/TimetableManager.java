@@ -1,4 +1,4 @@
-package fefzjon.ep2.gps;
+package fefzjon.ep2.gps.utilities;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +7,8 @@ import java.util.Date;
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import fefzjon.ep2.gps.MainActivity;
+import fefzjon.ep2.gps.R;
 
 public class TimetableManager {
 
@@ -21,8 +23,12 @@ public class TimetableManager {
 	}
 
 	public static DayType getDayType() {
+		return getDayType(new Date());
+	}
+
+	public static DayType getDayType(final Date date) {
 		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
+		c.setTime(date);
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 		if (dayOfWeek == Calendar.SUNDAY) {
 			return DayType.SUNDAY;
@@ -122,7 +128,8 @@ public class TimetableManager {
 	}
 
 	public static String getDepartureAfter(final Date time) {
-		TypedArray times = getDepartureTimes();
+		TypedArray times = getDepartureTimes(parent.getBuspCode(),
+				getDayType(time));
 		Calendar cal = Calendar.getInstance();
 		for (int i = 0; i < times.length(); i++) {
 			String dep = times.getString(i);
@@ -138,6 +145,13 @@ public class TimetableManager {
 			}
 		}
 		times.recycle();
-		return "";
+		// if we reached this point is because TIME is after all departure
+		// times in this day, so we go and seek in the next day.
+		cal.setTime(time);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		return getDepartureAfter(cal.getTime());
 	}
 }
