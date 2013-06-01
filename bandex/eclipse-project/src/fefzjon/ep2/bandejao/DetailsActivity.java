@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import fefzjon.ep2.bandejao.manager.ContentManager;
 import fefzjon.ep2.bandejao.model.CardapioDia;
@@ -15,7 +17,7 @@ import fefzjon.ep2.utils.Utils;
 
 public class DetailsActivity extends Activity {
 
-	private TextView	textView;
+	private TextView textView;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -24,9 +26,11 @@ public class DetailsActivity extends Activity {
 
 		Intent intent = this.getIntent();
 
-		int bandecoId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
+		final int bandecoId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID,
+				1);
 
-		CardapioSemana cardapioSemana = ContentManager.getIntance().getCardapioSemana(bandecoId);
+		CardapioSemana cardapioSemana = ContentManager.getIntance()
+				.getCardapioSemana(bandecoId);
 
 		this.textView = (TextView) this.findViewById(R.id.cardapio_details);
 
@@ -35,11 +39,23 @@ public class DetailsActivity extends Activity {
 		Log.i("BANDEX", Utils.formatDate(Utils.today()));
 		Log.i("BANDEX", "" + proximaRefeicao);
 
-		CardapioDia cardapioDia = cardapioSemana.get(Utils.parseAnoMesDia("2013-05-28"), proximaRefeicao);
+		CardapioDia cardapioDia = cardapioSemana.get(
+				Utils.parseAnoMesDia("2013-05-28"), proximaRefeicao);
 
 		if (cardapioDia != null) {
 			this.textView.setText(cardapioDia.getCardapio());
 		}
+
+		Button btLocation = (Button) this.findViewById(R.id.bt_ver_localizacao);
+		btLocation.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(final View v) {
+				Intent intent = new Intent(DetailsActivity.this,
+						MapActivity.class);
+				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
+				DetailsActivity.this.startActivity(intent);
+			}
+		});
 	}
 
 	@Override

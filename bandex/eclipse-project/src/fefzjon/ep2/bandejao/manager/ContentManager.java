@@ -21,9 +21,9 @@ import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.utils.Utils;
 
 public class ContentManager {
-	private static ContentManager			instance	= null;
+	private static ContentManager instance = null;
 
-	private Map<Integer, CardapioSemana>	infosBandecos;
+	private Map<Integer, CardapioSemana> infosBandecos;
 
 	private ContentManager() {
 		this.infosBandecos = new HashMap<Integer, CardapioSemana>();
@@ -39,13 +39,15 @@ public class ContentManager {
 	public CardapioSemana getCardapioSemana(final int bandecoId) {
 		CardapioSemana cardapio = this.infosBandecos.get(bandecoId);
 		if (cardapio == null) {
-			cardapio = fetchAndParseMeal(bandecoId, String.format(BandexContants.URL_PATTERN, bandecoId));
+			cardapio = fetchAndParseMeal(bandecoId,
+					String.format(BandexContants.URL_PATTERN, bandecoId));
 			this.infosBandecos.put(bandecoId, cardapio);
 		}
 		return cardapio;
 	}
 
-	private static CardapioSemana fetchAndParseMeal(final int bandexId, final String urlBandex) {
+	private static CardapioSemana fetchAndParseMeal(final int bandexId,
+			final String urlBandex) {
 		CardapioSemana cardapio = new CardapioSemana(bandexId);
 
 		try {
@@ -79,13 +81,15 @@ public class ContentManager {
 		return cardapio;
 	}
 
-	private static void saveNewContent(final CardapioSemana cardapio) throws EpDoisException {
+	private static void saveNewContent(final CardapioSemana cardapio)
+			throws EpDoisException {
 		Log.i("Bandex", "Deletando conteudo antigo");
 		Log.d("Bandex", "Novo conteudo salvo");
 	}
 
-	private static void parseXML(final CardapioSemana cardapioSemana, final XmlPullParser xpp)
-			throws XmlPullParserException, IOException, EpDoisException {
+	private static void parseXML(final CardapioSemana cardapioSemana,
+			final XmlPullParser xpp) throws XmlPullParserException,
+			IOException, EpDoisException {
 		Log.i("Bandex", "Comecando parse do input XML");
 
 		boolean insideItem = false;
@@ -110,12 +114,14 @@ public class ContentManager {
 				} else if (xpp.getName().equalsIgnoreCase("kcal")) {
 					if (insideItem) {
 						String text = xpp.nextText();
-						cDia.setKcal(text == null ? null : Integer.parseInt(text));
+						cDia.setKcal(text == null ? null : Integer
+								.parseInt(text));
 					}
 				} else if (xpp.getName().equalsIgnoreCase("meal-id")) {
 					if (insideItem) {
 						String text = xpp.nextText();
-						cDia.setTipoRefeicao(text == null ? null : Integer.parseInt(text));
+						cDia.setTipoRefeicao(text == null ? null : Integer
+								.parseInt(text));
 					}
 				} else if (xpp.getName().equalsIgnoreCase("options")) {
 					if (insideItem) {
@@ -130,17 +136,22 @@ public class ContentManager {
 				} else if (xpp.getName().equalsIgnoreCase("restaurant-id")) {
 					if (insideItem) {
 						String text = xpp.nextText();
-						Integer id = text == null ? null : Integer.parseInt(text);
+						Integer id = text == null ? null : Integer
+								.parseInt(text);
 						if (id != cardapioSemana.getBandexId()) {
-							throw new EpDoisException("Informacao referente a outro bandejao foi recebida no XML");
+							throw new EpDoisException(
+									"Informacao referente a outro bandejao foi recebida no XML");
 						}
 					}
 				}
 
-			} else if ((eventType == XmlPullParser.END_TAG) && xpp.getName().equalsIgnoreCase("menu")) {
+			} else if ((eventType == XmlPullParser.END_TAG)
+					&& xpp.getName().equalsIgnoreCase("menu")) {
 				insideItem = false;
-				if ((cDia.getDataReferente() != null) && (cDia.getTipoRefeicao() != null)) {
-					cardapioSemana.put(cDia.getDataReferente(), cDia.getTipoRefeicao(), cDia);
+				if ((cDia.getDataReferente() != null)
+						&& (cDia.getTipoRefeicao() != null)) {
+					cardapioSemana.put(cDia.getDataReferente(),
+							cDia.getTipoRefeicao(), cDia);
 				}
 			}
 

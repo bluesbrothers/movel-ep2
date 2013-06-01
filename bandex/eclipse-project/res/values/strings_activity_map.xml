@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="map_centraliza_bandeco">Centraliza mapa no Bandejão</string>
+    <string name="map_centraliza_usp">Centraliza mapa na USP</string>
+    
+    <string name="mmi_endereco">Endereço: </string>
+    <string name="mmi_expediente_util">Segundas às Sextas-Feiras: </string>
+    <string name="mmi_expediente_sabado">Sábados: </string>
+    <string name="mmi_expediente_domingo">Domingos: </string>
+    
+</resources>

@@ -14,10 +14,10 @@ import fefzjon.ep2.persist.DBManager;
 
 public class MainActivity extends Activity {
 
-	private Button	btCentral;
-	private Button	btPCO;
-	private Button	btFisica;
-	private Button	btQuimica;
+	private Button btCentral;
+	private Button btPCO;
+	private Button btFisica;
+	private Button btQuimica;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -97,9 +97,9 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.action_settings:
-				this.startActivity(new Intent(this, LoginActivity.class));
-				return true;
+		case R.id.action_settings:
+			this.startActivity(new Intent(this, LoginActivity.class));
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

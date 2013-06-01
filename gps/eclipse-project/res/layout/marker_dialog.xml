@@ -15,7 +15,6 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_marginBottom="16dp"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/pontoProx"
 	            android:textAppearance="?android:attr/textAppearanceMedium"
 	            android:textStyle="bold"  />
@@ -26,15 +25,13 @@
 	            android:id="@+id/md_dist_text"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/md_dist"
 	            android:layout_marginRight="3dp" 
 	            android:textStyle="bold" />
 		<TextView
 	            android:id="@+id/md_dist"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"  />
+	            android:layout_height="wrap_content"  />
 	</LinearLayout>
 	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
 	    android:orientation="horizontal" android:layout_marginBottom="6dp">
@@ -42,15 +39,13 @@
 	            android:id="@+id/md_time_text"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/md_time" 
 	            android:layout_marginRight="3dp"
 	            android:textStyle="bold" />
 		<TextView
 	            android:id="@+id/md_time"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"  />
+	            android:layout_height="wrap_content" />
 	</LinearLayout>
 	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
 	    android:orientation="horizontal" android:layout_marginBottom="6dp">
@@ -58,15 +53,13 @@
 	            android:id="@+id/md_exit_text"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/md_exit"
 	            android:layout_marginRight="3dp"  
 	            android:textStyle="bold"/>
 		<TextView
 	            android:id="@+id/md_exit"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"  />
+	            android:layout_height="wrap_content"  />
 	</LinearLayout>
 	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
 	     android:orientation="horizontal" android:layout_marginBottom="6dp">
@@ -74,15 +67,13 @@
 	            android:id="@+id/md_arrival_text"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"
 	            android:text="@string/md_arrival"
 	            android:layout_marginRight="3dp" 
 	            android:textStyle="bold" />
 		<TextView
 	            android:id="@+id/md_arrival"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:fontFamily="sans-serif-light"  />
+	            android:layout_height="wrap_content"  />
 	</LinearLayout>
 
 </LinearLayout>
