@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -82,13 +83,13 @@ public class ContentManager {
 		// Returns the type of current event: START_TAG, END_TAG, etc..
 		int eventType = xpp.getEventType();
 		FeedItem item = null;
-		String stringToday = Utils.formattedToday();
+		Date today = new Date();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			if (eventType == XmlPullParser.START_TAG) {
 				if (xpp.getName().equalsIgnoreCase("item")) {
 					insideItem = true;
 					item = new FeedItem();
-					item.setDataBaixado(stringToday);
+					item.setDataBaixado(today);
 					lista.add(item);
 				} else if (xpp.getName().equalsIgnoreCase("title")) {
 					if (insideItem) {

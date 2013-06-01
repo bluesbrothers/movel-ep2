@@ -22,6 +22,7 @@ import fefzjon.ep2.rssfeed.manager.ContentManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
 import fefzjon.ep2.rssfeed.utils.FeedUrls;
 import fefzjon.ep2.rssfeed.utils.IntentKeys;
+import fefzjon.ep2.utils.Utils;
 
 public class MainActivity extends ListActivity {
 
@@ -104,7 +105,7 @@ public class MainActivity extends ListActivity {
 		FeedItem item = this.feedItems.get(position);
 
 		Intent intent = new Intent(this, DetailsActivity.class);
-		intent.putExtra(IntentKeys.DETAILS_FEED_TITLE, item.getTitle());
+		intent.putExtra(IntentKeys.DETAILS_FEED_TITLE, Utils.formatDate(item.getDataBaixado()));
 		intent.putExtra(IntentKeys.DETAILS_FEED_DESCRIPTION, item.getDescription());
 		intent.putExtra(IntentKeys.DETAILS_FEED_LINK, item.getLink());
 

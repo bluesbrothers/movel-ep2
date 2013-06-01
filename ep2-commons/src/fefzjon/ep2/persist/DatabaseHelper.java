@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		this.columnTypes.put(Double.class, "real");
 		this.columnTypes.put(boolean.class, "integer");
 		this.columnTypes.put(Boolean.class, "integer");
-		this.columnTypes.put(Date.class, "text");
+		this.columnTypes.put(Date.class, "integer");
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package fefzjon.ep2.rssfeed.model;
 
+import java.util.Date;
+
 import fefzjon.ep2.persist.annotation.Column;
 import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.NotNull;
@@ -30,7 +32,7 @@ public class FeedItem implements BaseEntity {
 
 	@NotNull
 	@Column(name = "data_baixado", version = 1)
-	private String	dataBaixado;
+	private Date	dataBaixado;
 
 	public Integer getId() {
 		return this.id;
@@ -72,11 +74,11 @@ public class FeedItem implements BaseEntity {
 		this.dataPalestra = dataPalestra;
 	}
 
-	public String getDataBaixado() {
+	public Date getDataBaixado() {
 		return this.dataBaixado;
 	}
 
-	public void setDataBaixado(final String dataBaixado) {
+	public void setDataBaixado(final Date dataBaixado) {
 		this.dataBaixado = dataBaixado;
 	}
 
