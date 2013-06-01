@@ -67,8 +67,8 @@ public class DBReflectionHelper {
 			} else if (tipofield.equals(Boolean.class) || tipofield.equals(boolean.class)) {
 				values.put(column.name(), (Boolean) value == true ? 1 : 0);
 			} else if (tipofield.equals(Date.class)) {
-				String formattedDate = Utils.formatDate((Date) value);
-				values.put(column.name(), formattedDate);
+				Long time = value == null ? null : ((Date) value).getTime();
+				values.put(column.name(), time);
 			}
 		}
 		return values;
@@ -148,8 +148,8 @@ public class DBReflectionHelper {
 			Integer value = cursor.getInt(index);
 			return value != 0;
 		} else if (clazz.equals(Date.class)) {
-			String formattedDate = cursor.getString(index);
-			return Utils.getDateFrom(formattedDate);
+			Long time = cursor.getLong(index);
+			return time == null ? null : new Date(time);
 		}
 		return null;
 	}
@@ -167,7 +167,7 @@ public class DBReflectionHelper {
 			return value ? 1 : 0;
 		} else if (clazz.equals(Date.class)) {
 			Date date = (Date) field.get(entity);
-			return Utils.formatDate(date);
+			return date == null ? null : date.getTime();
 		}
 		return null;
 	}

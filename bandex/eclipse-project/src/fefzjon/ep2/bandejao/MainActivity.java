@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import fefzjon.ep2.bandejao.enums.Bandecos;
+import fefzjon.ep2.bandejao.model.CardapioDia;
+import fefzjon.ep2.bandejao.utils.IntentKeys;
+import fefzjon.ep2.persist.DBManager;
 
 public class MainActivity extends Activity {
 
@@ -21,6 +24,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 
+		if (!DBManager.isInitialized()) {
+			DBManager.registerModel(CardapioDia.class);
+			DBManager.initializeModule(this, "FEFZJON_BANDECO", 1);
+		}
+
 		this.btCentral = (Button) this.findViewById(R.id.btCentral);
 		this.btPCO = (Button) this.findViewById(R.id.btPCO);
 		this.btFisica = (Button) this.findViewById(R.id.btFisica);
@@ -31,7 +39,9 @@ public class MainActivity extends Activity {
 	}
 
 	private void handleBandejaoButtonClick(final Bandecos bandeco) {
-
+		Intent intent = new Intent(this, DetailsActivity.class);
+		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandeco.id);
+		this.startActivity(intent);
 	}
 
 	private void setupButtons() {
