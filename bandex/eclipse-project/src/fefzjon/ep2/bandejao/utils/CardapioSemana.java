@@ -1,22 +1,36 @@
 package fefzjon.ep2.bandejao.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import fefzjon.ep2.bandejao.model.CardapioDia;
 
 public class CardapioSemana {
-	private List<CardapioDia>	cardapiosDias;
+	private Map<Date, Map<Integer, CardapioDia>>	cardapiosDias;
+	private Integer									bandexId;
 
-	public CardapioSemana() {
-		this.cardapiosDias = new ArrayList<CardapioDia>();
+	public CardapioSemana(final int bandexId) {
+		this.cardapiosDias = new HashMap<Date, Map<Integer, CardapioDia>>();
+		this.bandexId = bandexId;
 	}
 
-	public void add(final CardapioDia cardapioDia) {
-		this.cardapiosDias.add(cardapioDia);
+	public void put(final Date date, final int tipoRefeicao, final CardapioDia cardapioDia) {
+		Map<Integer, CardapioDia> refeicoesDeHoje = this.cardapiosDias.get(date);
+		if (refeicoesDeHoje == null) {
+			refeicoesDeHoje = new HashMap<Integer, CardapioDia>();
+			this.cardapiosDias.put(date, refeicoesDeHoje);
+		}
+		refeicoesDeHoje.put(tipoRefeicao, cardapioDia);
 	}
 
-	public CardapioDia get(final int index) {
-		return this.cardapiosDias.get(index);
+	public CardapioDia get(final Date date, final int tipoRefeicao) {
+		Map<Integer, CardapioDia> map = this.cardapiosDias.get(date);
+		return map == null ? null : map.get(tipoRefeicao);
 	}
+
+	public Integer getBandexId() {
+		return this.bandexId;
+	}
+
 }

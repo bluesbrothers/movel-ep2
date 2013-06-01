@@ -15,12 +15,13 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import android.util.Log;
 import fefzjon.ep2.bandejao.model.CardapioDia;
+import fefzjon.ep2.bandejao.utils.BandexContants;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.utils.Utils;
 
 public class ContentManager {
-	public static ContentManager			instance	= null;
+	private static ContentManager			instance	= null;
 
 	private Map<Integer, CardapioSemana>	infosBandecos;
 
@@ -37,11 +38,15 @@ public class ContentManager {
 
 	public CardapioSemana getCardapioSemana(final int bandecoId) {
 		CardapioSemana cardapio = this.infosBandecos.get(bandecoId);
+		if (cardapio == null) {
+			cardapio = fetchAndParseMeal(bandecoId, String.format(BandexContants.URL_PATTERN, bandecoId));
+			this.infosBandecos.put(bandecoId, cardapio);
+		}
 		return cardapio;
 	}
 
-	public static CardapioSemana fetchAndParseFeed(final String urlBandex) {
-		CardapioSemana cardapio = new CardapioSemana();
+	private static CardapioSemana fetchAndParseMeal(final int bandexId, final String urlBandex) {
+		CardapioSemana cardapio = new CardapioSemana(bandexId);
 
 		try {
 			URL url = new URL(urlBandex);
@@ -67,6 +72,8 @@ public class ContentManager {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (EpDoisException e) {
+			e.printStackTrace();
 		}
 
 		return cardapio;
@@ -78,7 +85,7 @@ public class ContentManager {
 	}
 
 	private static void parseXML(final CardapioSemana cardapioSemana, final XmlPullParser xpp)
-			throws XmlPullParserException, IOException {
+			throws XmlPullParserException, IOException, EpDoisException {
 		Log.i("Bandex", "Comecando parse do input XML");
 
 		boolean insideItem = false;
@@ -89,34 +96,52 @@ public class ContentManager {
 		Date today = new Date();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			if (eventType == XmlPullParser.START_TAG) {
-				if (xpp.getName().equalsIgnoreCase("item")) {
+				if (xpp.getName().equalsIgnoreCase("menu")) {
 					insideItem = true;
 					cDia = new CardapioDia();
 					cDia.setDataBaixado(today);
-					cardapioSemana.add(cDia);
+					cDia.setBandexId(cardapioSemana.getBandexId());
+
 					Calendar calendar = new GregorianCalendar();
 					calendar.setTime(today);
 					int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
-				} else if (xpp.getName().equalsIgnoreCase("title")) {
+					cDia.setSemanaReferente(weekOfYear);
+
+				} else if (xpp.getName().equalsIgnoreCase("kcal")) {
 					if (insideItem) {
-						cDia.setTitle(xpp.nextText());
+						String text = xpp.nextText();
+						cDia.setKcal(text == null ? null : Integer.parseInt(text));
 					}
-				} else if (xpp.getName().equalsIgnoreCase("link")) {
+				} else if (xpp.getName().equalsIgnoreCase("meal-id")) {
 					if (insideItem) {
-						cDia.setLink(xpp.nextText());
+						String text = xpp.nextText();
+						cDia.setTipoRefeicao(text == null ? null : Integer.parseInt(text));
 					}
-				} else if (xpp.getName().equalsIgnoreCase("description")) {
+				} else if (xpp.getName().equalsIgnoreCase("options")) {
 					if (insideItem) {
-						cDia.setDescription(xpp.nextText());
+						cDia.setCardapio(xpp.nextText());
 					}
-				} else if (xpp.getName().equalsIgnoreCase("category")) {
+				} else if (xpp.getName().equalsIgnoreCase("day")) {
 					if (insideItem) {
-						cDia.setCategory(xpp.nextText());
+						String text = xpp.nextText();
+						Date date = Utils.parseAnoMesDia(text);
+						cDia.setDataReferente(date);
+					}
+				} else if (xpp.getName().equalsIgnoreCase("restaurant-id")) {
+					if (insideItem) {
+						String text = xpp.nextText();
+						Integer id = text == null ? null : Integer.parseInt(text);
+						if (id != cardapioSemana.getBandexId()) {
+							throw new EpDoisException("Informacao referente a outro bandejao foi recebida no XML");
+						}
 					}
 				}
 
-			} else if ((eventType == XmlPullParser.END_TAG) && xpp.getName().equalsIgnoreCase("item")) {
+			} else if ((eventType == XmlPullParser.END_TAG) && xpp.getName().equalsIgnoreCase("menu")) {
 				insideItem = false;
+				if ((cDia.getDataReferente() != null) && (cDia.getTipoRefeicao() != null)) {
+					cardapioSemana.put(cDia.getDataReferente(), cDia.getTipoRefeicao(), cDia);
+				}
 			}
 
 			eventType = xpp.next(); // move to next element

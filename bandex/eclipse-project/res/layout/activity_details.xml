@@ -8,9 +8,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DetailsActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/cardapio_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:text="@string/sem_cardapio_disponivel" />
+
+        <Button
+            android:id="@+id/bt_cardapio_semana"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_cardapio_semana" />
+
+        <Button
+            android:id="@+id/bt_ver_localizacao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_localizacao" />
+    </LinearLayout>
 
 </RelativeLayout>

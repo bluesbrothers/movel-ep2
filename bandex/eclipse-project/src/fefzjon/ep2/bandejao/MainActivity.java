@@ -7,8 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import fefzjon.ep2.bandejao.enums.Bandecos;
 import fefzjon.ep2.bandejao.model.CardapioDia;
+import fefzjon.ep2.bandejao.utils.Bandecos;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.persist.DBManager;
 

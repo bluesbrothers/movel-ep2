@@ -5,11 +5,14 @@ import java.io.InputStream;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Utils {
 
 	private static SimpleDateFormat	formatter	= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static SimpleDateFormat	anoMesDia	= new SimpleDateFormat("yyyy-MM-dd");
 
 	public static String formatDate(final Date date) {
 		return Utils.formatter.format(date);
@@ -23,9 +26,20 @@ public class Utils {
 		}
 		return null;
 	}
+	
+	public static Date parseAnoMesDia(final String formattedDate) {
+		try {
+			return Utils.anoMesDia.parse(formattedDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
-	public static String formattedToday() {
-		return Utils.formatDate(new Date());
+	public static Date today() {
+		Date date = new Date();
+		String fmt = anoMesDia.format(date);
+		return parseAnoMesDia(fmt);
 	}
 
 	public static InputStream getInputStream(final URL url) {
