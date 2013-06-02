@@ -18,7 +18,7 @@ import android.util.Log;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.model.UltimoCardapio;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
-import fefzjon.ep2.bandejao.utils.BandexContants;
+import fefzjon.ep2.bandejao.utils.BandexConstants;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
 import fefzjon.ep2.exceptions.EpDoisConnectionException;
 import fefzjon.ep2.exceptions.EpDoisException;
@@ -64,7 +64,7 @@ public class ContentManager {
 				if (!isOnline) {
 					throw new EpDoisConnectionException("Você não está conectado");
 				}
-				cardapio = fetchAndParseMeal(bandexId, String.format(BandexContants.URL_PATTERN, bandexId));
+				cardapio = fetchAndParseMeal(bandexId, String.format(BandexConstants.URL_BANDEJAO_PATTERN, bandexId));
 			} else {
 				cardapio = loadUltimoCardapio(bandexId);
 			}
@@ -177,6 +177,11 @@ public class ContentManager {
 				} else if (xpp.getName().equalsIgnoreCase("options")) {
 					if (insideItem) {
 						cDia.setCardapio(xpp.nextText());
+					}
+				} else if (xpp.getName().equalsIgnoreCase("id")) {
+					if (insideItem) {
+						String text = xpp.nextText();
+						cDia.setCommentId(text == null ? null : Integer.parseInt(text));
 					}
 				} else if (xpp.getName().equalsIgnoreCase("day")) {
 					if (insideItem) {

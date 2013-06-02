@@ -33,6 +33,9 @@ public class CardapioDia implements BaseEntity {
 	@Column(name = "bandex_id", version = 1)
 	private Integer	bandexId;
 
+	@Column(name = "comment_id", version = 2)
+	private Integer	commentId;
+
 	public Date getDataReferente() {
 		return this.dataReferente;
 	}
@@ -95,6 +98,14 @@ public class CardapioDia implements BaseEntity {
 
 	public void setId(final Integer id) {
 		this.id = id;
+	}
+
+	public Integer getCommentId() {
+		return this.commentId;
+	}
+
+	public void setCommentId(final Integer commentId) {
+		this.commentId = commentId;
 	}
 
 }

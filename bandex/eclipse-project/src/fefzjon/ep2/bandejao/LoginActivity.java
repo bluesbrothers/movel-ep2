@@ -188,6 +188,8 @@ public class LoginActivity extends Activity {
 				Intent intent = new Intent(LoginActivity.this, ComentariosActivity.class);
 				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID,
 						LoginActivity.this.getIntent().getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1));
+				intent.putExtra(IntentKeys.DETAILS_MEAL_ID,
+						LoginActivity.this.getIntent().getIntExtra(IntentKeys.DETAILS_MEAL_ID, 1));
 				LoginActivity.this.startActivity(intent);
 
 				LoginActivity.this.finish();

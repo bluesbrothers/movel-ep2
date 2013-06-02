@@ -29,6 +29,8 @@ public class DetailsActivity extends Activity {
 
 	private int			bandexId;
 
+	private CardapioDia	cardapioDia;
+
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,14 +59,14 @@ public class DetailsActivity extends Activity {
 		//		int proximaRefeicao = BandexCalculator.nextMeal();
 		int proximaRefeicao = 2;
 
-		CardapioDia cardapioDia = cardapioSemana.get(Utils.parseAnoMesDia("2013-05-28"), proximaRefeicao);
+		this.cardapioDia = cardapioSemana.get(Utils.parseAnoMesDia("2013-05-27"), proximaRefeicao);
 
-		if (cardapioDia != null) {
-			this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(cardapioDia));
+		if (this.cardapioDia != null) {
+			this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(this.cardapioDia));
 
 			StringBuilder builder = new StringBuilder();
-			builder.append(cardapioDia.getCardapio());
-			builder.append("\n").append(cardapioDia.getKcal()).append(" kcal");
+			builder.append(this.cardapioDia.getCardapio());
+			builder.append("\n").append(this.cardapioDia.getKcal()).append(" kcal");
 			this.txDetalheCardapioView.setText(builder.toString());
 		}
 
@@ -92,6 +94,11 @@ public class DetailsActivity extends Activity {
 		btComentarios.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View v) {
+				if ((DetailsActivity.this.cardapioDia == null)
+						|| (DetailsActivity.this.cardapioDia.getCommentId() == null)) {
+					Toast.makeText(DetailsActivity.this, "Nenhuma refeição sendo vista", Toast.LENGTH_SHORT).show();
+					return;
+				}
 				Intent intent;
 				if (StoaManager.getInstance().isLogged()) {
 					intent = new Intent(DetailsActivity.this, ComentariosActivity.class);
@@ -100,6 +107,7 @@ public class DetailsActivity extends Activity {
 				}
 
 				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
+				intent.putExtra(IntentKeys.DETAILS_MEAL_ID, DetailsActivity.this.cardapioDia.getCommentId());
 				DetailsActivity.this.startActivity(intent);
 			}
 		});

@@ -24,11 +24,11 @@ public class BandexCalculator {
 		int oitoInMinutes = 8 * 60;
 		int quatorzeInMinutes = 14 * 60;
 		if ((0 < timeInMinutes) && (timeInMinutes <= oitoInMinutes)) {
-			return BandexContants.CAFE_DA_MANHA;
+			return BandexConstants.CAFE_DA_MANHA;
 		} else if (timeInMinutes <= quatorzeInMinutes) {
-			return BandexContants.ALMOCO;
+			return BandexConstants.ALMOCO;
 		} else {
-			return BandexContants.JANTA;
+			return BandexConstants.JANTA;
 		}
 	}
 
@@ -70,11 +70,11 @@ public class BandexCalculator {
 		builder.append(formatterDataApresent.format(cDia.getDataReferente()));
 		builder.append(" ");
 
-		if (cDia.getTipoRefeicao() == BandexContants.CAFE_DA_MANHA) {
+		if (cDia.getTipoRefeicao() == BandexConstants.CAFE_DA_MANHA) {
 			builder.append("(Café-da-manhã)");
-		} else if (cDia.getTipoRefeicao() == BandexContants.ALMOCO) {
+		} else if (cDia.getTipoRefeicao() == BandexConstants.ALMOCO) {
 			builder.append("(Almoço)");
-		} else if (cDia.getTipoRefeicao() == BandexContants.JANTA) {
+		} else if (cDia.getTipoRefeicao() == BandexConstants.JANTA) {
 			builder.append("(Janta)");
 		}
 

@@ -41,7 +41,7 @@ public class FullCardapioActivity extends ListActivity {
 			cardapioSemana = new CardapioSemana(bandecoId);
 		}
 
-		ListAdapter adapter = new MyAdapter(this, cardapioSemana);
+		ListAdapter adapter = new RefeicoesAdapter(this, cardapioSemana);
 
 		this.setListAdapter(adapter);
 	}

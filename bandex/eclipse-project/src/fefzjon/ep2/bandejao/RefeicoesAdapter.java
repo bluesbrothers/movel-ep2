@@ -15,11 +15,11 @@ import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
 
-public class MyAdapter extends BaseAdapter {
+public class RefeicoesAdapter extends BaseAdapter {
 	private Context				context;
 	private List<CardapioDia>	listaCardapio;
 
-	public MyAdapter(final Context context, final CardapioSemana cardapioSemana) {
+	public RefeicoesAdapter(final Context context, final CardapioSemana cardapioSemana) {
 		this.context = context;
 		this.listaCardapio = cardapioSemana.asList();
 		Collections.sort(this.listaCardapio, new Comparator<CardapioDia>() {

@@ -7,14 +7,14 @@
     tools:context=".FullCardapioActivity" >
 
     <TextView
-        android:id="@+id/item_cardapio_data"
+        android:id="@+id/item_comentario_commenter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
+        android:textSize="17sp" 
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/item_cardapio_details"
+        android:id="@+id/item_comentario_message"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp" />

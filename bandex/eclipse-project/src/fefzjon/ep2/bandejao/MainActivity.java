@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		if (!DBManager.isInitialized()) {
 			DBManager.registerModel(CardapioDia.class);
 			DBManager.registerModel(UltimoCardapio.class);
-			DBManager.initializeModule(this, "FEFZJON_BANDECO", 1);
+			DBManager.initializeModule(this, "FEFZJON_BANDECO", 2);
 		}
 
 		this.btCentral = (Button) this.findViewById(R.id.btCentral);
