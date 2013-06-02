@@ -21,5 +21,6 @@
     <string name="postar_comentario">Postar Comentário</string>
     <string name="hint_comentario">Comentário sobre o cardápio de hoje&#8230;</string>
     <string name="title_activity_postar">Postar Comentário</string>
+    <string name="refresh_comments">Atualizar Comentários</string>
 
 </resources>
