@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import fefzjon.ep2.bandejao.adapter.RefeicoesAdapter;
 import fefzjon.ep2.bandejao.manager.ContentManager;
 import fefzjon.ep2.bandejao.utils.Bandecos;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;

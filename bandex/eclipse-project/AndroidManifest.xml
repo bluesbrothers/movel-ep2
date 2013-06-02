@@ -66,6 +66,10 @@
             android:name="fefzjon.ep2.bandejao.ComentariosActivity"
             android:label="@string/title_activity_comentarios" >
         </activity>
+        <activity
+            android:name="fefzjon.ep2.bandejao.PostarActivity"
+            android:label="@string/title_activity_postar" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">EP2.rssfeed</string>
+    <string name="app_name">Palestras IME</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     
@@ -24,7 +24,7 @@
     <string name="seguir_link">Seguir Link</string>
     
     <string name="refresh">Refresh</string>
-    <string name="update_status">Loading...</string>
+    <string name="update_status">Loading&#8230;</string>
     
 
 </resources>

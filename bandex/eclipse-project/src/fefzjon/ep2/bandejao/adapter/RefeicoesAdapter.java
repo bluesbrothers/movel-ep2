@@ -1,4 +1,4 @@
-package fefzjon.ep2.bandejao;
+package fefzjon.ep2.bandejao.adapter;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import fefzjon.ep2.bandejao.R;
+import fefzjon.ep2.bandejao.R.id;
+import fefzjon.ep2.bandejao.R.layout;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
