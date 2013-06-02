@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +38,8 @@ public class ContentManager {
 			try {
 				URL url = new URL(feedUrl);
 
-				XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+				XmlPullParserFactory factory = XmlPullParserFactory
+						.newInstance();
 				factory.setNamespaceAware(false);
 				XmlPullParser xpp = factory.newPullParser();
 
@@ -64,7 +66,8 @@ public class ContentManager {
 		return lista;
 	}
 
-	private static void saveNewContent(final List<FeedItem> lista) throws EpDoisException {
+	private static void saveNewContent(final List<FeedItem> lista)
+			throws EpDoisException {
 		Log.i("RSSFeed", "Deletando conteudo antigo");
 		DBManager.getInstance().deleteAll(new FeedItem());
 		Log.i("RSSFeed", "Salvando conteudo novo");
@@ -74,8 +77,8 @@ public class ContentManager {
 		Log.d("RSSFeed", "Novo conteudo salvo");
 	}
 
-	private static void parseXML(final List<FeedItem> lista, final XmlPullParser xpp) throws XmlPullParserException,
-			IOException {
+	private static void parseXML(final List<FeedItem> lista,
+			final XmlPullParser xpp) throws XmlPullParserException, IOException {
 		Log.i("RSSFeed", "Comecando parse do input XML");
 
 		boolean insideItem = false;
@@ -104,7 +107,8 @@ public class ContentManager {
 						String description = xpp.nextText();
 						item.setDescription(description);
 
-						Date dataPalestra = ContentManager.getDateFromDescription(description);
+						Date dataPalestra = ContentManager
+								.getDateFromDescription(description);
 						item.setDataPalestra(dataPalestra);
 					}
 				} else if (xpp.getName().equalsIgnoreCase("category")) {
@@ -113,7 +117,8 @@ public class ContentManager {
 					}
 				}
 
-			} else if ((eventType == XmlPullParser.END_TAG) && xpp.getName().equalsIgnoreCase("item")) {
+			} else if ((eventType == XmlPullParser.END_TAG)
+					&& xpp.getName().equalsIgnoreCase("item")) {
 				insideItem = false;
 			}
 
@@ -122,7 +127,26 @@ public class ContentManager {
 		Log.d("RSSFeed", "Fim do parse XML");
 	}
 
-	private static Date getDateFromDescription(final String description) {
-		return null;
+	public static Date getDateFromDescription(final String description) {
+		String[] lines = description.split("<br\\s*/>");
+		Calendar c = Calendar.getInstance();
+		for (String s : lines) {
+			if (s.startsWith("Data: ")) {
+				s = s.replace("Data: ", "");
+				String[] values = s.split("\\s*-\\s*")[0].split("\\.");
+				c.set(Calendar.DAY_OF_MONTH, Integer.valueOf(values[0]));
+				c.set(Calendar.MONTH, Integer.valueOf(values[1]) - 1);
+				c.set(Calendar.YEAR, Integer.valueOf(values[2]));
+			} else if (s.startsWith("Hora: ")) {
+				s = s.replace("Hora: ", "");
+				s = s.replace(" h", "");
+				String[] values = s.split("\\.");
+				c.set(Calendar.HOUR_OF_DAY, Integer.valueOf(values[0]));
+				c.set(Calendar.MINUTE, Integer.valueOf(values[1]));
+				c.set(Calendar.SECOND, 0);
+			}
+		}
+		Log.d("RSSFeed", c.getTime().toString());
+		return c.getTime();
 	}
 }
