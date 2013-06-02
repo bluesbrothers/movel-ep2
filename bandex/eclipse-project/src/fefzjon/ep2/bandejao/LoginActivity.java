@@ -1,19 +1,24 @@
 package fefzjon.ep2.bandejao;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+import fefzjon.ep2.bandejao.manager.StoaManager;
+import fefzjon.ep2.bandejao.utils.IntentKeys;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -24,112 +29,82 @@ public class LoginActivity extends Activity {
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.
 	 */
-	private static final String[]	DUMMY_CREDENTIALS	= new String[] { "foo@example.com:hello",
-			"bar@example.com:world"					};
-
-	/**
-	 * The default email to populate the email field with.
-	 */
-	public static final String		EXTRA_EMAIL			= "com.example.android.authenticatordemo.extra.EMAIL";
 
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
 	 */
-	private UserLoginTask			mAuthTask			= null;
+	private UserLoginTask	mAuthTask	= null;
 
 	// Values for email and password at the time of the login attempt.
-	private String					mEmail;
-	private String					mPassword;
+	private String			mEmail;
+	private String			mPassword;
 
 	// UI references.
-	private EditText				mEmailView;
-	private EditText				mPasswordView;
-	private View					mLoginFormView;
-	private View					mLoginStatusView;
-	private TextView				mLoginStatusMessageView;
+	private EditText		mNUSPView;
+	private EditText		mPasswordView;
+	private View			mLoginFormView;
+	private View			mLoginStatusView;
+	private TextView		mLoginStatusMessageView;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_login);
+		this.setContentView(R.layout.activity_login);
 
-		// Set up the login form.
-		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
-		mEmailView = (EditText) findViewById(R.id.email);
-		mEmailView.setText(mEmail);
+		this.mNUSPView = (EditText) this.findViewById(R.id.nusp_field);
 
-		mPasswordView = (EditText) findViewById(R.id.password);
-		mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+		this.mPasswordView = (EditText) this.findViewById(R.id.password);
+		this.mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
-			public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-				if (id == R.id.login || id == EditorInfo.IME_NULL) {
-					attemptLogin();
+			public boolean onEditorAction(final TextView textView, final int id, final KeyEvent keyEvent) {
+				if ((id == R.id.login) || (id == EditorInfo.IME_NULL)) {
+					LoginActivity.this.attemptLogin();
 					return true;
 				}
 				return false;
 			}
 		});
 
-		mLoginFormView = findViewById(R.id.login_form);
-		mLoginStatusView = findViewById(R.id.login_status);
-		mLoginStatusMessageView = (TextView) findViewById(R.id.login_status_message);
+		this.mLoginFormView = this.findViewById(R.id.login_form);
+		this.mLoginStatusView = this.findViewById(R.id.login_status);
+		this.mLoginStatusMessageView = (TextView) this.findViewById(R.id.login_status_message);
 
-		findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
+		this.findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
-				attemptLogin();
+			public void onClick(final View view) {
+				LoginActivity.this.attemptLogin();
 			}
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
-
-	/**
-	 * Attempts to sign in or register the account specified by the login form.
-	 * If there are form errors (invalid email, missing fields, etc.), the
-	 * errors are presented and no actual login attempt is made.
-	 */
 	public void attemptLogin() {
-		if (mAuthTask != null) {
+		if (this.mAuthTask != null) {
 			return;
 		}
 
 		// Reset errors.
-		mEmailView.setError(null);
-		mPasswordView.setError(null);
+		this.mNUSPView.setError(null);
+		this.mPasswordView.setError(null);
 
 		// Store values at the time of the login attempt.
-		mEmail = mEmailView.getText().toString();
-		mPassword = mPasswordView.getText().toString();
+		this.mEmail = this.mNUSPView.getText().toString();
+		this.mPassword = this.mPasswordView.getText().toString();
 
 		boolean cancel = false;
 		View focusView = null;
 
 		// Check for a valid password.
-		if (TextUtils.isEmpty(mPassword)) {
-			mPasswordView.setError(getString(R.string.error_field_required));
-			focusView = mPasswordView;
-			cancel = true;
-		} else if (mPassword.length() < 4) {
-			mPasswordView.setError(getString(R.string.error_invalid_password));
-			focusView = mPasswordView;
+		if (TextUtils.isEmpty(this.mPassword)) {
+			this.mPasswordView.setError(this.getString(R.string.error_field_required));
+			focusView = this.mPasswordView;
 			cancel = true;
 		}
 
 		// Check for a valid email address.
-		if (TextUtils.isEmpty(mEmail)) {
-			mEmailView.setError(getString(R.string.error_field_required));
-			focusView = mEmailView;
-			cancel = true;
-		} else if (!mEmail.contains("@")) {
-			mEmailView.setError(getString(R.string.error_invalid_email));
-			focusView = mEmailView;
+		if (TextUtils.isEmpty(this.mEmail)) {
+			this.mNUSPView.setError(this.getString(R.string.error_field_required));
+			focusView = this.mNUSPView;
 			cancel = true;
 		}
 
@@ -140,10 +115,10 @@ public class LoginActivity extends Activity {
 		} else {
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
-			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
-			showProgress(true);
-			mAuthTask = new UserLoginTask();
-			mAuthTask.execute((Void) null);
+			this.mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
+			this.showProgress(true);
+			this.mAuthTask = new UserLoginTask();
+			this.mAuthTask.execute((Void) null);
 		}
 	}
 
@@ -156,30 +131,30 @@ public class LoginActivity extends Activity {
 		// for very easy animations. If available, use these APIs to fade-in
 		// the progress spinner.
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-			int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+			int shortAnimTime = this.getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-			mLoginStatusView.setVisibility(View.VISIBLE);
-			mLoginStatusView.animate().setDuration(shortAnimTime).alpha(show ? 1 : 0)
+			this.mLoginStatusView.setVisibility(View.VISIBLE);
+			this.mLoginStatusView.animate().setDuration(shortAnimTime).alpha(show ? 1 : 0)
 					.setListener(new AnimatorListenerAdapter() {
 						@Override
-						public void onAnimationEnd(Animator animation) {
-							mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
+						public void onAnimationEnd(final Animator animation) {
+							LoginActivity.this.mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
 						}
 					});
 
-			mLoginFormView.setVisibility(View.VISIBLE);
-			mLoginFormView.animate().setDuration(shortAnimTime).alpha(show ? 0 : 1)
+			this.mLoginFormView.setVisibility(View.VISIBLE);
+			this.mLoginFormView.animate().setDuration(shortAnimTime).alpha(show ? 0 : 1)
 					.setListener(new AnimatorListenerAdapter() {
 						@Override
-						public void onAnimationEnd(Animator animation) {
-							mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+						public void onAnimationEnd(final Animator animation) {
+							LoginActivity.this.mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
 						}
 					});
 		} else {
 			// The ViewPropertyAnimator APIs are not available, so simply show
 			// and hide the relevant UI components.
-			mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
-			mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+			this.mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
+			this.mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
 		}
 	}
 
@@ -189,45 +164,44 @@ public class LoginActivity extends Activity {
 	 */
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 		@Override
-		protected Boolean doInBackground(Void... params) {
+		protected Boolean doInBackground(final Void... params) {
 			// TODO: attempt authentication against a network service.
-
 			try {
-				// Simulate network access.
-				Thread.sleep(2000);
+				Thread.sleep(1000);
+				return StoaManager.getInstance().postLogin("", "");
 			} catch (InterruptedException e) {
-				return false;
+			} catch (KeyManagementException e) {
+				e.printStackTrace();
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
 			}
-
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
-			}
-
-			// TODO: register the new account here.
-			return true;
+			return false;
 		}
 
 		@Override
 		protected void onPostExecute(final Boolean success) {
-			mAuthTask = null;
-			showProgress(false);
+			LoginActivity.this.mAuthTask = null;
+			LoginActivity.this.showProgress(false);
 
 			if (success) {
-				finish();
+				StoaManager.getInstance().loginSuccess();
+				Intent intent = new Intent(LoginActivity.this, ComentariosActivity.class);
+				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID,
+						LoginActivity.this.getIntent().getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1));
+				LoginActivity.this.startActivity(intent);
+
+				LoginActivity.this.finish();
 			} else {
-				mPasswordView.setError(getString(R.string.error_incorrect_password));
-				mPasswordView.requestFocus();
+				LoginActivity.this.mPasswordView.setError(LoginActivity.this
+						.getString(R.string.error_incorrect_user_or_password));
+				LoginActivity.this.mPasswordView.requestFocus();
 			}
 		}
 
 		@Override
 		protected void onCancelled() {
-			mAuthTask = null;
-			showProgress(false);
+			LoginActivity.this.mAuthTask = null;
+			LoginActivity.this.showProgress(false);
 		}
 	}
 }
