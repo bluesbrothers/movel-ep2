@@ -6,5 +6,15 @@
 +-------------------------------------------------+
 
 App1: RSS feed
-App2: GPS
+App2: BUSP
 App3: Bandejão
+
+Este pacote tem:
+* As pastas de projeto do eclipse dos 3 projetos, excluindo as pastas gen/
+   e bin/
+
+* Uma pasta de Documentação contendo: os 3 PDFs técnicos dos apps
+   (manual do usuário + Estrutura do código) e o relatório com a parte
+   subjetiva (motivação e conclusão) de cada aplicativo.
+
+* Uma pasta apks com os 3 apk gerados dos projetos.

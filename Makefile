@@ -30,6 +30,20 @@ pdf: $(DOC_ENTREGA_DIR) pdfgps pdfrss pdfbandex pdfrelatorio
 	cp $(BANDEX_PDF_PATH) $(DOC_ENTREGA_DIR)
 	cp $(DOCDIR)/relatorio.pdf $(DOC_ENTREGA_DIR)
 
+entrega: pdf
+	if [ -d diogo-e-fernando ]; then rm -r diogo-e-fernando; fi
+	mkdir diogo-e-fernando
+	cp README diogo-e-fernando
+	cp -r Documentation diogo-e-fernando
+	cp -r bandex/eclipse-project diogo-e-fernando/bandex-project
+	cp -r rss/eclipse-project diogo-e-fernando/rss-project
+	cp -r gps/eclipse-project diogo-e-fernando/busp-project
+	rm -rf diogo-e-fernando/*-project/gen
+	mkdir diogo-e-fernando/apks
+	cp diogo-e-fernando/*-project/bin/*.apk diogo-e-fernando/apks
+	rm -rf diogo-e-fernando/*-project/bin
+	tar -czvf diogo-e-fernando.tar.gz diogo-e-fernando
+
 .PHONY: clean
 clean:
 	rm -rf $(DOC_ENTREGA_DIR)
