@@ -10,33 +10,47 @@
 \cabecalho
 
 \section{Manual do Usuário}
-Ao abrir, aparecerá uma lista de notícias RSS, correspondentes a cada
-palestra que será dada. Ao clicar, você é redirecionado para a notícia.
+\subsection{Tela Principal}
+Ao abrir o aplicativo, o usuário é levado à Tela Principal, onde aparecerá uma lista de notícias RSS, correspondentes a cada palestra que será dada. Ao clicar em um dos itens da lista, você é redirecionado para uma tela de visualização dos detalhes da notícia.
 
-É exibida uma única lista, com todos os seminários dos departamentos
-escolhidos (DCC, MAT, MAE e MAP). Assim, se todos estiverem ativos, a
-inicialização do aplicativo será lenta.
+É exibida uma única lista, com todos os seminários dos departamentos escolhidos (DCC, MAT, MAE e MAP). Assim, se muitos departamentos estiverem selecionados para serem baixados, a criação dessa lista pode ser demorada. Essa lista é criada em segundo plano, assim o dispositivo não fica "travado" durante o processo.
+
+\subsection{Tela de Configurações}
+A Tela de Configurações pode ser acessada a partir do menu da Tela Principal.
+
+Nesta tela, o usuário pode escolher de quais departamentos ele quer que as palestras sejam carregadas.
+Inicialmente, nenhum canal está marcado como escolhido.
+
+\subsection{Tela de Detalhes da Notícia}
+Nesta tela, é apresentado para o usuário a descrição da palestra, assim como um botão para seguir o link (que está quebrado) e um botão para registrar a palestra como um evento no calendário do dispositivo.
 
 
 \section{Estrutura do Código}
-Criamos um módulo apenas para cuidar da persistência dos dados. Isso é feito
-por meio de anotações na classe do modelo. Foi inspirado em JPA. Apesar de
-existirem alguns frameworks por ai que disponibilizem isso, acreditamos que
-seria um estudo interessante implementarmos nós mesmos.
+\subsection{Persistência dos dados}
+Criamos um módulo apenas para cuidar da persistência dos dados. Isso é feito por meio de anotações na classe do modelo. Foi inspirado em JPA. Apesar de existirem alguns frameworks por ai que disponibilizem isso, acreditamos que seria um estudo interessante implementarmos nós mesmos. Existem algumas coisas que não puderam ser implementadas da maneira correta por falta de tempo nesse módulo.
 
-Temos 3 Activities:
+\subsection{Activities}
+
+\subsubsection{MainActivity}
+A entrada do aplicativo. Ela apresenta um layout de lista, para apresentarmos a lista de palestras que foi baixada.
+Aqui, fazemos a verificação da conectividade, para escolher entre pegar conteúdo novo na internet ou apresentar a última lista
+baixada.
+
+\subsubsection{ConfiguracoesActivity}
+Tela de configurações, onde são escolhidos os canais (DCC, MAP, MAE, MAT) desejados.
+
+\subsubsection{DetailsActivity}
+Tela para apresentação da notícia. Nela, temos um botão para registrar a palestra no calendário, o corpo da notícia e um botão para abrir o navegador padrão na URL vinda no link do feed.
+
+\subsection{Gerenciador}
+\subsubsection{ContentManager}
+Classe responsável por gerenciar o conteúdo, com todos os métodos estáticos. Nela, encontramos métodos públicos para:
 \begin{itemize}
-    \item \textbf{MainActivity}\\
-A entrada do aplicativo. Ela
-apresenta um layout de lista, para apresentarmos a lista de palestras
-que foi baixada.
-    \item \textbf{ConfiguracoesActivity} \\
-Tela de configurações, onde são escolhidos os canais (DCC, MAP, MAE, MAT)
-desejados.
-    \item \textbf{DetailsActivity}\\
-Tela para apresentação da notícia. Nela, temos um botão para registrar a 
-palestra no calendário, o corpo da notícia e um botão para abrir o navegador
-padrão na URL vinda no link do feed.
+\item baixar uma nova lista de palestras
+\item recuperar a última lista vista
 \end{itemize}
+
+\subsection{Utilidades}
+Aqui encontramos alguns Enums e uma classe para realizar o trabalho assincrono de atualização da lista de notícias.
 
 \end{document}

@@ -7,8 +7,8 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import fefzjon.ep2.bandejao.manager.ComentarioAsync;
 import fefzjon.ep2.bandejao.manager.StoaManager;
+import fefzjon.ep2.bandejao.utils.ComentarioAsync;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 
 public class PostarActivity extends Activity {

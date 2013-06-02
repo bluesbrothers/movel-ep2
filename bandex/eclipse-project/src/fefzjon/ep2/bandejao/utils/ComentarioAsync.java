@@ -1,7 +1,9 @@
-package fefzjon.ep2.bandejao.manager;
+package fefzjon.ep2.bandejao.utils;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+
+import fefzjon.ep2.bandejao.manager.ComentariosManager;
 
 import android.content.Context;
 import android.os.AsyncTask;

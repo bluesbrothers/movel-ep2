@@ -19,11 +19,11 @@ public class BandexCalculator {
 
 		int timeInMinutes = (hours * 60) + minutes;
 
-		int oitoInMinutes = 8 * 60;
-		int quatorzeInMinutes = 14 * 60;
-		if ((0 < timeInMinutes) && (timeInMinutes <= oitoInMinutes)) {
+		int oitoHorasInMinutes = 8 * 60;
+		int quinzeHorasInMinutes = 15 * 60;
+		if ((0 < timeInMinutes) && (timeInMinutes <= oitoHorasInMinutes)) {
 			return BandexConstants.CAFE_DA_MANHA;
-		} else if (timeInMinutes <= quatorzeInMinutes) {
+		} else if (timeInMinutes <= quinzeHorasInMinutes) {
 			return BandexConstants.ALMOCO;
 		} else {
 			return BandexConstants.JANTA;

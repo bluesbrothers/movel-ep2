@@ -11,10 +11,107 @@
 \begin{document}
 \cabecalho
 
-\section{Usabilidade}
-nada ainda
+\section{Manual do Usuário}
+Ao abrir o aplicativo, o usuário é levado para a tela de escolha do bandejão.
+
+\subsection{Tela de escolha do Bandejão}
+Aqui, o usuário pode escolher entre os 4 bandejões: Central, Prefeitura, Física e Química.
+
+Ao clicar em alguma das opções, o usuário é levado a Tela de Cardápio, já mostrando a próxima refeição. Essa próxima refeição é escolhida usando o dia atual e a hora atual (até as 8 da manhã: café da manhã, das 8 às 15: almoço, das 15 à meia noite: janta).
+
+\subsection{Tela de Cardápio}
+Aqui é apresentado o dia referente a refeição e qual refeição (café-da-manhã, almoço ou janta), o cardápio em si e 3 botões:
+\begin{itemize}
+\item \textbf{Cardápio da Semana} \\
+Mostra a Tela de Cardápio da Semana do bandejão escolhido
+\item \textbf{Localização no Mapa} \\
+Mostra a Tela de Mapa, mostrando um marcador na localização do bandejão.
+\item \textbf{Comentários} \\
+Mostra a Tela de Comentários se já estiver logado. Caso contrário, vai para a Tela de Login.
+\end{itemize}
+
+\subsection{Tela de Cardápio da Semana}
+Mostra o cardápio da semana, ordenado por: Dia e refeição (Segunda almoço, segunda janta, terça almoço, terça janta, ...)
+Clicar em um dos itens da lista leva a Tela de Cardápio referente àquela refeição.
+
+\subsection{Tela de Login}
+Tela de login clássica, aceitando apenas números para o número usp. Ao logar, é direcionado para a Tela de Comentários.
+
+\subsection{Tela de Comentários}
+Apresenta a lista de comentários, onde cada item tem na primeira linha o login do commenter e nas demais o comentário.
+
+No final da lista, tem um botão para postar comentários, que leva a Tela de Postagem.
+
+No menu desta tela, existe a opção de deslogar.
+
+\subsection{Tela de Postagem}
+Nesta tela tem um campo de texto para digitar seu comentário e um botão para enviar.
 
 \section{Estrutura do Código}
-nada ainda
+Apresentação de forma superficial das classes principais do código.
+\subsection{Activities}
+\subsubsection{ComentariosActivity}
+Activity para exibir os comentários sobre a refeição. É um ListActivity com um ListAdapter customizado (ComentariosAdapter). Depende do id da refeição no Intent.
+
+\subsubsection{DetailsActivity}
+Activity para apresentar o cardápio do dia. Depende do dia e da refeição a que estamos nos referindo e do id do bandejão no Intent.
+
+\subsubsection{FullCardapioActivity}
+Activity para apresentar todo o cardápio da semana. É um ListActivity com um ListAdapter customizado (RefeicoesAdapter).
+Depende do id do bandejão no Intent.
+
+\subsubsection{LoginActivity}
+Activity para fazer login. Boa parte dela foi gerada automaticamente pelo ADT ;)
+
+\subsubsection{MainActivity}
+Activity principal, aqui temos basicamente os 4 botões para escolher o bandejão.
+
+\subsubsection{MapActivity}
+???
+
+\subsubsection{PostarActivity}
+Activity para postar comentários. Depende do id da refeição no Intent.
+
+\subsection{Adapters}
+\subsubsection{ComentariosAdapter}
+Um Adapter para utilizar uma view customizada, para apresentar o nick do commenter em uma linha acima, em negrito, e o comentário embaixo, com fonte normal.
+\subsubsection{RefeicoesAdapter}
+Um Adapter para utilizar uma view customizada, para apresentar a data e a refeição referente a um item do cardápio da semana em uma lista acima.
+
+\subsection{Modelos}
+\subsubsection{CardapioDia}
+Modelo para guardar uma refeição de um dia.
+
+\subsubsection{UltimoCardapio}
+Modelo para guardar o último cardápio baixado de um bandejão. Utilizamos para isso a semana do ano que corresponde aquele cardápio baixado. Uma observação importante é que consideramos que a SEGUNDA-FEIRA é o primeiro dia da semana.
+
+\subsection{Managers}
+\subsubsection{ComentariosManager}
+Gerenciador de Comentários. Tem métodos para fazer o parse dos comentários e para postar um novo comentário.
+
+\subsubsection{ContentManager}
+Gerenciador de Cardápios. Tem métodos para fazer o parse dos cardápios e salvar os novos cardápios.
+
+\subsubsection{StoaManager}
+Gerenciador da conta no STOA. Tem métodos para fazer o login, verificar se está logado e deslogar.
+
+\subsection{Utilidades}
+Tem alguns Enums, uma classe de constantes e algumas classes auxiliares que listarei abaixo.
+\subsubsection{BandexCalculator}
+Classe que possui métodos estáticos para calcular a próxima refeição (levando em consideração dia e hora atuais), a semana referente a uma data e gerar a String que servirá como título da Tela de Cardápio.
+
+\subsubsection{BandexComment}
+Uma classe para representar um comentário. Possui duas Strings: o commenter e a message.
+
+\subsubsection{CardapioSemana}
+Uma classe para representar o cardápio de uma semana. Serve para não precisar se preocupar com o Map dentro de outro Map que guarda os cardápios, provendo métodos para um uso mais intuitivo no código.
+
+\subsubsection{ComentarioAsyn}
+Classe assíncrona para postar um comentário sem travar a aplicação.
+
+\subsubsection{MarkerInfo}
+???
+
+
 
 \end{document}
