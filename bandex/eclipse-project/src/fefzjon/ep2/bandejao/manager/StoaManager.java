@@ -17,10 +17,13 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import fefzjon.ep2.bandejao.utils.BandexConstants;
+
 public class StoaManager {
 	private static StoaManager	instance	= null;
 
 	private boolean				isLogged;
+	private String				username	= null;
 
 	private StoaManager() {
 		this.isLogged = false;
@@ -44,7 +47,7 @@ public class StoaManager {
 	public boolean postLogin(final String nusp, final String password) throws NoSuchAlgorithmException,
 			KeyManagementException {
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost("https://social.stoa.usp.br/plugin/stoa/authenticate/");
+		HttpPost httppost = new HttpPost(BandexConstants.URL_LOGIN_STOA);
 
 		SSLSocketFactory sf = (SSLSocketFactory) httpclient.getConnectionManager().getSchemeRegistry()
 				.getScheme("https").getSocketFactory();
@@ -63,7 +66,8 @@ public class StoaManager {
 			// Execute HTTP Post Request
 			HttpResponse response = httpclient.execute(httppost);
 
-			System.out.println("alo");
+			// se sucesso, salvar o username da crianca e setar como logado
+			//			this.loginSuccess();
 
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
@@ -73,4 +77,9 @@ public class StoaManager {
 
 		return true;
 	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
 }

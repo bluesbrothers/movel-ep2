@@ -10,18 +10,19 @@
     tools:context=".PostarActivity" >
 
     <EditText
+        android:id="@+id/tx_input_comentario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minLines="5"
-        android:maxLines="10"
+        android:hint="@string/hint_comentario"
         android:inputType="textMultiLine"
+        android:maxLines="10"
         android:minHeight="50dp"
-        android:hint="@string/hint_comentario" />
-    
+        android:minLines="5" />
+
     <Button
-            android:id="@+id/bt_submit_comentario"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/postar_comentario" />
+        android:id="@+id/bt_submit_comentario"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/postar_comentario" />
 
 </LinearLayout>
