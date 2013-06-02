@@ -22,7 +22,6 @@ local.properties
 *.aux
 *.log
 
-Documentation
 bandex/Bandex.pdf
 bandex/doc/Bandex.pdf
 doc/relatorio.pdf
