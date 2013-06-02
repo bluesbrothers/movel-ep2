@@ -46,10 +46,10 @@ import android.util.Log;
 import fefzjon.ep2.bandejao.utils.BandexConstants;
 
 public class StoaManager {
-	private static StoaManager instance = null;
+	private static StoaManager	instance	= null;
 
-	private boolean isLogged;
-	private String username = null;
+	private boolean				isLogged;
+	private String				username	= null;
 
 	private StoaManager() {
 		this.isLogged = false;
@@ -66,8 +66,8 @@ public class StoaManager {
 		return this.isLogged;
 	}
 
-	public boolean postLogin(final String nusp, final String password)
-			throws NoSuchAlgorithmException, KeyManagementException {
+	public boolean postLogin(final String nusp, final String password) throws NoSuchAlgorithmException,
+			KeyManagementException {
 		HttpClient httpclient = this.getNewHttpClient(); // new
 															// DefaultHttpClient();
 		HttpPost httppost = new HttpPost(BandexConstants.URL_LOGIN_STOA);
@@ -82,8 +82,6 @@ public class StoaManager {
 		try {
 			// Add your data
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-			// nameValuePairs.add(new BasicNameValuePair("usp_id", nusp));
-			// nameValuePairs.add(new BasicNameValuePair("password", password));
 			nameValuePairs.add(new BasicNameValuePair("usp_id", nusp));
 			nameValuePairs.add(new BasicNameValuePair("password", password));
 
@@ -99,6 +97,7 @@ public class StoaManager {
 				this.username = json.getString("username");
 				Log.i("Bandex", "Username [" + this.username + "]");
 				this.isLogged = true;
+				return true;
 			}
 
 		} catch (ClientProtocolException e) {
@@ -109,21 +108,19 @@ public class StoaManager {
 			Log.e("Bandex", "Erro ao tentar logar", e);
 		}
 
-		return true;
+		return false;
 	}
 
 	public String getUsername() {
 		return this.username;
 	}
 
-	public String convertStreamToString(final InputStream inputStream)
-			throws IOException {
+	public String convertStreamToString(final InputStream inputStream) throws IOException {
 		if (inputStream != null) {
 			StringBuilder sb = new StringBuilder();
 			String line;
 			try {
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream, "UTF-8"));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 				while ((line = reader.readLine()) != null) {
 					sb.append(line).append("\n");
 				}
@@ -143,8 +140,7 @@ public class StoaManager {
 	// meio inutil e deixando o app vulnerável a ataques 'Man-In-The-Middle'
 	public HttpClient getNewHttpClient() {
 		try {
-			KeyStore trustStore = KeyStore.getInstance(KeyStore
-					.getDefaultType());
+			KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 			trustStore.load(null, null);
 
 			SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
@@ -155,12 +151,10 @@ public class StoaManager {
 			HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
 
 			SchemeRegistry registry = new SchemeRegistry();
-			registry.register(new Scheme("http", PlainSocketFactory
-					.getSocketFactory(), 80));
+			registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
 			registry.register(new Scheme("https", sf, 443));
 
-			ClientConnectionManager ccm = new ThreadSafeClientConnManager(
-					params, registry);
+			ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
 
 			return new DefaultHttpClient(ccm, params);
 		} catch (Exception e) {
@@ -170,22 +164,21 @@ public class StoaManager {
 	}
 
 	public class MySSLSocketFactory extends SSLSocketFactory {
-		SSLContext sslContext = SSLContext.getInstance("TLS");
+		SSLContext	sslContext	= SSLContext.getInstance("TLS");
 
-		public MySSLSocketFactory(final KeyStore truststore)
-				throws NoSuchAlgorithmException, KeyManagementException,
+		public MySSLSocketFactory(final KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException,
 				KeyStoreException, UnrecoverableKeyException {
 			super(truststore);
 
 			TrustManager tm = new X509TrustManager() {
 				@Override
-				public void checkClientTrusted(final X509Certificate[] chain,
-						final String authType) throws CertificateException {
+				public void checkClientTrusted(final X509Certificate[] chain, final String authType)
+						throws CertificateException {
 				}
 
 				@Override
-				public void checkServerTrusted(final X509Certificate[] chain,
-						final String authType) throws CertificateException {
+				public void checkServerTrusted(final X509Certificate[] chain, final String authType)
+						throws CertificateException {
 				}
 
 				@Override
@@ -198,11 +191,9 @@ public class StoaManager {
 		}
 
 		@Override
-		public Socket createSocket(final Socket socket, final String host,
-				final int port, final boolean autoClose) throws IOException,
-				UnknownHostException {
-			return this.sslContext.getSocketFactory().createSocket(socket,
-					host, port, autoClose);
+		public Socket createSocket(final Socket socket, final String host, final int port, final boolean autoClose)
+				throws IOException, UnknownHostException {
+			return this.sslContext.getSocketFactory().createSocket(socket, host, port, autoClose);
 		}
 
 		@Override

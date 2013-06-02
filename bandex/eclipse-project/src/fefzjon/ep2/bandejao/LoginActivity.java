@@ -165,11 +165,8 @@ public class LoginActivity extends Activity {
 	public class UserLoginTask extends AsyncTask<String, Void, Boolean> {
 		@Override
 		protected Boolean doInBackground(final String... params) {
-			// TODO: attempt authentication against a network service.
 			try {
-				Thread.sleep(1000);
 				return StoaManager.getInstance().postLogin(params[0], params[1]);
-			} catch (InterruptedException e) {
 			} catch (KeyManagementException e) {
 				e.printStackTrace();
 			} catch (NoSuchAlgorithmException e) {
