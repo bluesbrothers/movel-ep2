@@ -31,6 +31,9 @@ public class DetailsActivity extends Activity {
 
 	private int			bandexId;
 
+	private Date		dataCardapio;
+	private int			tipoRefeicao;
+
 	private CardapioDia	cardapioDia;
 
 	@Override
@@ -42,8 +45,8 @@ public class DetailsActivity extends Activity {
 
 		this.bandexId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
 		final int bandecoId = this.bandexId;
-		Date dataCardapio = (Date) intent.getSerializableExtra(IntentKeys.DATA_CARDAPIO);
-		int proximaRefeicao = intent.getIntExtra(IntentKeys.TIPO_REFEICAO, BandexConstants.ALMOCO); // default = almoco
+		this.dataCardapio = (Date) intent.getSerializableExtra(IntentKeys.DATA_CARDAPIO);
+		this.tipoRefeicao = intent.getIntExtra(IntentKeys.TIPO_REFEICAO, BandexConstants.ALMOCO); // default = almoco
 
 		CardapioSemana cardapioSemana;
 		try {
@@ -60,9 +63,9 @@ public class DetailsActivity extends Activity {
 		this.txDetalheCardapioView = (TextView) this.findViewById(R.id.cardapio_details);
 		this.txTituloData = (TextView) this.findViewById(R.id.cardapio_data);
 
-		this.cardapioDia = cardapioSemana.get(dataCardapio, proximaRefeicao);
+		this.cardapioDia = cardapioSemana.get(this.dataCardapio, this.tipoRefeicao);
 
-		this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(dataCardapio, proximaRefeicao));
+		this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(this.dataCardapio, this.tipoRefeicao));
 
 		if (this.cardapioDia != null) {
 			StringBuilder builder = new StringBuilder();
@@ -133,6 +136,8 @@ public class DetailsActivity extends Activity {
 				}
 				Intent intent = new Intent(this, this.getClass());
 				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, this.bandexId);
+				intent.putExtra(IntentKeys.TIPO_REFEICAO, this.tipoRefeicao);
+				intent.putExtra(IntentKeys.DATA_CARDAPIO, this.dataCardapio);
 				this.startActivity(intent);
 
 				this.finish();

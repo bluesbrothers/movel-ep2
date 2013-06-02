@@ -66,6 +66,11 @@ public class StoaManager {
 		return this.isLogged;
 	}
 
+	public void deslogar() {
+		this.username = null;
+		this.isLogged = false;
+	}
+
 	public boolean postLogin(final String nusp, final String password) throws NoSuchAlgorithmException,
 			KeyManagementException {
 		HttpClient httpclient = this.getNewHttpClient(); // new

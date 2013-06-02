@@ -5,6 +5,8 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -53,6 +55,24 @@ public class ComentariosActivity extends ListActivity {
 	private void tryLogin() {
 		Intent intent = new Intent(this, LoginActivity.class);
 		this.startActivity(intent);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		this.getMenuInflater().inflate(R.menu.comentarios, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_deslogar:
+				StoaManager.getInstance().deslogar();
+				this.finish();
+				return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 }
