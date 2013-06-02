@@ -17,3 +17,15 @@ local.properties
 
 # Eclipse project files
 .classpath
+
+# Latex
+*.aux
+*.log
+
+bandex/Bandex.pdf
+bandex/doc/Bandex.pdf
+doc/relatorio.pdf
+gps/Gps.pdf
+gps/doc/Gps.pdf
+rss/Seminarios.pdf
+rss/doc/Seminarios.pdf

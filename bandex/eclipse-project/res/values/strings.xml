@@ -8,7 +8,7 @@
     <string name="pref_info_login_title">Informações de Login</string>
     <string name="key_salvar_info">salvar_info_login</string>
     <string name="title_salvar_info">Salvar login e senha?</string>
-    <string name="title_activity_details">Cardápio do dia</string>
+    <string name="title_activity_details">Cardápio</string>
     <string name="sem_cardapio_disponivel">Sem cardápio de hoje</string>
     <string name="ver_cardapio_semana">Ver cardápio da semana</string>
     <string name="ver_localizacao">Ver Localização no mapa</string>
@@ -22,5 +22,6 @@
     <string name="hint_comentario">Comentário sobre o cardápio de hoje&#8230;</string>
     <string name="title_activity_postar">Postar Comentário</string>
     <string name="refresh_comments">Atualizar Comentários</string>
+    <string name="action_deslogar">Deslogar</string>
 
 </resources>

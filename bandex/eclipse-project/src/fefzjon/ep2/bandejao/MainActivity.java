@@ -8,8 +8,10 @@ import android.widget.Button;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.model.UltimoCardapio;
 import fefzjon.ep2.bandejao.utils.Bandecos;
+import fefzjon.ep2.bandejao.utils.BandexCalculator;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.persist.DBManager;
+import fefzjon.ep2.utils.Utils;
 
 public class MainActivity extends Activity {
 
@@ -41,6 +43,8 @@ public class MainActivity extends Activity {
 	private void handleBandejaoButtonClick(final Bandecos bandeco) {
 		Intent intent = new Intent(this, DetailsActivity.class);
 		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandeco.id);
+		intent.putExtra(IntentKeys.DATA_CARDAPIO, Utils.today());
+		intent.putExtra(IntentKeys.TIPO_REFEICAO, BandexCalculator.nextMeal());
 		this.startActivity(intent);
 	}
 

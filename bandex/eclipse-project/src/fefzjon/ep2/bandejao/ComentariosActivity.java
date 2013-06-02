@@ -63,6 +63,10 @@ public class ComentariosActivity extends ListActivity {
 		case R.id.refresh_comments:
 			this.doRefresh();
 			return true;
+		case R.id.action_deslogar:
+			StoaManager.getInstance().deslogar();
+			this.finish();
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
