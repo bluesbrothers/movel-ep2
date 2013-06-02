@@ -42,10 +42,22 @@ Apresenta a lista de comentários, onde cada item tem na primeira linha o login 
 
 No final da lista, tem um botão para postar comentários, que leva a Tela de Postagem.
 
-No menu desta tela, existe a opção de deslogar.
+No menu desta tela, existe a opção de deslogar e de recarregar (\textit{Refresh}) a lista de comentários. 
+
+Ao postar um comentário novo, ocorre um recarregamento automático da lista ao voltar para a tela. Porém devido à diferenças na velocidade do dispositivo e da comunicação
+com o servidor para postagem de um comentário, é provável que ao executar o recarregamento automático o post novo ainda não exista no servidor, e portanto não vai aparecer na lista.
+Nesse caso, o usuário deverá executar um recarregamento manualmente para adquirir a lista atual dos comentários.
 
 \subsection{Tela de Postagem}
 Nesta tela tem um campo de texto para digitar seu comentário e um botão para enviar.
+
+\subsection{Tela de Mapa}
+Usando o GoogleMaps, mostra o mapa da USP, centralizado no bandejão escolhido e com um marcador no mapa apontando para a localização do bandejão.
+O mapa também mostra a localização do usuário no mapa por um ponto/seta azul.
+
+Ao clicar no marcador do bandejão, uma pequena janela (parecida com um balão) será mostrada, informando endereço e horários de funcionamento do bandejão.
+
+O menu de opções nessa tela tem dois botões: um para centralizar o mapa na USP, outro para centralizar o mapa no bandejão escolhido.
 
 \section{Estrutura do Código}
 Apresentação de forma superficial das classes principais do código.
@@ -67,7 +79,7 @@ Activity para fazer login. Boa parte dela foi gerada automaticamente pelo ADT ;)
 Activity principal, aqui temos basicamente os 4 botões para escolher o bandejão.
 
 \subsubsection{MapActivity}
-???
+Activity para mostrar um GoogleMap. Deriva de FragmentActivity (o mapa é um Fragment), e depende do id do bandejão no Intent.
 
 \subsubsection{PostarActivity}
 Activity para postar comentários. Depende do id da refeição no Intent.
@@ -110,7 +122,8 @@ Uma classe para representar o cardápio de uma semana. Serve para não precisar 
 Classe assíncrona para postar um comentário sem travar a aplicação.
 
 \subsubsection{MarkerInfo}
-???
+Classe auxiliar que cria o View mostrado pelo GoogleMaps ao clicar em um marcador no mapa. Ela implementa a interface da Google para tal propósito.
+A nossa implementação usa a ID do bandejão para conseguir os dados dele, para então mostrar do jeito que queremos.
 
 
 
