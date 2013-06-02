@@ -1,5 +1,7 @@
 package fefzjon.ep2.bandejao;
 
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -16,11 +18,11 @@ import fefzjon.ep2.bandejao.manager.ContentManager;
 import fefzjon.ep2.bandejao.manager.StoaManager;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
+import fefzjon.ep2.bandejao.utils.BandexConstants;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.exceptions.EpDoisConnectionException;
 import fefzjon.ep2.exceptions.EpDoisException;
-import fefzjon.ep2.utils.Utils;
 
 public class DetailsActivity extends Activity {
 
@@ -40,6 +42,8 @@ public class DetailsActivity extends Activity {
 
 		this.bandexId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
 		final int bandecoId = this.bandexId;
+		Date dataCardapio = (Date) intent.getSerializableExtra(IntentKeys.DATA_CARDAPIO);
+		int proximaRefeicao = intent.getIntExtra(IntentKeys.TIPO_REFEICAO, BandexConstants.ALMOCO); // default = almoco
 
 		CardapioSemana cardapioSemana;
 		try {
@@ -56,14 +60,11 @@ public class DetailsActivity extends Activity {
 		this.txDetalheCardapioView = (TextView) this.findViewById(R.id.cardapio_details);
 		this.txTituloData = (TextView) this.findViewById(R.id.cardapio_data);
 
-		//		int proximaRefeicao = BandexCalculator.nextMeal();
-		int proximaRefeicao = 2;
+		this.cardapioDia = cardapioSemana.get(dataCardapio, proximaRefeicao);
 
-		this.cardapioDia = cardapioSemana.get(Utils.parseAnoMesDia("2013-05-27"), proximaRefeicao);
+		this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(dataCardapio, proximaRefeicao));
 
 		if (this.cardapioDia != null) {
-			this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(this.cardapioDia));
-
 			StringBuilder builder = new StringBuilder();
 			builder.append(this.cardapioDia.getCardapio());
 			builder.append("\n").append(this.cardapioDia.getKcal()).append(" kcal");
@@ -87,6 +88,7 @@ public class DetailsActivity extends Activity {
 				Intent intent = new Intent(DetailsActivity.this, FullCardapioActivity.class);
 				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
 				DetailsActivity.this.startActivity(intent);
+				DetailsActivity.this.finish();
 			}
 		});
 

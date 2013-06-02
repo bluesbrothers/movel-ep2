@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import fefzjon.ep2.bandejao.model.CardapioDia;
-
 public class BandexCalculator {
 
 	private static Calendar			calendar				= null;
@@ -60,25 +58,23 @@ public class BandexCalculator {
 		}
 	}
 
-	public static String dataApresentacaoCardapio(final CardapioDia cDia) {
+	public static String dataApresentacaoCardapio(final Date dataReferente, final Integer tipoRefeicao) {
 		StringBuilder builder = new StringBuilder();
-
-		calendar.setTime(cDia.getDataReferente());
+		calendar.setTime(dataReferente);
 		builder.append(translateDiaDaSemana(calendar.get(Calendar.DAY_OF_WEEK)));
 		builder.append(" - ");
 
-		builder.append(formatterDataApresent.format(cDia.getDataReferente()));
+		builder.append(formatterDataApresent.format(dataReferente));
 		builder.append(" ");
 
-		if (cDia.getTipoRefeicao() == BandexConstants.CAFE_DA_MANHA) {
+		if (tipoRefeicao == BandexConstants.CAFE_DA_MANHA) {
 			builder.append("(Café-da-manhã)");
-		} else if (cDia.getTipoRefeicao() == BandexConstants.ALMOCO) {
+		} else if (tipoRefeicao == BandexConstants.ALMOCO) {
 			builder.append("(Almoço)");
-		} else if (cDia.getTipoRefeicao() == BandexConstants.JANTA) {
+		} else if (tipoRefeicao == BandexConstants.JANTA) {
 			builder.append("(Janta)");
 		}
 
 		return builder.toString();
-
 	}
 }

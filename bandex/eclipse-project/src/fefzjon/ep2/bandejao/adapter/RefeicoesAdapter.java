@@ -12,19 +12,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import fefzjon.ep2.bandejao.R;
-import fefzjon.ep2.bandejao.R.id;
-import fefzjon.ep2.bandejao.R.layout;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
-import fefzjon.ep2.bandejao.utils.CardapioSemana;
 
 public class RefeicoesAdapter extends BaseAdapter {
 	private Context				context;
 	private List<CardapioDia>	listaCardapio;
 
-	public RefeicoesAdapter(final Context context, final CardapioSemana cardapioSemana) {
+	public RefeicoesAdapter(final Context context, final List<CardapioDia> listaCardapio) {
 		this.context = context;
-		this.listaCardapio = cardapioSemana.asList();
+		this.listaCardapio = listaCardapio;
 		Collections.sort(this.listaCardapio, new Comparator<CardapioDia>() {
 			@Override
 			public int compare(final CardapioDia lhs, final CardapioDia rhs) {
@@ -74,7 +71,7 @@ public class RefeicoesAdapter extends BaseAdapter {
 		TextView dataView = (TextView) aView.findViewById(R.id.item_cardapio_data);
 		TextView cardapioView = (TextView) aView.findViewById(R.id.item_cardapio_details);
 
-		dataView.setText(BandexCalculator.dataApresentacaoCardapio(cDia));
+		dataView.setText(BandexCalculator.dataApresentacaoCardapio(cDia.getDataReferente(), cDia.getTipoRefeicao()));
 
 		StringBuilder builder = new StringBuilder();
 		builder.append(cDia.getCardapio());
