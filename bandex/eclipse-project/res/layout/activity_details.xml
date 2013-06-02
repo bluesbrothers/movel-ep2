@@ -1,32 +1,46 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DetailsActivity"
-    android:orientation="vertical"  >
+    tools:context=".DetailsActivity" >
 
+    <LinearLayout 
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-	<TextView
-	    android:id="@+id/cardapio_details"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:minHeight="100dp"
-	    android:text="@string/sem_cardapio_disponivel" />
-	
-	<Button
-	    android:id="@+id/bt_cardapio_semana"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/ver_cardapio_semana" />
-	
-	<Button
-	    android:id="@+id/bt_ver_localizacao"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/ver_localizacao" />
+        <TextView
+            android:id="@+id/cardapio_data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:textSize="20sp" />
+        
+        <TextView
+            android:id="@+id/cardapio_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:text="@string/sem_cardapio_disponivel" 
+            android:textSize="17sp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/bt_cardapio_semana"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_cardapio_semana" />
+
+        <Button
+            android:id="@+id/bt_ver_localizacao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_localizacao" />
+    </LinearLayout>
+
+</ScrollView>
