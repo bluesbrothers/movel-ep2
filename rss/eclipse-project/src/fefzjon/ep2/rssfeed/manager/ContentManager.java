@@ -60,6 +60,9 @@ public class ContentManager {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				Log.e("RSSFeed", "Erro ao tentar baixar " + feedUrl
+						+ " - dispositivo está conectado?");
 			}
 		}
 
@@ -146,7 +149,7 @@ public class ContentManager {
 				c.set(Calendar.SECOND, 0);
 			}
 		}
-		Log.d("RSSFeed", c.getTime().toString());
+		// Log.d("RSSFeed", c.getTime().toString());
 		return c.getTime();
 	}
 }
