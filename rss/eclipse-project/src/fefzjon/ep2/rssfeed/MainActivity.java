@@ -27,11 +27,11 @@ import fefzjon.ep2.rssfeed.utils.UpdateFeedAsyncTask;
 
 public class MainActivity extends ListActivity {
 
-	private List<FeedItem> feedItems;
+	private List<FeedItem>	feedItems;
 
-	private List<String> headlines;
+	private List<String>	headlines;
 
-	private boolean shouldUpdate;
+	private boolean			shouldUpdate;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class MainActivity extends ListActivity {
 		this.updateContent();
 
 		// Binding data
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, this.headlines);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+				this.headlines);
 
 		this.setListAdapter(adapter);
 
@@ -57,34 +57,28 @@ public class MainActivity extends ListActivity {
 	private void updateContent() {
 		this.shouldUpdate = false;
 
-		SharedPreferences preference = PreferenceManager
-				.getDefaultSharedPreferences(this);
+		SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
 		List<String> urlsToFetch = new ArrayList<String>();
-		if (preference
-				.getBoolean(this.getString(R.string.key_fetch_dcc), false)) {
+		if (preference.getBoolean(this.getString(R.string.key_fetch_dcc), true)) {
 			urlsToFetch.add(FeedUrls.DCC);
 		}
-		if (preference
-				.getBoolean(this.getString(R.string.key_fetch_mae), false)) {
+		if (preference.getBoolean(this.getString(R.string.key_fetch_mae), true)) {
 			urlsToFetch.add(FeedUrls.MAE);
 		}
-		if (preference
-				.getBoolean(this.getString(R.string.key_fetch_mat), false)) {
+		if (preference.getBoolean(this.getString(R.string.key_fetch_mat), true)) {
 			urlsToFetch.add(FeedUrls.MAT);
 		}
-		if (preference
-				.getBoolean(this.getString(R.string.key_fetch_map), false)) {
+		if (preference.getBoolean(this.getString(R.string.key_fetch_map), true)) {
 			urlsToFetch.add(FeedUrls.MAP);
 		}
 		TextView tvStatus = (TextView) this.findViewById(R.id.update_status);
 		tvStatus.setVisibility(View.VISIBLE);
-		new UpdateFeedAsyncTask(this).execute(urlsToFetch
-				.toArray(new String[0]));
+		new UpdateFeedAsyncTask(this).execute(urlsToFetch.toArray(new String[0]));
 	}
 
 	public class FeedData {
-		public List<String> headlines;
-		public List<FeedItem> items;
+		public List<String>		headlines;
+		public List<FeedItem>	items;
 	}
 
 	public FeedData getFeedData(final List<String> urlsToFetch) {
@@ -107,8 +101,8 @@ public class MainActivity extends ListActivity {
 		this.feedItems = data.items;
 		TextView tvStatus = (TextView) this.findViewById(R.id.update_status);
 		tvStatus.setVisibility(View.GONE);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, this.headlines);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+				this.headlines);
 
 		this.setListAdapter(adapter);
 		this.getListView().invalidateViews();
@@ -139,19 +133,18 @@ public class MainActivity extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.main_refresh:
-			this.updateContent();
-			return true;
-		case R.id.action_settings:
-			this.startActivity(new Intent(this, Configuracoes.class));
-			return true;
+			case R.id.main_refresh:
+				this.updateContent();
+				return true;
+			case R.id.action_settings:
+				this.startActivity(new Intent(this, Configuracoes.class));
+				return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
-	protected void onListItemClick(final ListView l, final View v,
-			final int position, final long id) {
+	protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
 		// Uri uri = Uri.parse(this.feedItems.get(position).getLink());
 		// Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		// this.startActivity(intent);
@@ -159,8 +152,7 @@ public class MainActivity extends ListActivity {
 
 		Intent intent = new Intent(this, DetailsActivity.class);
 		intent.putExtra(IntentKeys.DETAILS_FEED_TITLE, item.getTitle());
-		intent.putExtra(IntentKeys.DETAILS_FEED_DESCRIPTION,
-				item.getDescription());
+		intent.putExtra(IntentKeys.DETAILS_FEED_DESCRIPTION, item.getDescription());
 		intent.putExtra(IntentKeys.DETAILS_FEED_LINK, item.getLink());
 		intent.putExtra(IntentKeys.DETAILS_FEED_CATEGORY, item.getCategory());
 
@@ -168,8 +160,7 @@ public class MainActivity extends ListActivity {
 	}
 
 	public boolean isOnline() {
-		ConnectivityManager cm = (ConnectivityManager) this
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo();
 		return (netInfo != null) && netInfo.isConnectedOrConnecting();
 	}
