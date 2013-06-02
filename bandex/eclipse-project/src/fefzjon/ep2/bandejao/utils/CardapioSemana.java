@@ -15,9 +15,12 @@ public class CardapioSemana implements Iterable<CardapioDia> {
 
 	private Integer									semanaReferente;
 
+	private int										count;
+
 	public CardapioSemana(final int bandexId) {
 		this.cardapiosDias = new HashMap<Date, Map<Integer, CardapioDia>>();
 		this.bandexId = bandexId;
+		this.count = 0;
 	}
 
 	public void put(final Date date, final int tipoRefeicao, final CardapioDia cardapioDia) {
@@ -27,6 +30,7 @@ public class CardapioSemana implements Iterable<CardapioDia> {
 			this.cardapiosDias.put(date, refeicoesDeHoje);
 		}
 		refeicoesDeHoje.put(tipoRefeicao, cardapioDia);
+		this.count++;
 	}
 
 	public CardapioDia get(final Date date, final int tipoRefeicao) {
@@ -40,11 +44,15 @@ public class CardapioSemana implements Iterable<CardapioDia> {
 
 	@Override
 	public Iterator<CardapioDia> iterator() {
+		return this.asList().iterator();
+	}
+
+	public List<CardapioDia> asList() {
 		List<CardapioDia> list = new ArrayList<CardapioDia>();
 		for (Map<Integer, CardapioDia> map : this.cardapiosDias.values()) {
 			list.addAll(map.values());
 		}
-		return list.iterator();
+		return list;
 	}
 
 	public Integer getSemanaReferente() {
@@ -53,6 +61,10 @@ public class CardapioSemana implements Iterable<CardapioDia> {
 
 	public void setSemanaReferente(final Integer semanaReferente) {
 		this.semanaReferente = semanaReferente;
+	}
+
+	public int count() {
+		return this.count;
 	}
 
 }

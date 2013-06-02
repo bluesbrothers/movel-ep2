@@ -19,7 +19,7 @@ public class Utils {
 		return Utils.formatter.format(date);
 	}
 	
-	public static String formatDateWithourTime(final Date date) {
+	public static String formatDateWithoutTime(final Date date) {
 		return Utils.semHoras.format(date);
 	}
 
