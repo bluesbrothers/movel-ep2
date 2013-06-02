@@ -16,7 +16,7 @@
     <string name="title_activity_map">Bandex Localizator</string>
     <string name="title_activity_full_cardapio">Cardápio da Semana</string>
     <string name="nome_bandejao">Bandejão sem nome?</string>
-    <string name="title_activity_comentarios">ComentariosActivity</string>
+    <string name="title_activity_comentarios">Comentários do Bandejão</string>
     <string name="force_refresh">Refresh</string>
     <string name="postar_comentario">Postar Comentário</string>
     <string name="hint_comentario">Comentário sobre o cardápio de hoje&#8230;</string>

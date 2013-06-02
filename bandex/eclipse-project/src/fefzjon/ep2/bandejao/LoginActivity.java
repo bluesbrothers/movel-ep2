@@ -35,8 +35,8 @@ public class LoginActivity extends Activity {
 	 */
 	private UserLoginTask	mAuthTask	= null;
 
-	// Values for email and password at the time of the login attempt.
-	private String			mEmail;
+	// Values for nusp and password at the time of the login attempt.
+	private String			mNUSP;
 	private String			mPassword;
 
 	// UI references.
@@ -88,7 +88,7 @@ public class LoginActivity extends Activity {
 		this.mPasswordView.setError(null);
 
 		// Store values at the time of the login attempt.
-		this.mEmail = this.mNUSPView.getText().toString();
+		this.mNUSP = this.mNUSPView.getText().toString();
 		this.mPassword = this.mPasswordView.getText().toString();
 
 		boolean cancel = false;
@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
 		}
 
 		// Check for a valid email address.
-		if (TextUtils.isEmpty(this.mEmail)) {
+		if (TextUtils.isEmpty(this.mNUSP)) {
 			this.mNUSPView.setError(this.getString(R.string.error_field_required));
 			focusView = this.mNUSPView;
 			cancel = true;
@@ -118,7 +118,7 @@ public class LoginActivity extends Activity {
 			this.mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
 			this.showProgress(true);
 			this.mAuthTask = new UserLoginTask();
-			this.mAuthTask.execute((Void) null);
+			this.mAuthTask.execute(this.mNUSP, this.mPassword);
 		}
 	}
 
@@ -162,13 +162,13 @@ public class LoginActivity extends Activity {
 	 * Represents an asynchronous login/registration task used to authenticate
 	 * the user.
 	 */
-	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+	public class UserLoginTask extends AsyncTask<String, Void, Boolean> {
 		@Override
-		protected Boolean doInBackground(final Void... params) {
+		protected Boolean doInBackground(final String... params) {
 			// TODO: attempt authentication against a network service.
 			try {
 				Thread.sleep(1000);
-				return StoaManager.getInstance().postLogin("", "");
+				return StoaManager.getInstance().postLogin(params[0], params[1]);
 			} catch (InterruptedException e) {
 			} catch (KeyManagementException e) {
 				e.printStackTrace();
