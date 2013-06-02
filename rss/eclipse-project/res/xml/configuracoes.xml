@@ -5,19 +5,19 @@
         android:key="@string/pref_what_should_fetch_key"
         android:title="@string/pref_what_should_fetch_title" >
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/key_fetch_dcc"
             android:title="@string/title_fetch_dcc" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/key_fetch_map"
             android:title="@string/title_fetch_map" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/key_fetch_mat"
             android:title="@string/title_fetch_mat" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/key_fetch_mae"
             android:title="@string/title_fetch_mae" />
     </PreferenceCategory>

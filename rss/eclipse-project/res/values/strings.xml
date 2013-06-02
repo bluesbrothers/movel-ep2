@@ -23,6 +23,8 @@
     <string name="registrar_calendario">Registrar no Calendário</string>
     <string name="seguir_link">Seguir Link</string>
     
+    <string name="refresh">Refresh</string>
+    <string name="update_status">Loading...</string>
     
 
 </resources>
