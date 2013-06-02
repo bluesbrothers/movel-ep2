@@ -24,6 +24,7 @@
     <string name="seguir_link">Seguir Link</string>
     
     <string name="refresh">Refresh</string>
+    <string name="update_status">Loading...</string>
     
 
 </resources>

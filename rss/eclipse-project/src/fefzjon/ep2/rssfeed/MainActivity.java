@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.manager.ContentManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
@@ -75,6 +76,8 @@ public class MainActivity extends ListActivity {
 				.getBoolean(this.getString(R.string.key_fetch_map), false)) {
 			urlsToFetch.add(FeedUrls.MAP);
 		}
+		TextView tvStatus = (TextView) this.findViewById(R.id.update_status);
+		tvStatus.setVisibility(View.VISIBLE);
 		new UpdateFeedAsyncTask(this).execute(urlsToFetch
 				.toArray(new String[0]));
 	}
@@ -102,6 +105,8 @@ public class MainActivity extends ListActivity {
 	public void finishUpdateContents(final FeedData data) {
 		this.headlines = data.headlines;
 		this.feedItems = data.items;
+		TextView tvStatus = (TextView) this.findViewById(R.id.update_status);
+		tvStatus.setVisibility(View.GONE);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, this.headlines);
 
