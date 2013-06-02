@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,8 +19,8 @@ import fefzjon.ep2.bandejao.utils.IntentKeys;
 
 public class ComentariosActivity extends ListActivity {
 
-	private int bandexId;
 	private int mealId;
+	private boolean shouldRefresh;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class ComentariosActivity extends ListActivity {
 		}
 
 		Intent intent = this.getIntent();
-		this.bandexId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
+		// this.bandexId = intent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
 		this.mealId = intent.getIntExtra(IntentKeys.DETAILS_MEAL_ID, 1);
 
 		this.doRefresh();
@@ -46,8 +47,24 @@ public class ComentariosActivity extends ListActivity {
 				intent.putExtra(IntentKeys.DETAILS_MEAL_ID,
 						ComentariosActivity.this.mealId);
 				ComentariosActivity.this.startActivity(intent);
+				ComentariosActivity.this.shouldRefresh = true;
 			}
 		});
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (this.shouldRefresh) {
+			this.doRefresh();
+			Log.i("Bandex", "atualizou comentarios no resume");
+		}
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		this.shouldRefresh = true;
 	}
 
 	@Override
@@ -78,6 +95,7 @@ public class ComentariosActivity extends ListActivity {
 		ListAdapter adapter = new ComentariosAdapter(this, commentList);
 
 		this.setListAdapter(adapter);
+		this.shouldRefresh = false;
 	}
 
 	private void tryLogin() {
