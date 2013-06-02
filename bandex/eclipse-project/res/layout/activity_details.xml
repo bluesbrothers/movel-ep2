@@ -41,6 +41,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/ver_localizacao" />
+        
+        <Button
+            android:id="@+id/bt_ver_comentarios"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_comentarios" />
     </LinearLayout>
 
 </ScrollView>

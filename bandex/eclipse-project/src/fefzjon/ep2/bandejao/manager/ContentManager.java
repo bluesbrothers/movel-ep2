@@ -20,6 +20,7 @@ import fefzjon.ep2.bandejao.model.UltimoCardapio;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
 import fefzjon.ep2.bandejao.utils.BandexContants;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
+import fefzjon.ep2.exceptions.EpDoisConnectionException;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.utils.Utils;
@@ -40,9 +41,18 @@ public class ContentManager {
 		return instance;
 	}
 
-	public CardapioSemana getCardapioSemana(final int bandexId) throws EpDoisException {
+	public CardapioSemana getCardapioSemana(final int bandexId, final boolean isOnline) throws EpDoisException {
+		return this.getCardapioSemanaAux(bandexId, isOnline, false);
+	}
+
+	public CardapioSemana forceRefreshCardapioSemana(final int bandexId, final boolean isOnline) throws EpDoisException {
+		return this.getCardapioSemanaAux(bandexId, isOnline, true);
+	}
+
+	private CardapioSemana getCardapioSemanaAux(final int bandexId, final boolean isOnline, final boolean forceRefresh)
+			throws EpDoisException {
 		CardapioSemana cardapio = this.infosBandecos.get(bandexId);
-		if (cardapio == null) {
+		if ((cardapio == null) || forceRefresh) {
 			Date date = Utils.today();
 
 			int semanaAtual = BandexCalculator.semanaReferente(date);
@@ -50,7 +60,10 @@ public class ContentManager {
 			UltimoCardapio ultimoCardapio = DBManager.getInstance().getLast(new UltimoCardapio(), "bandex_id = ?",
 					new String[] { String.valueOf(bandexId) });
 
-			if ((ultimoCardapio == null) || (ultimoCardapio.getSemanaReferente() < semanaAtual)) {
+			if (forceRefresh || (ultimoCardapio == null) || (ultimoCardapio.getSemanaReferente() < semanaAtual)) {
+				if (!isOnline) {
+					throw new EpDoisConnectionException("Você não está conectado");
+				}
 				cardapio = fetchAndParseMeal(bandexId, String.format(BandexContants.URL_PATTERN, bandexId));
 			} else {
 				cardapio = loadUltimoCardapio(bandexId);
