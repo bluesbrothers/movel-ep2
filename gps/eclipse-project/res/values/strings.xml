@@ -9,6 +9,7 @@
     <string name="centralizaMapaUSP">Centraliza mapa na USP</string>
     <string name="ok">OK</string>
     <string name="pontoProx">Ponto mais próximo de você</string>
+    <string name="pontoUser">Ponto Marcado por você</string>
     <string name="md_arrival">Horário de Chegada (A): </string>
     <string name="md_exit">Horário de Saída (T): </string>
     <string name="md_time">Tempo aprox. (T->A): </string>

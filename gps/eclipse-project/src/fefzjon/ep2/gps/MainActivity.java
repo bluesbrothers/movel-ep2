@@ -2,6 +2,7 @@ package fefzjon.ep2.gps;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -23,12 +24,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import fefzjon.ep2.gps.MarkerInfo.MarkData;
 import fefzjon.ep2.gps.utilities.ConnectionHandler;
 import fefzjon.ep2.gps.utilities.RouteManager;
 import fefzjon.ep2.gps.utilities.RouteManager.PointArray;
 import fefzjon.ep2.gps.utilities.TimetableManager;
 
-public class MainActivity extends FragmentActivity implements LocationListener {
+public class MainActivity extends FragmentActivity implements LocationListener,
+		GoogleMap.OnMapLongClickListener {
 
 	private GoogleMap map;
 	private ConnectionHandler connHandler;
@@ -58,6 +61,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 		this.map.setMyLocationEnabled(true);
 		this.map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		this.map.setInfoWindowAdapter(this.markerInfo);
+		this.map.setOnMapLongClickListener(this);
 		this.buspCode = 8012;
 		this.closestPointOnRoute = null;
 		this.closestArrival = "";
@@ -90,6 +94,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 		switch (item.getItemId()) {
 		case R.id.selectBusp8012:
 			this.map.clear();
+			this.markerInfo.getData().clear();
 			this.buspCode = 8012;
 			this.closestPointOnRoute = null;
 			this.closestArrival = "";
@@ -97,6 +102,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 			return true;
 		case R.id.selectBusp8022:
 			this.map.clear();
+			this.markerInfo.getData().clear();
 			this.buspCode = 8022;
 			this.closestPointOnRoute = null;
 			this.closestArrival = "";
@@ -115,18 +121,22 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 	}
 
 	@Override
+	public void onMapLongClick(final LatLng point) {
+		Location loc = new Location("");
+		loc.setLatitude(point.latitude);
+		loc.setLongitude(point.longitude);
+		LatLng p = RouteManager.getPointClosestTo(loc);
+		MarkData mark = this.getMarkForPoint(p);
+		String id = "userMark"
+				+ String.valueOf(this.markerInfo.getData().size());
+		this.markerInfo.setValues(id, mark);
+		this.addMarker(p, id);
+	}
+
+	@Override
 	public void onLocationChanged(final Location location) {
 		LatLng p = RouteManager.getPointClosestTo(location);
-		double dist = RouteManager.calculateRouteLengthUpTo(this.buspCode, p);
-		int duration = TimetableManager.getApproxRouteDuration();
-		// speed in meters / minute
-		double speed = RouteManager.getRouteLength(this.buspCode) / duration;
-		int deltaT = (int) (dist / speed);
-		Date expectedDeparture = TimetableManager.getDateMinus(deltaT);
-		String nextBus = TimetableManager.getDepartureAfter(expectedDeparture);
-		String arrival = TimetableManager.getDateStr(TimetableManager
-				.getDateAdd(TimetableManager.getDateForDeparture(nextBus),
-						deltaT));
+		MarkData mark = this.getMarkForPoint(p);
 
 		if ((this.closestPointOnRoute == null)
 				|| !this.closestPointOnRoute.equals(p)) {
@@ -134,14 +144,15 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 
 			this.map.clear();
 
-			this.markerInfo.setValues(dist, deltaT, nextBus, arrival);
-			this.closestMarker = this.addMarker(p);
-			this.closestArrival = arrival;
+			this.markerInfo.setValues(MarkerInfo.CLOSEST_ID, mark);
+			this.closestMarker = this.addMarker(p, MarkerInfo.CLOSEST_ID);
+			this.closestArrival = mark.arrival;
 
+			this.recreateUserMarks();
 			this.updateMap();
-		} else if (!this.closestArrival.equals(arrival)) {
-			this.closestArrival = arrival;
-			this.markerInfo.setValues(dist, deltaT, nextBus, arrival);
+		} else if (!this.closestArrival.equals(mark.arrival)) {
+			this.closestArrival = mark.arrival;
+			this.markerInfo.setValues(MarkerInfo.CLOSEST_ID, mark);
 			if (this.closestMarker.isInfoWindowShown()) {
 				this.closestMarker.hideInfoWindow();
 				this.closestMarker.showInfoWindow();
@@ -150,6 +161,30 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 				this.closestMarker.hideInfoWindow();
 			}
 			this.setStatusText();
+		}
+	}
+
+	private MarkerInfo.MarkData getMarkForPoint(final LatLng point) {
+		MarkData mark = new MarkData();
+		mark.dist = RouteManager.calculateRouteLengthUpTo(this.buspCode, point);
+		int duration = TimetableManager.getApproxRouteDuration();
+		// speed in meters / minute
+		double speed = RouteManager.getRouteLength(this.buspCode) / duration;
+		mark.deltaT = (int) (mark.dist / speed);
+		Date expectedDeparture = TimetableManager.getDateMinus(mark.deltaT);
+		mark.nextBus = TimetableManager.getDepartureAfter(expectedDeparture);
+		mark.arrival = TimetableManager
+				.getDateStr(TimetableManager.getDateAdd(
+						TimetableManager.getDateForDeparture(mark.nextBus),
+						mark.deltaT));
+		mark.pos = point;
+		return mark;
+	}
+
+	private void recreateUserMarks() {
+		for (Map.Entry<String, MarkData> entry : this.markerInfo.getData()
+				.entrySet()) {
+			this.addMarker(entry.getValue().pos, entry.getKey());
 		}
 	}
 
@@ -236,9 +271,9 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 		return line;
 	}
 
-	public Marker addMarker(final LatLng p) {
-		return this.map.addMarker(new MarkerOptions().position(p).draggable(
-				false));
+	public Marker addMarker(final LatLng p, final String id) {
+		return this.map.addMarker(new MarkerOptions().position(p)
+				.draggable(false).snippet(id));
 	}
 
 	private void centerMapOnUSP() {

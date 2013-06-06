@@ -1,22 +1,34 @@
 package fefzjon.ep2.gps;
 
+import java.util.HashMap;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 public class MarkerInfo implements InfoWindowAdapter {
 
+	public static final String CLOSEST_ID = "closest";
+
 	private MainActivity parent;
-	private double dist;
-	private int deltaT;
-	private String nextBus;
-	private String arrival;
+
+	public static class MarkData {
+		public double dist;
+		public int deltaT;
+		public String nextBus;
+		public String arrival;
+		public LatLng pos;
+	}
+
+	private HashMap<String, MarkData> data;
 
 	public MarkerInfo(final MainActivity parent) {
 		this.parent = parent;
+		this.data = new HashMap<String, MarkerInfo.MarkData>();
 	}
 
 	@Override
@@ -24,18 +36,30 @@ public class MarkerInfo implements InfoWindowAdapter {
 		LayoutInflater inflater = this.parent.getLayoutInflater();
 		View markerDialog = inflater.inflate(R.layout.marker_dialog, null);
 
+		MarkData entry = this.data.get(marker.getSnippet());
+		if (entry == null) {
+			return markerDialog;
+		}
+
+		TextView tvTitle = (TextView) markerDialog.findViewById(R.id.md_title);
+		if (marker.getSnippet().equals(CLOSEST_ID)) {
+			tvTitle.setText(R.string.pontoProx);
+		} else {
+			tvTitle.setText(R.string.pontoUser);
+		}
+
 		TextView tvDist = (TextView) markerDialog.findViewById(R.id.md_dist);
-		tvDist.setText(String.valueOf((int) this.dist) + "m");
+		tvDist.setText(String.valueOf((int) entry.dist) + "m");
 
 		TextView tvTime = (TextView) markerDialog.findViewById(R.id.md_time);
-		tvTime.setText(String.valueOf(this.deltaT) + "min");
+		tvTime.setText(String.valueOf(entry.deltaT) + "min");
 
 		TextView tvExit = (TextView) markerDialog.findViewById(R.id.md_exit);
-		tvExit.setText(this.nextBus);
+		tvExit.setText(entry.nextBus);
 
 		TextView tvArrival = (TextView) markerDialog
 				.findViewById(R.id.md_arrival);
-		tvArrival.setText(this.arrival);
+		tvArrival.setText(entry.arrival);
 
 		return markerDialog;
 	}
@@ -45,12 +69,22 @@ public class MarkerInfo implements InfoWindowAdapter {
 		return null;
 	}
 
-	public void setValues(final double dist, final int deltaT,
-			final String nextBus, final String arrival) {
-		this.dist = dist;
-		this.deltaT = deltaT;
-		this.nextBus = nextBus;
-		this.arrival = arrival;
+	public MarkData setValues(final String id, final double dist,
+			final int deltaT, final String nextBus, final String arrival) {
+		MarkData entry = new MarkData();
+		entry.dist = dist;
+		entry.deltaT = deltaT;
+		entry.nextBus = nextBus;
+		entry.arrival = arrival;
+		this.data.put(id, entry);
+		return entry;
 	}
 
+	public void setValues(final String id, final MarkData mark) {
+		this.data.put(id, mark);
+	}
+
+	public HashMap<String, MarkData> getData() {
+		return this.data;
+	}
 }
