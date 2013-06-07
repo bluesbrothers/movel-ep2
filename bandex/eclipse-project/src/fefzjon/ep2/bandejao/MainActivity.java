@@ -40,7 +40,6 @@ public class MainActivity extends BasicActivity {
 
 		if (initOnChoose.equals(this.getString(R.string.pref_list_screen_init_compare))) {
 			Intent intent = new Intent(this, CompareCardapioActivity.class);
-			intent.putExtra(IntentKeys.QTD_COMPARE_BANDECO, 2);
 			int i = 0;
 			if (preference.getBoolean(this.getString(R.string.key_compare_central), true)) {
 				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.CENTRAL.id);
@@ -54,6 +53,7 @@ public class MainActivity extends BasicActivity {
 			if (preference.getBoolean(this.getString(R.string.key_compare_quimica), true)) {
 				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.QUIMICA.id);
 			}
+			intent.putExtra(IntentKeys.QTD_COMPARE_BANDECO, i);
 			intent.putExtra(IntentKeys.DATA_CARDAPIO, new Date());
 			this.startActivity(intent);
 		}
