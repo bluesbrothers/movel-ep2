@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="do_comparar">Comparar!</string>
+    <string name="cancel">Cancelar</string>
+    
+    <string name="comparar_com_bandejao">Comparar com&#8230;</string>
+
+</resources>

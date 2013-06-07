@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   
+    <string name="force_refresh">Refresh</string>
+    <string name="postar_comentario">Postar Comentário</string>
+    <string name="hint_comentario">Comentário sobre o cardápio de hoje&#8230;</string>
+    
+    <string name="refresh_comments">Atualizar Comentários</string>
+    <string name="action_deslogar">Deslogar</string>
+    
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+
+	<string name="app_name">Bandex</string>
+	<string name="title_activity_map">Bandex Localizator</string>
+    <string name="title_activity_full_cardapio">Cardápio da Semana</string>
+    <string name="title_activity_comentarios">Comentários do Bandejão</string>
+    <string name="title_activity_postar">Postar Comentário</string>
+    <string name="title_activity_compare">Comparação</string>
+	<string name="title_activity_details">Cardápio</string>
+
+</resources>
