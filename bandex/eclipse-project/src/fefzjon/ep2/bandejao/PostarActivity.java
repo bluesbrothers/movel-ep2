@@ -1,6 +1,5 @@
 package fefzjon.ep2.bandejao;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +10,7 @@ import fefzjon.ep2.bandejao.manager.StoaManager;
 import fefzjon.ep2.bandejao.utils.ComentarioAsync;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 
-public class PostarActivity extends Activity {
+public class PostarActivity extends BasicActivity {
 
 	private Button		btPostar;
 	private EditText	edComentario;

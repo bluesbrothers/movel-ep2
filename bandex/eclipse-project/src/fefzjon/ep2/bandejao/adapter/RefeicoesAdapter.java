@@ -61,6 +61,10 @@ public class RefeicoesAdapter extends BaseAdapter {
 		return i;
 	}
 
+	protected String generateTitulo(final CardapioDia cDia) {
+		return BandexCalculator.dataApresentacaoCardapio(cDia.getDataReferente(), cDia.getTipoRefeicao());
+	}
+
 	@Override
 	public View getView(final int i, final View view, final ViewGroup viewGroup) {
 		CardapioDia cDia = this.listaCardapio.get(i);
@@ -68,10 +72,10 @@ public class RefeicoesAdapter extends BaseAdapter {
 		LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View aView = inflater.inflate(R.layout.view_cardapio_item, null);
 
-		TextView dataView = (TextView) aView.findViewById(R.id.item_cardapio_data);
+		TextView tituloView = (TextView) aView.findViewById(R.id.item_cardapio_titulo);
 		TextView cardapioView = (TextView) aView.findViewById(R.id.item_cardapio_details);
 
-		dataView.setText(BandexCalculator.dataApresentacaoCardapio(cDia.getDataReferente(), cDia.getTipoRefeicao()));
+		tituloView.setText(this.generateTitulo(cDia));
 
 		StringBuilder builder = new StringBuilder();
 		builder.append(cDia.getCardapio());

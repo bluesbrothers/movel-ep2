@@ -60,7 +60,8 @@ public class ContentManager {
 			UltimoCardapio ultimoCardapio = DBManager.getInstance().getLast(new UltimoCardapio(), "bandex_id = ?",
 					new String[] { String.valueOf(bandexId) });
 
-			if (forceRefresh || (ultimoCardapio == null) || (ultimoCardapio.getSemanaReferente() < semanaAtual)) {
+			if (forceRefresh || (ultimoCardapio == null)
+					|| (isOnline && (ultimoCardapio.getSemanaReferente() < semanaAtual))) {
 				if (!isOnline) {
 					throw new EpDoisConnectionException("Você não está conectado");
 				}

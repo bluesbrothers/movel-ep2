@@ -2,7 +2,6 @@ package fefzjon.ep2.bandejao;
 
 import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +16,10 @@ import fefzjon.ep2.bandejao.manager.StoaManager;
 import fefzjon.ep2.bandejao.utils.BandexComment;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
 
-public class ComentariosActivity extends ListActivity {
+public class ComentariosActivity extends BasicListActivity {
 
-	private int mealId;
-	private boolean shouldRefresh;
+	private int		mealId;
+	private boolean	shouldRefresh;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -42,10 +41,8 @@ public class ComentariosActivity extends ListActivity {
 		btPostar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View v) {
-				Intent intent = new Intent(ComentariosActivity.this,
-						PostarActivity.class);
-				intent.putExtra(IntentKeys.DETAILS_MEAL_ID,
-						ComentariosActivity.this.mealId);
+				Intent intent = new Intent(ComentariosActivity.this, PostarActivity.class);
+				intent.putExtra(IntentKeys.DETAILS_MEAL_ID, ComentariosActivity.this.mealId);
 				ComentariosActivity.this.startActivity(intent);
 				ComentariosActivity.this.shouldRefresh = true;
 			}
@@ -77,20 +74,19 @@ public class ComentariosActivity extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.refresh_comments:
-			this.doRefresh();
-			return true;
-		case R.id.action_deslogar:
-			StoaManager.getInstance().deslogar();
-			this.finish();
-			return true;
+			case R.id.refresh_comments:
+				this.doRefresh();
+				return true;
+			case R.id.action_deslogar:
+				StoaManager.getInstance().deslogar();
+				this.finish();
+				return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	public void doRefresh() {
-		List<BandexComment> commentList = ComentariosManager
-				.fetchAndParseComment(this.mealId);
+		List<BandexComment> commentList = ComentariosManager.fetchAndParseComment(this.mealId);
 
 		ListAdapter adapter = new ComentariosAdapter(this, commentList);
 
