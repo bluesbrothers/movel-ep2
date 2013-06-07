@@ -183,10 +183,13 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 		mark.deltaT = (int) (mark.dist / speed);
 		Date expectedDeparture = TimetableManager.getDateMinus(mark.deltaT);
 		mark.nextBus = TimetableManager.getDepartureAfter(expectedDeparture);
-		mark.arrival = TimetableManager
-				.getDateStr(TimetableManager.getDateAdd(
-						TimetableManager.getDateForDeparture(mark.nextBus),
-						mark.deltaT));
+		Date expArrival = TimetableManager
+				.getDateAdd(TimetableManager.getDateForDeparture(mark.nextBus),
+						mark.deltaT);
+		mark.arrival = TimetableManager.getDateStr(expArrival);
+		Date expectedDestination = TimetableManager.getDateAdd(
+				TimetableManager.getDateForDeparture(mark.nextBus), duration);
+		mark.destination = TimetableManager.getDateStr(expectedDestination);
 		mark.pos = point;
 		return mark;
 	}

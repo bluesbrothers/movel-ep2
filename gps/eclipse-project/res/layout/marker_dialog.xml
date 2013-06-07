@@ -75,5 +75,18 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"  />
 	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+	     android:orientation="horizontal" android:layout_marginBottom="6dp">
+		<TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/md_destination"
+	            android:layout_marginRight="3dp" 
+	            android:textStyle="bold" />
+		<TextView
+	            android:id="@+id/md_destination"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"  />
+	</LinearLayout>
 
 </LinearLayout>

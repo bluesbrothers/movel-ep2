@@ -15,6 +15,7 @@
     <string name="md_exit">Horário de Saída (T): </string>
     <string name="md_time">Tempo aprox. (T->A): </string>
     <string name="md_dist">Distância (T->A): </string>
+    <string name="md_destination">Horário de Término (T):</string>
     <string name="title_activity_time_table">Time Table</string>
     <string name="time_table">Tabela de Horários</string>
     <string name="duration">Duração aprox. da viagem: </string>

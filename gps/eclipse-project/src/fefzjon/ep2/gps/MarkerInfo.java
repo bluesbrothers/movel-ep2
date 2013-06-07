@@ -21,6 +21,7 @@ public class MarkerInfo implements InfoWindowAdapter {
 		public int deltaT;
 		public String nextBus;
 		public String arrival;
+		public String destination;
 		public LatLng pos;
 	}
 
@@ -61,23 +62,16 @@ public class MarkerInfo implements InfoWindowAdapter {
 				.findViewById(R.id.md_arrival);
 		tvArrival.setText(entry.arrival);
 
+		TextView tvDest = (TextView) markerDialog
+				.findViewById(R.id.md_destination);
+		tvDest.setText(entry.destination);
+
 		return markerDialog;
 	}
 
 	@Override
 	public View getInfoWindow(final Marker marker) {
 		return null;
-	}
-
-	public MarkData setValues(final String id, final double dist,
-			final int deltaT, final String nextBus, final String arrival) {
-		MarkData entry = new MarkData();
-		entry.dist = dist;
-		entry.deltaT = deltaT;
-		entry.nextBus = nextBus;
-		entry.arrival = arrival;
-		this.data.put(id, entry);
-		return entry;
 	}
 
 	public void setValues(final String id, final MarkData mark) {
