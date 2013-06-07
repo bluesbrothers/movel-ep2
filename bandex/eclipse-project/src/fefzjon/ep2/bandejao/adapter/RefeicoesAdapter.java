@@ -16,10 +16,11 @@ import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
 
 public class RefeicoesAdapter extends BaseAdapter {
-	private Context				context;
-	private List<CardapioDia>	listaCardapio;
+	private Context context;
+	private List<CardapioDia> listaCardapio;
 
-	public RefeicoesAdapter(final Context context, final List<CardapioDia> listaCardapio) {
+	public RefeicoesAdapter(final Context context,
+			final List<CardapioDia> listaCardapio) {
 		this.context = context;
 		this.listaCardapio = listaCardapio;
 		Collections.sort(this.listaCardapio, new Comparator<CardapioDia>() {
@@ -41,7 +42,8 @@ public class RefeicoesAdapter extends BaseAdapter {
 				Integer lTipoRefeicao = lhs.getTipoRefeicao();
 				Integer rTipoRefeicao = rhs.getTipoRefeicao();
 
-				return (lTipoRefeicao == null ? 0 : lTipoRefeicao) - (rTipoRefeicao == null ? 0 : rTipoRefeicao);
+				return (lTipoRefeicao == null ? 0 : lTipoRefeicao)
+						- (rTipoRefeicao == null ? 0 : rTipoRefeicao);
 			}
 		});
 	}
@@ -62,18 +64,22 @@ public class RefeicoesAdapter extends BaseAdapter {
 	}
 
 	protected String generateTitulo(final CardapioDia cDia) {
-		return BandexCalculator.dataApresentacaoCardapio(cDia.getDataReferente(), cDia.getTipoRefeicao());
+		return BandexCalculator.dataApresentacaoCardapio(
+				cDia.getDataReferente(), cDia.getTipoRefeicao());
 	}
 
 	@Override
 	public View getView(final int i, final View view, final ViewGroup viewGroup) {
 		CardapioDia cDia = this.listaCardapio.get(i);
 
-		LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater inflater = (LayoutInflater) this.context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View aView = inflater.inflate(R.layout.view_cardapio_item, null);
 
-		TextView tituloView = (TextView) aView.findViewById(R.id.item_cardapio_titulo);
-		TextView cardapioView = (TextView) aView.findViewById(R.id.item_cardapio_details);
+		TextView tituloView = (TextView) aView
+				.findViewById(R.id.item_cardapio_titulo);
+		TextView cardapioView = (TextView) aView
+				.findViewById(R.id.item_cardapio_details);
 
 		tituloView.setText(this.generateTitulo(cDia));
 

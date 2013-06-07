@@ -1,5 +1,6 @@
 package fefzjon.ep2.bandejao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import fefzjon.ep2.bandejao.adapter.RefeicoesAdapter;
+import fefzjon.ep2.bandejao.listeners.FullCardapioItemLongClickListener;
 import fefzjon.ep2.bandejao.manager.ContentManager;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.Bandecos;
@@ -23,8 +25,10 @@ import fefzjon.ep2.exceptions.EpDoisException;
 
 public class FullCardapioActivity extends BasicListActivity {
 
-	private List<CardapioDia>	listCardapios;
-	private int					bandecoId;
+	private List<CardapioDia> listCardapios;
+	private int bandecoId;
+	private List<Integer> mSelectedItems;
+	private List<Bandecos> outrosBandecos;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -32,14 +36,17 @@ public class FullCardapioActivity extends BasicListActivity {
 		this.setContentView(R.layout.activity_full_cardapio);
 
 		Intent incomingIntent = this.getIntent();
-		this.bandecoId = incomingIntent.getIntExtra(IntentKeys.DETAILS_BANDECO_ID, 1);
+		this.bandecoId = incomingIntent.getIntExtra(
+				IntentKeys.DETAILS_BANDECO_ID, 1);
 
-		TextView tituloView = (TextView) this.findViewById(R.id.cardapio_details);
+		TextView tituloView = (TextView) this
+				.findViewById(R.id.cardapio_details);
 		tituloView.setText(Bandecos.getById(this.bandecoId).nome);
 
 		CardapioSemana cardapioSemana;
 		try {
-			cardapioSemana = ContentManager.getIntance().getCardapioSemana(this.bandecoId, this.isOnline());
+			cardapioSemana = ContentManager.getIntance().getCardapioSemana(
+					this.bandecoId, this.isOnline());
 		} catch (EpDoisConnectionException e) {
 			e.printStackTrace();
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -52,22 +59,52 @@ public class FullCardapioActivity extends BasicListActivity {
 		this.listCardapios = cardapioSemana.asList();
 		ListAdapter adapter = new RefeicoesAdapter(this, this.listCardapios);
 
+		this.setupOutrosBandecos();
+
 		this.setListAdapter(adapter);
+
+		// this.registerForContextMenu(this.getListView());
+
+		this.setupLongClick();
+
+	}
+
+	private void setupOutrosBandecos() {
+		this.outrosBandecos = new ArrayList<Bandecos>();
+		for (Bandecos b : Bandecos.values()) {
+			if (b.id != this.bandecoId) {
+				this.outrosBandecos.add(b);
+			}
+		}
+	}
+
+	private void setupLongClick() {
+		this.getListView().setLongClickable(true);
+
+		this.getListView().setOnItemLongClickListener(
+				new FullCardapioItemLongClickListener(this, this.listCardapios,
+						this.bandecoId, this.mSelectedItems,
+						this.outrosBandecos));
+
 	}
 
 	@Override
-	protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
+	protected void onListItemClick(final ListView l, final View v,
+			final int position, final long id) {
 		CardapioDia cardapioDia = this.listCardapios.get(position);
 		Intent intent = new Intent(this, DetailsActivity.class);
 		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, this.bandecoId);
-		intent.putExtra(IntentKeys.DATA_CARDAPIO, cardapioDia.getDataReferente());
+		intent.putExtra(IntentKeys.DATA_CARDAPIO,
+				cardapioDia.getDataReferente());
 		intent.putExtra(IntentKeys.TIPO_REFEICAO, cardapioDia.getTipoRefeicao());
 		this.startActivity(intent);
 		this.finish();
 	}
 
+	@Override
 	public boolean isOnline() {
-		ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) this
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo();
 		return (netInfo != null) && netInfo.isConnectedOrConnecting();
 	}

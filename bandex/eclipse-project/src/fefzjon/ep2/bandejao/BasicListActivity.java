@@ -1,6 +1,9 @@
 package fefzjon.ep2.bandejao;
 
 import android.app.ListActivity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.model.UltimoCardapio;
@@ -16,5 +19,12 @@ public abstract class BasicListActivity extends ListActivity {
 			DBManager.registerModel(UltimoCardapio.class);
 			DBManager.initializeModule(this, "FEFZJON_BANDECO", 2);
 		}
+	}
+
+	public boolean isOnline() {
+		ConnectivityManager cm = (ConnectivityManager) this
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		return (netInfo != null) && netInfo.isConnectedOrConnecting();
 	}
 }

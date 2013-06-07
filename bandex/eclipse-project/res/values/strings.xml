@@ -23,5 +23,11 @@
     <string name="title_activity_postar">Postar Comentário</string>
     <string name="refresh_comments">Atualizar Comentários</string>
     <string name="action_deslogar">Deslogar</string>
+    <string name="title_activity_compare">Comparação</string>
+    
+    <string name="do_comparar">Comparar!</string>
+    <string name="cancel">Cancelar</string>
+    
+    <string name="comparar_com_bandejao">Comparar com&#8230;</string>
 
 </resources>

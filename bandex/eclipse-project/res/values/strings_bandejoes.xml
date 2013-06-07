@@ -1,0 +1,10 @@
+<resources>
+
+    <string-array name="lista_bandejoes">
+        <item>Central</item>
+        <item>Física</item>
+        <item>Química</item>
+        <item>Prefeitura</item>
+    </string-array>
+
+</resources>

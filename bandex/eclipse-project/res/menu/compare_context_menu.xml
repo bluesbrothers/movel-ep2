@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group android:checkableBehavior="all">
+    <item
+        android:id="@+id/comparar_com_central"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/title_compare_central"/>
+    
+    <item
+        android:id="@+id/comparar_com_fisica"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/title_compare_fisica"/>
+    
+    <item
+        android:id="@+id/comparar_com_pco"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/title_compare_pco"/>
+    
+    <item
+        android:id="@+id/comparar_com_quimica"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/title_compare_quimica"/>
+    </group>
+    
+    <item
+        android:id="@+id/comparar_com_bandejao"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/comparar_com_bandejao"/>
+
+</menu>

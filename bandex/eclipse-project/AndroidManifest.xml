@@ -81,7 +81,7 @@
         <activity
             android:name="fefzjon.ep2.bandejao.CompareCardapioActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:label="@string/title_activity_postar" >
+            android:label="@string/title_activity_compare" >
         </activity>
     </application>
 
