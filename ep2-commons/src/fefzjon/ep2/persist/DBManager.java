@@ -94,8 +94,6 @@ public class DBManager {
 	}
 	
 	public <S extends BaseEntity> S getLast(final S representante, String whereClause, String[] whereArgs) {
-		List<S> list = new ArrayList<S>();
-
 		String tableName = DBReflectionHelper.getTableName(representante);
 		String idName = DBReflectionHelper.getIdName(representante);
 

@@ -3,30 +3,25 @@ package fefzjon.ep2.bandejao;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import fefzjon.ep2.bandejao.adapter.RefeicoesAdapter;
 import fefzjon.ep2.bandejao.listeners.FullCardapioItemLongClickListener;
-import fefzjon.ep2.bandejao.manager.ContentManager;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.Bandecos;
+import fefzjon.ep2.bandejao.utils.CardapioAsync;
 import fefzjon.ep2.bandejao.utils.CardapioSemana;
 import fefzjon.ep2.bandejao.utils.IntentKeys;
-import fefzjon.ep2.exceptions.EpDoisConnectionException;
-import fefzjon.ep2.exceptions.EpDoisException;
 
-public class FullCardapioActivity extends BasicListActivity {
+public class FullCardapioActivity extends BasicListActivity implements
+		RefreshableActivity {
 
 	private List<CardapioDia> listCardapios;
-	private int bandecoId;
+	private int bandexId;
 	private List<Integer> mSelectedItems;
 	private List<Bandecos> outrosBandecos;
 
@@ -36,43 +31,20 @@ public class FullCardapioActivity extends BasicListActivity {
 		this.setContentView(R.layout.activity_full_cardapio);
 
 		Intent incomingIntent = this.getIntent();
-		this.bandecoId = incomingIntent.getIntExtra(
+		this.bandexId = incomingIntent.getIntExtra(
 				IntentKeys.DETAILS_BANDECO_ID, 1);
 
 		TextView tituloView = (TextView) this
 				.findViewById(R.id.cardapio_details);
-		tituloView.setText(Bandecos.getById(this.bandecoId).nome);
+		tituloView.setText(Bandecos.getById(this.bandexId).nome);
 
-		CardapioSemana cardapioSemana;
-		try {
-			cardapioSemana = ContentManager.getIntance().getCardapioSemana(
-					this.bandecoId, this.isOnline());
-		} catch (EpDoisConnectionException e) {
-			e.printStackTrace();
-			Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-			cardapioSemana = new CardapioSemana(this.bandecoId);
-		} catch (EpDoisException e) {
-			e.printStackTrace();
-			cardapioSemana = new CardapioSemana(this.bandecoId);
-		}
-
-		this.listCardapios = cardapioSemana.asList();
-		ListAdapter adapter = new RefeicoesAdapter(this, this.listCardapios);
-
-		this.setupOutrosBandecos();
-
-		this.setListAdapter(adapter);
-
-		// this.registerForContextMenu(this.getListView());
-
-		this.setupLongClick();
-
+		new CardapioAsync(this).execute(this.bandexId);
 	}
 
 	private void setupOutrosBandecos() {
 		this.outrosBandecos = new ArrayList<Bandecos>();
 		for (Bandecos b : Bandecos.values()) {
-			if (b.id != this.bandecoId) {
+			if (b.id != this.bandexId) {
 				this.outrosBandecos.add(b);
 			}
 		}
@@ -81,10 +53,11 @@ public class FullCardapioActivity extends BasicListActivity {
 	private void setupLongClick() {
 		this.getListView().setLongClickable(true);
 
-		this.getListView().setOnItemLongClickListener(
-				new FullCardapioItemLongClickListener(this, this.listCardapios,
-						this.bandecoId, this.mSelectedItems,
-						this.outrosBandecos));
+		this.getListView()
+				.setOnItemLongClickListener(
+						new FullCardapioItemLongClickListener(this,
+								this.listCardapios, this.bandexId,
+								this.mSelectedItems, this.outrosBandecos));
 
 	}
 
@@ -93,7 +66,7 @@ public class FullCardapioActivity extends BasicListActivity {
 			final int position, final long id) {
 		CardapioDia cardapioDia = this.listCardapios.get(position);
 		Intent intent = new Intent(this, DetailsActivity.class);
-		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, this.bandecoId);
+		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, this.bandexId);
 		intent.putExtra(IntentKeys.DATA_CARDAPIO,
 				cardapioDia.getDataReferente());
 		intent.putExtra(IntentKeys.TIPO_REFEICAO, cardapioDia.getTipoRefeicao());
@@ -102,11 +75,23 @@ public class FullCardapioActivity extends BasicListActivity {
 	}
 
 	@Override
-	public boolean isOnline() {
-		ConnectivityManager cm = (ConnectivityManager) this
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo netInfo = cm.getActiveNetworkInfo();
-		return (netInfo != null) && netInfo.isConnectedOrConnecting();
+	public void setContent(final CardapioSemana... cardapiosSemana) {
+		CardapioSemana cardapioSemana = cardapiosSemana[0];
+		this.listCardapios = cardapioSemana.asList();
+		ListAdapter adapter = new RefeicoesAdapter(this, this.listCardapios);
+
+		this.setupOutrosBandecos();
+
+		this.setListAdapter(adapter);
+
+		this.setupLongClick();
+
+		this.findViewById(R.id.atualizando_cardapio).setVisibility(View.GONE);
+	}
+
+	@Override
+	public boolean isForceRefresh() {
+		return false;
 	}
 
 }

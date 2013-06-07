@@ -8,7 +8,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -20,6 +19,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import fefzjon.ep2.bandejao.utils.BandexComment;
 import fefzjon.ep2.bandejao.utils.BandexConstants;
@@ -30,10 +30,12 @@ public class ComentariosManager {
 	private ComentariosManager() {
 	}
 
+	@SuppressLint("DefaultLocale")
 	public static List<BandexComment> fetchAndParseComment(final int mealId) {
 		List<BandexComment> list = new ArrayList<BandexComment>();
 
-		String urlToFetch = String.format(BandexConstants.URL_COMMENT_PATTERN, mealId);
+		String urlToFetch = String.format(BandexConstants.URL_COMMENT_PATTERN,
+				mealId);
 
 		try {
 			URL url = new URL(urlToFetch);
@@ -58,8 +60,9 @@ public class ComentariosManager {
 		return list;
 	}
 
-	private static void parseXML(final List<BandexComment> listaComentarios, final XmlPullParser xpp)
-			throws XmlPullParserException, IOException, EpDoisException {
+	private static void parseXML(final List<BandexComment> listaComentarios,
+			final XmlPullParser xpp) throws XmlPullParserException,
+			IOException, EpDoisException {
 		Log.i("Comentários Bandex", "Comecando parse do input XML");
 
 		boolean insideItem = false;
@@ -83,7 +86,8 @@ public class ComentariosManager {
 					}
 				}
 
-			} else if ((eventType == XmlPullParser.END_TAG) && xpp.getName().equalsIgnoreCase("comment")) {
+			} else if ((eventType == XmlPullParser.END_TAG)
+					&& xpp.getName().equalsIgnoreCase("comment")) {
 				insideItem = false;
 				listaComentarios.add(comment);
 			}
@@ -93,7 +97,8 @@ public class ComentariosManager {
 		Log.d("Bandex", "Fim do parse XML");
 	}
 
-	public static boolean postComentario(final int mealId, final String commenter, final String mensagem)
+	public static boolean postComentario(final int mealId,
+			final String commenter, final String mensagem)
 			throws NoSuchAlgorithmException, KeyManagementException {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(BandexConstants.URL_COMMENT_POST);
@@ -107,15 +112,15 @@ public class ComentariosManager {
 
 			toSend.put("menuscomment", holder);
 
-			//passes the results to a string builder/entity
+			// passes the results to a string builder/entity
 			StringEntity se = new StringEntity(toSend.toString());
 
-			//sets the post request as the resulting string
+			// sets the post request as the resulting string
 			httppost.setEntity(se);
 			httppost.setHeader("Content-type", "application/json");
 
 			// Execute HTTP Post Request
-			HttpResponse response = httpclient.execute(httppost);
+			httpclient.execute(httppost);
 			return true;
 
 		} catch (ClientProtocolException e) {

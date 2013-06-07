@@ -10,6 +10,10 @@
             android:entryValues="@array/pref_list_screen_init_values"
             android:key="@string/pref_init_main_screen_key"
             android:title="@string/pref_init_main_screen_title" />
+        </PreferenceCategory>
+        <PreferenceCategory
+		    android:key="@string/pref_init_comparar_key"
+		    android:title="@string/pref_init_comparar_title" >
         
         <CheckBoxPreference
             android:defaultValue="true"

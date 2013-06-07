@@ -3,19 +3,22 @@ package fefzjon.ep2.bandejao.utils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
+import android.annotation.SuppressLint;
+
+@SuppressLint("SimpleDateFormat")
 public class BandexCalculator {
 
-	private static Calendar			calendar				= null;
+	private static Calendar calendar = null;
 
-	private static SimpleDateFormat	formatterDataApresent	= new SimpleDateFormat("dd/MM");
+	private static SimpleDateFormat formatterDataApresent = new SimpleDateFormat(
+			"dd/MM");
 
-	@SuppressWarnings("deprecation")
 	public static int proximaRefeicao() {
 		return tipoRefeicao(new Date());
 	}
 
+	@SuppressWarnings("deprecation")
 	public static int tipoRefeicao(final Date date) {
 		int hours = date.getHours();
 		int minutes = date.getMinutes();
@@ -26,7 +29,8 @@ public class BandexCalculator {
 		int quinzeHorasInMinutes = 15 * 60;
 		if ((0 < timeInMinutes) && (timeInMinutes <= oitoHorasInMinutes)) {
 			return BandexConstants.CAFE_DA_MANHA;
-		} else if (timeInMinutes <= quinzeHorasInMinutes) {
+		} else if ((oitoHorasInMinutes < timeInMinutes)
+				&& (timeInMinutes <= quinzeHorasInMinutes)) {
 			return BandexConstants.ALMOCO;
 		} else {
 			return BandexConstants.JANTA;
@@ -35,7 +39,7 @@ public class BandexCalculator {
 
 	private static Calendar getCalendar() {
 		if (calendar == null) {
-			calendar = new GregorianCalendar();
+			calendar = Calendar.getInstance();
 			calendar.setFirstDayOfWeek(Calendar.MONDAY);
 		}
 		return calendar;
@@ -65,10 +69,12 @@ public class BandexCalculator {
 		}
 	}
 
-	public static String dataApresentacaoCardapio(final Date dataReferente, final Integer tipoRefeicao) {
+	public static String dataApresentacaoCardapio(final Date dataReferente,
+			final Integer tipoRefeicao) {
 		StringBuilder builder = new StringBuilder();
 		getCalendar().setTime(dataReferente);
-		builder.append(translateDiaDaSemana(getCalendar().get(Calendar.DAY_OF_WEEK)));
+		builder.append(translateDiaDaSemana(getCalendar().get(
+				Calendar.DAY_OF_WEEK)));
 		builder.append(" - ");
 
 		builder.append(formatterDataApresent.format(dataReferente));

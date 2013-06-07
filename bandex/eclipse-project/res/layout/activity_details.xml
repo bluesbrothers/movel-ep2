@@ -47,6 +47,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/ver_comentarios" />
+        
+        <Button
+            android:id="@+id/bt_comparar_refeicao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/comparar_refeicao" />
     </LinearLayout>
 
 </ScrollView>

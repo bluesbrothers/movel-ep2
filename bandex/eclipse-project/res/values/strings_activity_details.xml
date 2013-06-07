@@ -1,8 +1,10 @@
 <resources>
-    <string name="sem_cardapio_disponivel">Sem cardápio de hoje</string>
+    <string name="sem_cardapio_disponivel">Atualizando Cardápio</string>
     <string name="ver_cardapio_semana">Ver cardápio da semana</string>
     <string name="ver_localizacao">Ver Localização no mapa</string>
     <string name="ver_comentarios">Ver Comentários</string>
+    <string name="comparar_refeicao">Comparar Refeição</string>
     
     <string name="nome_bandejao">Bandejão sem nome?</string>
+    <string name="atualizando_cardapio">Atualizando Cardápio&#8230;</string>
 </resources>

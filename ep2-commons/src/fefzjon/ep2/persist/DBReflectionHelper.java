@@ -9,7 +9,6 @@ import fefzjon.ep2.persist.annotation.Column;
 import fefzjon.ep2.persist.annotation.Id;
 import fefzjon.ep2.persist.annotation.Table;
 import fefzjon.ep2.persist.model.BaseEntity;
-import fefzjon.ep2.utils.Utils;
 
 public class DBReflectionHelper {
 
@@ -56,7 +55,7 @@ public class DBReflectionHelper {
 				continue;
 			}
 
-			Class tipofield = field.getType();
+			Class<?> tipofield = field.getType();
 
 			if (tipofield.equals(String.class)) {
 				values.put(column.name(), (String) value);
@@ -75,7 +74,7 @@ public class DBReflectionHelper {
 	}
 
 	protected static String getIdName(final BaseEntity entity) {
-		Class clazz = entity.getClass();
+		Class<?> clazz = entity.getClass();
 		Field[] fields = clazz.getDeclaredFields();
 
 		for (Field field : fields) {
@@ -90,7 +89,7 @@ public class DBReflectionHelper {
 	}
 
 	protected static String constraintEntity(final BaseEntity entity) {
-		Class clazz = entity.getClass();
+		Class<?> clazz = entity.getClass();
 		Field[] fields = clazz.getDeclaredFields();
 
 		for (Field field : fields) {
@@ -114,7 +113,8 @@ public class DBReflectionHelper {
 
 	protected static <S extends BaseEntity> S createFromCursor(final S representante, final Cursor cursor)
 			throws InstantiationException, IllegalAccessException {
-		Class clazz = representante.getClass();
+		Class<?> clazz = representante.getClass();
+		@SuppressWarnings("unchecked")
 		S instance = (S) clazz.newInstance();
 
 		Field[] fields = clazz.getDeclaredFields();
@@ -137,7 +137,7 @@ public class DBReflectionHelper {
 		return instance;
 	}
 
-	private static Object getValueFromCursor(final Cursor cursor, final int index, final Class clazz) {
+	private static Object getValueFromCursor(final Cursor cursor, final int index, final Class<?> clazz) {
 		if (clazz.equals(String.class)) {
 			return cursor.getString(index);
 		} else if (clazz.equals(Integer.class) || clazz.equals(int.class)) {
@@ -157,7 +157,7 @@ public class DBReflectionHelper {
 	private static <S extends BaseEntity> Object getValue(final Field field, final S entity)
 			throws IllegalArgumentException, IllegalAccessException {
 
-		Class clazz = field.getType();
+		Class<?> clazz = field.getType();
 
 		if (clazz.equals(String.class) || clazz.equals(Integer.class) || clazz.equals(int.class)
 				|| clazz.equals(Double.class) || clazz.equals(double.class)) {

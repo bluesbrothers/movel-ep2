@@ -12,7 +12,7 @@
 \cabecalho
 
 \section{Manual do Usuário}
-Ao abrir o aplicativo, o usuário é levado para a tela de escolha do bandejão.
+Ao abrir o aplicativo, o usuário é levado para a tela de escolha do bandejão ou diretamente para a tela de comparação entre os cardápios de sua preferência.
 
 \subsection{Tela de escolha do Bandejão}
 Aqui, o usuário pode escolher entre os 4 bandejões: Central, Prefeitura, Física e Química.
@@ -20,7 +20,7 @@ Aqui, o usuário pode escolher entre os 4 bandejões: Central, Prefeitura, Físi
 Ao clicar em alguma das opções, o usuário é levado a Tela de Cardápio, já mostrando a próxima refeição. Essa próxima refeição é escolhida usando o dia atual e a hora atual (até as 8 da manhã: café da manhã, das 8 às 15: almoço, das 15 à meia noite: janta).
 
 \subsection{Tela de Cardápio}
-Aqui é apresentado o dia referente a refeição e qual refeição (café-da-manhã, almoço ou janta), o cardápio em si e 3 botões:
+Aqui é apresentado o dia referente a refeição e qual refeição (café-da-manhã, almoço ou janta), o cardápio em si e 4 botões:
 \begin{itemize}
 \item \textbf{Cardápio da Semana} \\
 Mostra a Tela de Cardápio da Semana do bandejão escolhido
@@ -28,7 +28,12 @@ Mostra a Tela de Cardápio da Semana do bandejão escolhido
 Mostra a Tela de Mapa, mostrando um marcador na localização do bandejão.
 \item \textbf{Comentários} \\
 Mostra a Tela de Comentários se já estiver logado. Caso contrário, vai para a Tela de Login.
+\item \textbf{Comparar} \\
+Mostra um diálogo para a escolha dos bandejões para comparação, em seguida, é levado para a Tela de Comparação.
 \end{itemize}
+
+\subsection{Tela de Comparação}
+Mostra o cardápio da refeição escolhida para os bandejões escolhidos. Quando esta é a tela inicial, é exibido o cardápio dos bandejões configurados pelo usuário da próxima refeição.
 
 \subsection{Tela de Cardápio da Semana}
 Mostra o cardápio da semana, ordenado por: Dia e refeição (Segunda almoço, segunda janta, terça almoço, terça janta, ...)
@@ -59,9 +64,15 @@ Ao clicar no marcador do bandejão, uma pequena janela (parecida com um balão) 
 
 O menu de opções nessa tela tem dois botões: um para centralizar o mapa na USP, outro para centralizar o mapa no bandejão escolhido.
 
+\subsection{Tela de Configurações}
+É acessível somente pela Tela de EScolha e pela Tela de Comparação. Permite que você configure qual será sua tela inicial (Tela de Escolha ou Tela de Comparação) e no caso de ser escolhida a Tela de Comparação, permite que você escolha quais bandejões irão ser comparados.
+
 \section{Estrutura do Código}
 Apresentação de forma superficial das classes principais do código.
 \subsection{Activities}
+
+As Activities que buscam o cardápio são feitas com AsynTask, para que o aparelho não fique travado. Elas implementam a interface RefreshableActivity e utilizam a classe CardapioAsync.
+
 \subsubsection{ComentariosActivity}
 Activity para exibir os comentários sobre a refeição. É um ListActivity com um ListAdapter customizado (ComentariosAdapter). Depende do id da refeição no Intent.
 
@@ -83,6 +94,9 @@ Activity para mostrar um GoogleMap. Deriva de FragmentActivity (o mapa é um Fra
 
 \subsubsection{PostarActivity}
 Activity para postar comentários. Depende do id da refeição no Intent.
+
+\subsubsection{ConfiguracoesActivity}
+Activity de preferências para escolha da tela inicial. Ela é responsável por habilitar e desabilitar os campos CheckBox de escolha de bandejão.
 
 \subsection{Adapters}
 \subsubsection{ComentariosAdapter}
@@ -120,6 +134,9 @@ Uma classe para representar o cardápio de uma semana. Serve para não precisar 
 
 \subsubsection{ComentarioAsyn}
 Classe assíncrona para postar um comentário sem travar a aplicação.
+
+\subsubsection{CardapioAsync}
+Classe assíncrona para recuperar informações de cardápio, tanto pelo BD quanto pela internet.
 
 \subsubsection{MarkerInfo}
 Classe auxiliar que cria o View mostrado pelo GoogleMaps ao clicar em um marcador no mapa. Ela implementa a interface da Google para tal propósito.

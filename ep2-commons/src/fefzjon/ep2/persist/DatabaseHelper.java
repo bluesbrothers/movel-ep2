@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	private void auxiliar(final SQLiteDatabase db, final int minVersion, final int maxVersion) {
-		for (Class clazz : this.classes) {
+		for (Class<?> clazz : this.classes) {
 			Table table = (Table) clazz.getAnnotation(Table.class);
 			if (table == null) {
 				continue;

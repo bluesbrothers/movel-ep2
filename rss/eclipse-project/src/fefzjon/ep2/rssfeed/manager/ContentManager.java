@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +15,7 @@ import android.util.Log;
 import fefzjon.ep2.exceptions.EpDoisException;
 import fefzjon.ep2.persist.DBManager;
 import fefzjon.ep2.rssfeed.model.FeedItem;
+import fefzjon.ep2.rssfeed.utils.RSSFeedUtils;
 import fefzjon.ep2.utils.Utils;
 
 public class ContentManager {
@@ -110,7 +110,7 @@ public class ContentManager {
 						String description = xpp.nextText();
 						item.setDescription(description);
 
-						Date dataPalestra = ContentManager
+						Date dataPalestra = RSSFeedUtils
 								.getDateFromDescription(description);
 						item.setDataPalestra(dataPalestra);
 					}
@@ -130,26 +130,4 @@ public class ContentManager {
 		Log.d("RSSFeed", "Fim do parse XML");
 	}
 
-	public static Date getDateFromDescription(final String description) {
-		String[] lines = description.split("<br\\s*/>");
-		Calendar c = Calendar.getInstance();
-		for (String s : lines) {
-			if (s.startsWith("Data: ")) {
-				s = s.replace("Data: ", "");
-				String[] values = s.split("\\s*-\\s*")[0].split("\\.");
-				c.set(Calendar.DAY_OF_MONTH, Integer.valueOf(values[0]));
-				c.set(Calendar.MONTH, Integer.valueOf(values[1]) - 1);
-				c.set(Calendar.YEAR, Integer.valueOf(values[2]));
-			} else if (s.startsWith("Hora: ")) {
-				s = s.replace("Hora: ", "");
-				s = s.replace(" h", "");
-				String[] values = s.split("\\.");
-				c.set(Calendar.HOUR_OF_DAY, Integer.valueOf(values[0]));
-				c.set(Calendar.MINUTE, Integer.valueOf(values[1]));
-				c.set(Calendar.SECOND, 0);
-			}
-		}
-		// Log.d("RSSFeed", c.getTime().toString());
-		return c.getTime();
-	}
 }

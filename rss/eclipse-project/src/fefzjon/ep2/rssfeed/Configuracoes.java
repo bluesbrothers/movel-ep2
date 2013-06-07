@@ -5,10 +5,11 @@ import android.preference.PreferenceActivity;
 
 public class Configuracoes extends PreferenceActivity {
 
+	@SuppressWarnings("deprecation")
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.configuracoes);
+		this.addPreferencesFromResource(R.xml.configuracoes);
 	}
 }

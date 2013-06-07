@@ -13,8 +13,8 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
-import fefzjon.ep2.rssfeed.manager.ContentManager;
 import fefzjon.ep2.rssfeed.utils.IntentKeys;
+import fefzjon.ep2.rssfeed.utils.RSSFeedUtils;
 
 public class DetailsActivity extends Activity {
 
@@ -64,7 +64,7 @@ public class DetailsActivity extends Activity {
 				.getStringExtra(IntentKeys.DETAILS_FEED_TITLE);
 		final String feedDescription = this.incomingIntent
 				.getStringExtra(IntentKeys.DETAILS_FEED_DESCRIPTION);
-		Date date = ContentManager.getDateFromDescription(feedDescription);
+		Date date = RSSFeedUtils.getDateFromDescription(feedDescription);
 		final String category = this.incomingIntent
 				.getStringExtra(IntentKeys.DETAILS_FEED_CATEGORY);
 		String description = "Categoria: " + category;

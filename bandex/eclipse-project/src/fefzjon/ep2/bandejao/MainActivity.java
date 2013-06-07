@@ -1,7 +1,5 @@
 package fefzjon.ep2.bandejao;
 
-import java.util.Date;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,10 +15,10 @@ import fefzjon.ep2.utils.Utils;
 
 public class MainActivity extends BasicActivity {
 
-	private Button	btCentral;
-	private Button	btPCO;
-	private Button	btFisica;
-	private Button	btQuimica;
+	private Button btCentral;
+	private Button btPCO;
+	private Button btFisica;
+	private Button btQuimica;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -34,27 +32,44 @@ public class MainActivity extends BasicActivity {
 
 		this.setupButtons();
 
-		SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
-		String initOnChoose = preference.getString(this.getString(R.string.pref_init_main_screen_key),
+		SharedPreferences preference = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		String initOnChoose = preference.getString(
+				this.getString(R.string.pref_init_main_screen_key),
 				this.getString(R.string.pref_list_screen_init_bandejao));
 
-		if (initOnChoose.equals(this.getString(R.string.pref_list_screen_init_compare))) {
+		if (initOnChoose.equals(this
+				.getString(R.string.pref_list_screen_init_compare))) {
 			Intent intent = new Intent(this, CompareCardapioActivity.class);
 			int i = 0;
-			if (preference.getBoolean(this.getString(R.string.key_compare_central), true)) {
-				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.CENTRAL.id);
+			if (preference.getBoolean(
+					this.getString(R.string.key_compare_central), true)) {
+				intent.putExtra(String.format(
+						IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++),
+						Bandecos.CENTRAL.id);
 			}
-			if (preference.getBoolean(this.getString(R.string.key_compare_pco), true)) {
-				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.PCO.id);
+			if (preference.getBoolean(this.getString(R.string.key_compare_pco),
+					true)) {
+				intent.putExtra(String.format(
+						IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++),
+						Bandecos.PCO.id);
 			}
-			if (preference.getBoolean(this.getString(R.string.key_compare_fisica), true)) {
-				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.FISICA.id);
+			if (preference.getBoolean(
+					this.getString(R.string.key_compare_fisica), true)) {
+				intent.putExtra(String.format(
+						IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++),
+						Bandecos.FISICA.id);
 			}
-			if (preference.getBoolean(this.getString(R.string.key_compare_quimica), true)) {
-				intent.putExtra(String.format(IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++), Bandecos.QUIMICA.id);
+			if (preference.getBoolean(
+					this.getString(R.string.key_compare_quimica), true)) {
+				intent.putExtra(String.format(
+						IntentKeys.COMPARE_BANDECO_PATTERN_KEY, i++),
+						Bandecos.QUIMICA.id);
 			}
 			intent.putExtra(IntentKeys.QTD_COMPARE_BANDECO, i);
-			intent.putExtra(IntentKeys.DATA_CARDAPIO, new Date());
+			intent.putExtra(IntentKeys.DATA_CARDAPIO, Utils.today());
+			intent.putExtra(IntentKeys.TIPO_REFEICAO,
+					BandexCalculator.proximaRefeicao());
 			this.startActivity(intent);
 		}
 
@@ -64,7 +79,8 @@ public class MainActivity extends BasicActivity {
 		Intent intent = new Intent(this, DetailsActivity.class);
 		intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandeco.id);
 		intent.putExtra(IntentKeys.DATA_CARDAPIO, Utils.today());
-		intent.putExtra(IntentKeys.TIPO_REFEICAO, BandexCalculator.proximaRefeicao());
+		intent.putExtra(IntentKeys.TIPO_REFEICAO,
+				BandexCalculator.proximaRefeicao());
 		this.startActivity(intent);
 	}
 
@@ -121,10 +137,10 @@ public class MainActivity extends BasicActivity {
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.action_configuracoes:
-				Intent intent = new Intent(this, ConfiguracoesActivity.class);
-				this.startActivity(intent);
-				return true;
+		case R.id.action_configuracoes:
+			Intent intent = new Intent(this, ConfiguracoesActivity.class);
+			this.startActivity(intent);
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

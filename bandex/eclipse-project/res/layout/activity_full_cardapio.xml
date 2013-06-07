@@ -16,6 +16,11 @@
         android:minHeight="60dp"
         android:textSize="20sp"
         android:text="@string/nome_bandejao" />
+    
+    <TextView android:id="@+id/atualizando_cardapio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/atualizando_cardapio" />
 
     <ListView
         android:id="@+android:id/list"
