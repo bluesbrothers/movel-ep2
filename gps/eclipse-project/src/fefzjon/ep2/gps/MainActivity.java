@@ -26,6 +26,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import fefzjon.ep2.gps.MarkerInfo.MarkData;
 import fefzjon.ep2.gps.utilities.ConnectionHandler;
+import fefzjon.ep2.gps.utilities.Constants;
 import fefzjon.ep2.gps.utilities.RouteManager;
 import fefzjon.ep2.gps.utilities.RouteManager.PointArray;
 import fefzjon.ep2.gps.utilities.TimetableManager;
@@ -40,11 +41,6 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 	private MarkerInfo markerInfo;
 	private Marker closestMarker;
 	private String closestArrival;
-
-	public static final double USP_CENTER_LAT = -23.561706;
-	public static final double USP_CENTER_LON = -46.725719;
-	public static final float USP_CENTER_ZOOM = 13.5f;
-	public static final String BUSP_CODE = "fefzjon.ep2.gps.BUSPCode";
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -113,7 +109,7 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 			return true;
 		case R.id.goToTimeTable:
 			Intent intent = new Intent(this, TimeTableActivity.class);
-			intent.putExtra(BUSP_CODE, this.buspCode);
+			intent.putExtra(Constants.BUSP_CODE, this.buspCode);
 			this.startActivity(intent);
 			return true;
 		}
@@ -217,9 +213,9 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 			return;
 		}
 		PolylineOptions routeOpt = new PolylineOptions();
-		if (this.buspCode == 8012) {
+		if (this.buspCode == Constants.BUSP_1) {
 			routeOpt.color(0xffff0000);
-		} else if (this.buspCode == 8022) {
+		} else if (this.buspCode == Constants.BUSP_2) {
 			routeOpt.color(0xff00ff00);
 		}
 		routeOpt.width(5);
@@ -254,7 +250,7 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 			final LatLng p2) {
 		GroundOverlayOptions line = new GroundOverlayOptions();
 		line.image(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
-		line.position(p, 10);
+		line.position(p, 15);
 
 		double x1 = p.latitude;
 		double y1 = p.longitude;
@@ -277,9 +273,10 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 	}
 
 	private void centerMapOnUSP() {
-		LatLng center = new LatLng(USP_CENTER_LAT, USP_CENTER_LON);
+		LatLng center = new LatLng(Constants.USP_CENTER_LAT,
+				Constants.USP_CENTER_LON);
 		this.map.animateCamera(CameraUpdateFactory.newLatLngZoom(center,
-				USP_CENTER_ZOOM));
+				Constants.USP_CENTER_ZOOM));
 	}
 
 	public int getBuspCode() {

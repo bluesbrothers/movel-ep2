@@ -127,6 +127,12 @@ public class TimetableManager {
 		return new SimpleDateFormat("HH:mm:ss").format(date);
 	}
 
+	public static int getTimeCode(final String deptTime) {
+		String[] parts = deptTime.split(":");
+		return (Integer.valueOf(parts[0]) * 10000)
+				+ (Integer.valueOf(parts[1]) * 100) + Integer.valueOf(parts[2]);
+	}
+
 	public static String getDepartureAfter(final Date time) {
 		TypedArray times = getDepartureTimes(parent.getBuspCode(),
 				getDayType(time));

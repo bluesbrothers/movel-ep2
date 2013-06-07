@@ -19,9 +19,10 @@ public class SelectBUSPDialogFragment extends DialogFragment {
 				this.getActivity());
 		builder.setTitle(R.string.selectBUSPDialog);
 		Resources res = this.getResources();
-		String[] dayTypes = new String[] { res.getString(R.string.busp8012),
-				res.getString(R.string.busp8022) };
-		builder.setItems(dayTypes, new DialogInterface.OnClickListener() {
+		String[] buspTypes = new String[] { res.getString(R.string.busp8012),
+				res.getString(R.string.busp8022),
+				res.getString(R.string.buspAmbos) };
+		builder.setItems(buspTypes, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(final DialogInterface dialog, final int which) {
 

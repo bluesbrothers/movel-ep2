@@ -1,27 +1,30 @@
 package fefzjon.ep2.gps;
 
+import java.util.Date;
+
 import android.content.Intent;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import fefzjon.ep2.gps.dialog.SelectBUSPDialogFragment;
 import fefzjon.ep2.gps.dialog.SelectDayTypeDialogFragment;
+import fefzjon.ep2.gps.utilities.Constants;
+import fefzjon.ep2.gps.utilities.TimeTableAdapter;
+import fefzjon.ep2.gps.utilities.Timer;
+import fefzjon.ep2.gps.utilities.Timer.TimerCallback;
 import fefzjon.ep2.gps.utilities.TimetableManager;
 import fefzjon.ep2.gps.utilities.TimetableManager.DayType;
 
 public class TimeTableActivity extends FragmentActivity implements
 		SelectDayTypeDialogFragment.DayTypeDialogListener,
-		SelectBUSPDialogFragment.BUSPDialogListener {
+		SelectBUSPDialogFragment.BUSPDialogListener, TimerCallback {
+
+	Timer timer;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -29,9 +32,12 @@ public class TimeTableActivity extends FragmentActivity implements
 		this.setContentView(R.layout.timetable_layout);
 
 		Intent intent = this.getIntent();
-		int buspCode = intent.getIntExtra(MainActivity.BUSP_CODE, 8012);
+		int buspCode = intent.getIntExtra(Constants.BUSP_CODE, 8012);
 
 		this.updateContents(buspCode, TimetableManager.getDayType());
+
+		this.timer = new Timer(this, 1000 * 60);
+		this.timer.start();
 	}
 
 	@Override
@@ -61,11 +67,25 @@ public class TimeTableActivity extends FragmentActivity implements
 	private void updateContents(final int buspCode, final DayType dayType) {
 		TextView tvName = (TextView) this.findViewById(R.id.busp_name);
 		Resources res = this.getResources();
-		String busp = "ERRO";
-		if (buspCode == 8012) {
+		String busp = "N/A";
+		String duration = "N/A";
+		if (buspCode == Constants.BUSP_1) {
 			busp = res.getString(R.string.busp8012);
-		} else if (buspCode == 8022) {
+			duration = String.valueOf(TimetableManager.getApproxRouteDuration(
+					buspCode, dayType)) + "min";
+		} else if (buspCode == Constants.BUSP_2) {
 			busp = res.getString(R.string.busp8022);
+			duration = String.valueOf(TimetableManager.getApproxRouteDuration(
+					buspCode, dayType)) + "min";
+		} else if (buspCode == Constants.BUSP_AMBOS) {
+			busp = res.getString(R.string.buspAmbos);
+			duration = String.valueOf(Constants.BUSP_1) + ":";
+			duration += String.valueOf(TimetableManager.getApproxRouteDuration(
+					Constants.BUSP_1, dayType)) + "min";
+
+			duration += " - " + String.valueOf(Constants.BUSP_2) + ":";
+			duration += String.valueOf(TimetableManager.getApproxRouteDuration(
+					Constants.BUSP_2, dayType)) + "min";
 		}
 		String dayTypeStr = "ERRO";
 		if (dayType == DayType.UTIL) {
@@ -78,65 +98,11 @@ public class TimeTableActivity extends FragmentActivity implements
 		tvName.setText(busp + " - " + dayTypeStr);
 
 		TextView tvDuration = (TextView) this.findViewById(R.id.duration);
-		int duration = TimetableManager.getApproxRouteDuration(buspCode,
-				dayType);
-		tvDuration.setText(String.valueOf(duration) + "min");
+		tvDuration.setText(duration);
 
 		ListView lvTable = (ListView) this.findViewById(R.id.timetable);
 		lvTable.setAdapter(new TimeTableAdapter(buspCode, dayType));
-	}
-
-	private class TimeTableAdapter extends BaseAdapter {
-
-		private int buspCode;
-		private DayType dayType;
-
-		public TimeTableAdapter(final int buspCode,
-				final TimetableManager.DayType dayType) {
-			this.buspCode = buspCode;
-			this.dayType = dayType;
-		}
-
-		public int getBuspCode() {
-			return this.buspCode;
-		}
-
-		public DayType getDayType() {
-			return this.dayType;
-		}
-
-		@Override
-		public int getCount() {
-			TypedArray times = TimetableManager.getDepartureTimes(
-					this.buspCode, this.dayType);
-			int count = times.length();
-			times.recycle();
-			return count;
-		}
-
-		@Override
-		public Object getItem(final int position) {
-			TypedArray times = TimetableManager.getDepartureTimes(
-					this.buspCode, this.dayType);
-			String obj = times.getString(position);
-			times.recycle();
-			return obj;
-		}
-
-		@Override
-		public long getItemId(final int position) {
-			return 0;
-		}
-
-		@Override
-		public View getView(final int position, final View convertView,
-				final ViewGroup parent) {
-			TextView text = new TextView(parent.getContext());
-			text.setGravity(Gravity.CENTER);
-			text.setText((String) this.getItem(position));
-			return text;
-		}
-
+		this.updateNextDepartureText();
 	}
 
 	@Override
@@ -153,5 +119,31 @@ public class TimeTableActivity extends FragmentActivity implements
 		TimeTableAdapter adapter = (TimeTableAdapter) lvTable.getAdapter();
 
 		this.updateContents(adapter.getBuspCode(), dayType);
+	}
+
+	@Override
+	public void onTick() {
+		this.updateNextDepartureText();
+	}
+
+	private void updateNextDepartureText() {
+		ListView lvTable = (ListView) this.findViewById(R.id.timetable);
+		TimeTableAdapter adapter = (TimeTableAdapter) lvTable.getAdapter();
+		int current = TimetableManager.getTimeCode(TimetableManager
+				.getDateStr(new Date()));
+		String time = "N/A";
+		for (int i = 0; i < adapter.getCount(); i++) {
+			time = String.valueOf(adapter.getItem(i));
+			String[] timeParts = time.split(" ");
+			time = timeParts[timeParts.length - 1];
+			int code = TimetableManager.getTimeCode(time);
+			if (current < code) {
+				time = String.valueOf(adapter.getItem(i));
+				break;
+			}
+		}
+
+		TextView tvNext = (TextView) this.findViewById(R.id.nextTime);
+		tvNext.setText(time);
 	}
 }

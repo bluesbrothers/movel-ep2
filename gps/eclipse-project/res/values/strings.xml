@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="busp8012">Circular 1 (8012)</string>
     <string name="busp8022">Circular 2 (8022)</string>
+    <string name="buspAmbos">Ambos Circulares</string>
     <string name="centralizaMapaUSP">Centraliza mapa na USP</string>
     <string name="ok">OK</string>
     <string name="pontoProx">Ponto mais próximo de você</string>
@@ -19,5 +20,6 @@
     <string name="duration">Duração aprox. da viagem: </string>
     <string name="selectDayTypeDialog">Selecione o dia</string>
     <string name="selectBUSPDialog">Selecione o circular</string>
+    <string name="nextTime">Próximo horário de saída:</string>
 
 </resources>
