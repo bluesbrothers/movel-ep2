@@ -29,10 +29,12 @@ import fefzjon.ep2.gps.utilities.ConnectionHandler;
 import fefzjon.ep2.gps.utilities.Constants;
 import fefzjon.ep2.gps.utilities.RouteManager;
 import fefzjon.ep2.gps.utilities.RouteManager.PointArray;
+import fefzjon.ep2.gps.utilities.Timer;
+import fefzjon.ep2.gps.utilities.Timer.TimerCallback;
 import fefzjon.ep2.gps.utilities.TimetableManager;
 
 public class MainActivity extends FragmentActivity implements LocationListener,
-		GoogleMap.OnMapLongClickListener {
+		GoogleMap.OnMapLongClickListener, TimerCallback {
 
 	private GoogleMap map;
 	private ConnectionHandler connHandler;
@@ -41,6 +43,7 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 	private MarkerInfo markerInfo;
 	private Marker closestMarker;
 	private String closestArrival;
+	private Timer timer;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -61,7 +64,7 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 		this.buspCode = 8012;
 		this.closestPointOnRoute = null;
 		this.closestArrival = "";
-
+		this.timer = new Timer(this, 60 * 1000);
 		this.centerMapOnUSP();
 		this.updateMap();
 	}
@@ -144,7 +147,7 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 			this.closestMarker = this.addMarker(p, MarkerInfo.CLOSEST_ID);
 			this.closestArrival = mark.arrival;
 
-			this.recreateUserMarks();
+			this.recreateMarks();
 			this.updateMap();
 		} else if (!this.closestArrival.equals(mark.arrival)) {
 			this.closestArrival = mark.arrival;
@@ -157,6 +160,17 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 				this.closestMarker.hideInfoWindow();
 			}
 			this.setStatusText();
+		}
+	}
+
+	private void recreateMarks() {
+		for (Map.Entry<String, MarkData> entry : this.markerInfo.getData()
+				.entrySet()) {
+			MarkData mark = this.getMarkForPoint(entry.getValue().pos);
+			String id = entry.getKey();
+			this.markerInfo.setValues(id, mark);
+
+			this.addMarker(mark.pos, id);
 		}
 	}
 
@@ -175,13 +189,6 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 						mark.deltaT));
 		mark.pos = point;
 		return mark;
-	}
-
-	private void recreateUserMarks() {
-		for (Map.Entry<String, MarkData> entry : this.markerInfo.getData()
-				.entrySet()) {
-			this.addMarker(entry.getValue().pos, entry.getKey());
-		}
 	}
 
 	private void updateMap() {
@@ -281,5 +288,27 @@ public class MainActivity extends FragmentActivity implements LocationListener,
 
 	public int getBuspCode() {
 		return this.buspCode;
+	}
+
+	@Override
+	public void onTick() {
+		this.map.clear();
+		this.recreateMarks();
+		this.updateMap();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		this.timer.start();
+		this.map.clear();
+		this.recreateMarks();
+		this.updateMap();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		this.timer.stop();
 	}
 }

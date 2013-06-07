@@ -146,4 +146,17 @@ public class TimeTableActivity extends FragmentActivity implements
 		TextView tvNext = (TextView) this.findViewById(R.id.nextTime);
 		tvNext.setText(time);
 	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		this.timer.start();
+		this.updateNextDepartureText();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		this.timer.stop();
+	}
 }
