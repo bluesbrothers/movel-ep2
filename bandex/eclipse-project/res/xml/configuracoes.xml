@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="@string/pref_init_screen_key"
+        android:title="@string/pref_init_screen_title" >
+        <ListPreference
+            android:defaultValue="@string/pref_list_screen_init_bandejao"
+            android:entries="@array/pref_list_screen_init_keys"
+            android:entryValues="@array/pref_list_screen_init_values"
+            android:key="@string/pref_init_main_screen_key"
+            android:title="@string/pref_init_main_screen_title" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_compare_central"
+            android:title="@string/title_compare_central"
+            android:enabled="false" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_compare_pco"
+            android:title="@string/title_compare_pco"
+            android:enabled="false" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_compare_fisica"
+            android:title="@string/title_compare_fisica"
+            android:enabled="false" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_compare_quimica"
+            android:title="@string/title_compare_quimica"
+            android:enabled="false" />
+        
+    </PreferenceCategory>
+
+</PreferenceScreen>
