@@ -2,7 +2,6 @@ package fefzjon.ep2.bandejao;
 
 import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -22,7 +21,7 @@ import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.exceptions.EpDoisConnectionException;
 import fefzjon.ep2.exceptions.EpDoisException;
 
-public class FullCardapioActivity extends ListActivity {
+public class FullCardapioActivity extends BasicListActivity {
 
 	private List<CardapioDia>	listCardapios;
 	private int					bandecoId;

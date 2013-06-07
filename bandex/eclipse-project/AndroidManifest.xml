@@ -50,6 +50,11 @@
             android:label="@string/title_activity_details" >
         </activity>
         <activity
+            android:name="fefzjon.ep2.bandejao.ConfiguracoesActivity"
+            android:label="@string/activity_configuracoes"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+        <activity
             android:name="fefzjon.ep2.bandejao.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
@@ -60,14 +65,22 @@
 
         <activity
             android:name="fefzjon.ep2.bandejao.FullCardapioActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_full_cardapio" >
         </activity>
         <activity
             android:name="fefzjon.ep2.bandejao.ComentariosActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_comentarios" >
         </activity>
         <activity
             android:name="fefzjon.ep2.bandejao.PostarActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_postar" >
+        </activity>
+        <activity
+            android:name="fefzjon.ep2.bandejao.CompareCardapioActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_postar" >
         </activity>
     </application>

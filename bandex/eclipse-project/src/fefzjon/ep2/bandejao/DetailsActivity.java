@@ -2,7 +2,6 @@ package fefzjon.ep2.bandejao;
 
 import java.util.Date;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -24,7 +23,7 @@ import fefzjon.ep2.bandejao.utils.IntentKeys;
 import fefzjon.ep2.exceptions.EpDoisConnectionException;
 import fefzjon.ep2.exceptions.EpDoisException;
 
-public class DetailsActivity extends Activity {
+public class DetailsActivity extends BasicActivity {
 
 	private TextView	txDetalheCardapioView;
 	private TextView	txTituloData;
@@ -67,12 +66,18 @@ public class DetailsActivity extends Activity {
 
 		this.txTituloData.setText(BandexCalculator.dataApresentacaoCardapio(this.dataCardapio, this.tipoRefeicao));
 
-		if (this.cardapioDia != null) {
-			StringBuilder builder = new StringBuilder();
-			builder.append(this.cardapioDia.getCardapio());
-			builder.append("\n").append(this.cardapioDia.getKcal()).append(" kcal");
-			this.txDetalheCardapioView.setText(builder.toString());
+		if (this.cardapioDia == null) {
+			Intent newIntent = new Intent(DetailsActivity.this, FullCardapioActivity.class);
+			newIntent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
+			DetailsActivity.this.startActivity(newIntent);
+			DetailsActivity.this.finish();
+			return;
 		}
+
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.cardapioDia.getCardapio());
+		builder.append("\n").append(this.cardapioDia.getKcal()).append(" kcal");
+		this.txDetalheCardapioView.setText(builder.toString());
 
 		Button btLocation = (Button) this.findViewById(R.id.bt_ver_localizacao);
 		btLocation.setOnClickListener(new View.OnClickListener() {

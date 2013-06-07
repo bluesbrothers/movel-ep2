@@ -12,8 +12,11 @@ public class BandexCalculator {
 	private static SimpleDateFormat	formatterDataApresent	= new SimpleDateFormat("dd/MM");
 
 	@SuppressWarnings("deprecation")
-	public static int nextMeal() {
-		Date date = new Date();
+	public static int proximaRefeicao() {
+		return tipoRefeicao(new Date());
+	}
+
+	public static int tipoRefeicao(final Date date) {
 		int hours = date.getHours();
 		int minutes = date.getMinutes();
 
@@ -30,13 +33,17 @@ public class BandexCalculator {
 		}
 	}
 
-	public static int semanaReferente(final Date date) {
+	private static Calendar getCalendar() {
 		if (calendar == null) {
 			calendar = new GregorianCalendar();
 			calendar.setFirstDayOfWeek(Calendar.MONDAY);
 		}
-		calendar.setTime(date);
-		int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
+		return calendar;
+	}
+
+	public static int semanaReferente(final Date date) {
+		getCalendar().setTime(date);
+		int weekOfYear = getCalendar().get(Calendar.WEEK_OF_YEAR);
 		return weekOfYear;
 	}
 
@@ -60,8 +67,8 @@ public class BandexCalculator {
 
 	public static String dataApresentacaoCardapio(final Date dataReferente, final Integer tipoRefeicao) {
 		StringBuilder builder = new StringBuilder();
-		calendar.setTime(dataReferente);
-		builder.append(translateDiaDaSemana(calendar.get(Calendar.DAY_OF_WEEK)));
+		getCalendar().setTime(dataReferente);
+		builder.append(translateDiaDaSemana(getCalendar().get(Calendar.DAY_OF_WEEK)));
 		builder.append(" - ");
 
 		builder.append(formatterDataApresent.format(dataReferente));

@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -24,7 +23,7 @@ import fefzjon.ep2.bandejao.utils.IntentKeys;
  * Activity which displays a login screen to the user, offering registration as
  * well.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends BasicActivity {
 	/**
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.

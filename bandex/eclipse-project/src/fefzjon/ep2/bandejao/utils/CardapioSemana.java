@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import fefzjon.ep2.bandejao.model.CardapioDia;
+import fefzjon.ep2.utils.Utils;
 
 public class CardapioSemana implements Iterable<CardapioDia> {
 	private Map<Date, Map<Integer, CardapioDia>>	cardapiosDias;
@@ -33,7 +34,9 @@ public class CardapioSemana implements Iterable<CardapioDia> {
 		this.count++;
 	}
 
-	public CardapioDia get(final Date date, final int tipoRefeicao) {
+	public CardapioDia get(final Date mDate, final int tipoRefeicao) {
+		Date date = Utils.resetClockDay(mDate);
+
 		Map<Integer, CardapioDia> map = this.cardapiosDias.get(date);
 		return map == null ? null : map.get(tipoRefeicao);
 	}
