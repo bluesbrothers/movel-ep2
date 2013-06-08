@@ -1,50 +1,43 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".DetailsActivity" >
 
-    <Button
-        android:id="@+id/btCentral"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/btCentral" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btPCO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btCentral"
-        android:layout_alignRight="@+id/btCentral"
-        android:layout_below="@+id/btCentral"
-        android:layout_marginTop="35dp"
-        android:text="@string/btPCO" />
+        <Button
+            android:id="@+id/btCentral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btCentral" />
 
-    <Button
-        android:id="@+id/btFisica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btPCO"
-        android:layout_alignRight="@+id/btPCO"
-        android:layout_below="@+id/btPCO"
-        android:layout_marginTop="35dp"
-        android:text="@string/btFisica" />
+        <Button
+            android:id="@+id/btPCO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btPCO" />
 
-    <Button
-        android:id="@+id/btQuimica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btFisica"
-        android:layout_alignRight="@+id/btFisica"
-        android:layout_below="@+id/btFisica"
-        android:layout_marginTop="35dp"
-        android:text="@string/btQuimica" />
+        <Button
+            android:id="@+id/btFisica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btFisica" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btQuimica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btQuimica" />
+    </LinearLayout>
+
+</ScrollView>
