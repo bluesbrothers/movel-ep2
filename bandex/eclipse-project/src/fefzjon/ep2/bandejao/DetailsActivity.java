@@ -12,9 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import fefzjon.ep2.bandejao.manager.DialogManager;
-import fefzjon.ep2.bandejao.manager.StoaManager;
 import fefzjon.ep2.bandejao.model.CardapioDia;
 import fefzjon.ep2.bandejao.utils.Bandecos;
 import fefzjon.ep2.bandejao.utils.BandexCalculator;
@@ -51,14 +49,11 @@ public class DetailsActivity extends BasicActivity implements
 		Button btLocation = (Button) this.findViewById(R.id.bt_ver_localizacao);
 		Button btFullCardapio = (Button) this
 				.findViewById(R.id.bt_cardapio_semana);
-		Button btComentarios = (Button) this
-				.findViewById(R.id.bt_ver_comentarios);
 		Button btCompararRefeicao = (Button) this
 				.findViewById(R.id.bt_comparar_refeicao);
 
 		btLocation.setVisibility(View.GONE);
 		btFullCardapio.setVisibility(View.GONE);
-		btComentarios.setVisibility(View.GONE);
 		btCompararRefeicao.setVisibility(View.GONE);
 
 		new CardapioAsync(this).execute(this.bandexId);
@@ -112,14 +107,11 @@ public class DetailsActivity extends BasicActivity implements
 		Button btLocation = (Button) this.findViewById(R.id.bt_ver_localizacao);
 		Button btFullCardapio = (Button) this
 				.findViewById(R.id.bt_cardapio_semana);
-		Button btComentarios = (Button) this
-				.findViewById(R.id.bt_ver_comentarios);
 		Button btCompararRefeicao = (Button) this
 				.findViewById(R.id.bt_comparar_refeicao);
 
 		btLocation.setVisibility(View.VISIBLE);
 		btFullCardapio.setVisibility(View.VISIBLE);
-		btComentarios.setVisibility(View.VISIBLE);
 		btCompararRefeicao.setVisibility(View.VISIBLE);
 
 		btLocation.setOnClickListener(new View.OnClickListener() {
@@ -140,32 +132,6 @@ public class DetailsActivity extends BasicActivity implements
 				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
 				DetailsActivity.this.startActivity(intent);
 				DetailsActivity.this.finish();
-			}
-		});
-
-		btComentarios.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(final View v) {
-				if ((DetailsActivity.this.cardapioDia == null)
-						|| (DetailsActivity.this.cardapioDia.getCommentId() == null)) {
-					Toast.makeText(DetailsActivity.this,
-							"Nenhuma refeição sendo vista", Toast.LENGTH_SHORT)
-							.show();
-					return;
-				}
-				Intent intent;
-				if (StoaManager.getInstance().isLogged()) {
-					intent = new Intent(DetailsActivity.this,
-							ComentariosActivity.class);
-				} else {
-					intent = new Intent(DetailsActivity.this,
-							LoginActivity.class);
-				}
-
-				intent.putExtra(IntentKeys.DETAILS_BANDECO_ID, bandecoId);
-				intent.putExtra(IntentKeys.DETAILS_MEAL_ID,
-						DetailsActivity.this.cardapioDia.getCommentId());
-				DetailsActivity.this.startActivity(intent);
 			}
 		});
 
